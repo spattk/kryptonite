@@ -62,7 +62,6 @@
 
             <div class="form-group col-md-2 box-body">
                <input type="submit" name="" value="Update" class="form-control btn btn-primary">
-             </div>
             </div>
         </section>
     </div>
