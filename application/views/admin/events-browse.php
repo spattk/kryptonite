@@ -53,26 +53,42 @@
         <section class="content">
             <div class="box-info">
                 <div class="box-body">
-                    <table>
+                    <table class="table table-bordered table-hover">
                         <thead>
                           <tr>
                             <th width="4%"> <input id="selectAll" type="checkbox"> </th>
-                            <th>Name</th>
-                                <th width="15%">Date</th>
-                                <th>Host</th>
-                                <th>Venue</th>
+                            <th width="150px" bgcolor="gray">Name</th>
+                            <th width="100px" bgcolor="red">Start Date</th>
+                            <th width="100px" bgcolor="green">End Date</th>
+                            <th width="50px" bgcolor="pink">Venue</th>
+                            <th width="200px" bgcolor="yellow">Blog Link</th>
                           </tr>
                           <tr class="bulk-actions collapse">
                               <td colspan="4">
-                              <a class="btn btn-sm btn-danger btn-delete">Delete Selected</a>
+                              <!-- <a class="btn btn-sm btn-danger btn-delete">Delete Selected</a> -->
                               </td>
                           </tr>
                         </thead>
+                        <form id="events-list" method="post">
+                            <tbody>
+                            <?php if ( count($events)==0 ): ?>
+                            <tr><td></td><td>No events.</td></tr>
+                            <?php endif; ?>
+
+                            <?php foreach( $events as $event ) : ?>
+                            <tr>
+                                <td></td>
+                                <td><?php echo $event['event_name']?></td>
+                                <td><?php echo $event['event_start_date'] ?></td>
+                                <td><?php echo $event['event_end_date'] ?></td>
+                                <td><?php echo $event['event_venue'] ?></td>
+                                <td><?php echo $event['event_blog_link'] ?></td>
+                            </tr>
+                            <?php endforeach; ?>
+                            </tbody>                          
+                        </form>
                     </table>
                 </div>
-            </div>
-
-            
             </div>
         </section>
     </div>
