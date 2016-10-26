@@ -20,12 +20,19 @@
               <!-- for sectors as different sections are made they are by default loaded and shown by the use of a hidden field
                     so all will be edit (like browse)
                -->
-                  <li><a href="#">Sector 2</a></li>
-                  <li><a href="#">Sector 5</a></li>
-                  <li><a href="#">Sector 6</a></li>
-                  <li><a href="#">Sector 21</a></li>
-                  <li><a href="#">Khalsa</a></li>
-                  <li><a href="#">OSAP</a></li>
+                  <li><a href="#">Add New</a></li>
+                  <li class="treeview">
+                    <a href=""><span>Browse</span><i class="fa fa-angle-left pull-right"></i></a>
+                    <ul class="treeview-menu">
+                    <li><a href="#">Sector 2</a></li>
+                    <li><a href="#">Sector 5</a></li>
+                    <li><a href="#">Sector 6</a></li>
+                    <li><a href="#">Sector 21</a></li>
+                    <li><a href="#">Khalsa</a></li>
+                    <li><a href="#">OSAP</a></li>
+                  </ul>
+                  </li>
+                  
               </ul>
           </li>
 
