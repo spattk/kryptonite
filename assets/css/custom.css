@@ -1,0 +1,179 @@
+.carousel-text {
+	margin : 230px auto;
+	position: absolute;
+	text-align: justify;
+}
+
+.sector-postholder-details {
+	clear: both;
+	text-align: left;
+	border:2px solid black;
+	padding: 2%;
+}
+
+.sector-gen-details {
+	clear: both;
+	text-align: left;
+	border:2px solid black;
+	padding: 2%;
+}
+.profiling {
+	clear: both;
+	border:2px solid black;
+
+}
+.profile {
+	text-align: left;
+	font-size: 18px;
+	border:2px solid black;
+	padding: 2%;
+	margin:2%;
+	margin-left: 4%;
+	margin-right:4%;
+}
+
+.top {
+	padding-bottom: 5%;
+}
+
+.achievements {
+	clear: both;
+	text-align: left;
+	border:2px solid black;
+	padding: 2%;
+}
+
+a.pro-section :hover {
+	opacity: 0.7;
+}
+
+div.gallery-mid > div {
+	margin-top: 20px;
+}
+
+@media (min-width: 768px) {
+	div.gallery-mid {
+		margin-top: 105px;
+	}
+}
+
+@media (max-width: 768px) {
+	div.gallery-mid {
+		margin-top: 45px;
+	}
+}
+
+.contact-icons {
+	background-color: #2C3E50;
+	padding-bottom: 10px;
+	text-align: center;
+}
+
+.people-cap {
+	color: black;
+	text-align: justify;
+	top: 5px
+}
+
+li.people-li {
+	border:1px solid black;
+	background-color: black;file:///E:/Websites/aasra/index.html#home-carousel
+}
+
+.myNav > li > a {
+	padding-top: 15px;
+	padding-right: 20px;
+}
+
+.replace-close {
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+/*For better display in mobile devices some minor tweaks*/
+@media(max-width: 768px	) {
+	
+	/*.page-scroll,.navbar-collapse {
+		visibility: visible;
+	}
+	*/
+	#home-carousel {
+		margin-top: 50px;
+	}
+
+	section h2 {
+		font-size: 1.8em;
+	}
+
+	#events {
+		margin-top: 40px;
+	}
+
+	#collaborators h2 {
+		font-size: 1.5em;
+	}
+
+	#collaborators {
+		margin-top: 25px;
+	}
+
+	.my-contact-icons {
+		size: 20%;
+	}
+
+	.navbar-custom {
+		background: #2C3E50;
+	}
+
+	.my-close-modal {
+		visibility: hidden;
+	}
+
+	.carousel-caption {
+		visibility: hidden;
+	}
+
+}
+
+/*for managing the opacity of the navbar-header*/
+@media (min-width: 768px)
+{
+	.navbar-custom {
+		background: rgba(0,0,0,0.7);
+	}
+
+	.replace-close {
+		visibility: hidden;
+	}
+}
+
+.close-modal {
+	clear: both;
+}
+
+.bottom-close-sector {
+	font-size: 20px;
+}
+
+.project-desc {
+	text-align: justify;
+
+}
+
+.project-extra-desc {
+	text-align: left;
+	font-weight: bold;
+}
+
+div.footer-below {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+/*for Admin footer*/
+.admin-footer {
+	bottom: 0;
+	position: absolute;
+	width: 100%;
+}
