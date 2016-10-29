@@ -29,6 +29,10 @@
 	a.ui-state-default {
 		color: white;
 	}
+.ui-datepicker .ui-datepicker-next , .ui-datepicker .ui-datepicker-prev{
+    background-color: white;
+    opacity: 0.35;
+}
 </style>
 
 <body class="hold-transition skin-blue sidebar-mini">
