@@ -29,6 +29,15 @@
     a.ui-state-default {
         color: white;
     }
+
+    #imagePreview {
+    width: 330px;
+    height: 240px;
+    background-position: center center;
+    background-size: cover;
+    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+    display: inline-block;
+}
 </style>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -115,12 +124,15 @@
                                 <label>About Sector</label>
                                 <textarea class="form-control" rows="3"></textarea>
                             </div>
+
+                            <div class="form-group">
+                                <label>Achievements</label>
+                                <textarea class="form-control" rows="3"></textarea>
+                            </div>
                             
                         </div>
 
                         <div class="col-md-4">
-                            
-
                             <div class="form-group">
                                 <label>Sector Details</label>
                                 <div class="row">
@@ -139,20 +151,19 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Achievements</label>
-                                <textarea class="form-control" rows="3"></textarea>
-                            </div>
-
-                            <div class="form-group">
                                 <label>Sector Avatar</label>
-                                <input type="file" name="fileToUpload" id="fileToUpload" class="form-control">
-                            </div>
+                                <input type="file" name="uploadFile" id="uploadFile" class="form-control">
+                                <br>
+                                <div id="imagePreview" class="col-xs-12"></div>
+                            </div>                            
                         </div>
+
+                        <div class="form-group col-md-2 box-body" >
+                            <input type="submit" name="" value="Add" class="form-control btn btn-primary">
+                        </div>
+
                     </div>
                 </div>
-                <div class="form-group col-md-2 box-body">
-                       <input type="submit" name="" value="Add" class="form-control btn btn-primary">
-                    </div>
             </div>
         </section>
     </div>
@@ -170,6 +181,24 @@
     $( function() {
         $(".datepicker").datepicker();
     } );
+</script>
+<script type="text/javascript">
+    $(function() {
+    $("#uploadFile").on("change", function()
+    {
+        var files = !!this.files ? this.files : [];
+        if (!files.length || !window.FileReader) return; // no file selected, or no FileReader support
+        
+        if (/^image/.test( files[0].type)){ // only image file
+            var reader = new FileReader(); // instance of the FileReader
+            reader.readAsDataURL(files[0]); // read the local file
+            
+            reader.onloadend = function(){ // set image data as background of div
+                $("#imagePreview").css("background-image", "url("+this.result+")");
+            }
+        }
+    });
+});
 </script>
 </body>
 
