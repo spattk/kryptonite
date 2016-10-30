@@ -47,7 +47,7 @@
               <a href=""><i class="fa fa-link"></i> <span>Post Holders</span></a>
               <ul class="treeview-menu">
                   <li><a href="">Browse</a></li>
-                  <li><a href="">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>team/addnew">Add New</a></li>
               </ul>
           </li>
 
