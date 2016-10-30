@@ -15,13 +15,13 @@
           </li>
 
           <li class="treeview">
-              <a href=""><i class="fa fa-map-marker"></i> <span>Sectors</span><i class="fa fa-angle-left pull-right"></i></a>
+              <a href=""><i class="fa fa-map-marker"></i> <span>Sectors</span></a>
               <ul class="treeview-menu">
               <!-- for sectors as different sections are made they are by default loaded and shown by the use of a hidden field
                     so all will be edit (like browse)
                -->
-                  <li><a href="<?php echo SITE_ROOT ?>sectors/addnew">Add New</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>sectors/browse">Browse</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>sectors/addnew">Add New</a></li>
                   
                   
               </ul>
@@ -55,7 +55,7 @@
               <a href=""><i class="fa fa-users"></i> <span>People Speak</span></a>
               <ul class="treeview-menu">
                   <li><a href="">Browse</a></li>
-                  <li><a href="">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>people/addnew">Add New</a></li>
               </ul>
           </li>
 
