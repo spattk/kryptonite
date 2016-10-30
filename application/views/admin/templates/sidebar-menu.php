@@ -68,6 +68,6 @@
           </li>
 
           <li class="treeview">
-              <a href=""><i class="fa fa-link"></i> <span>Blog Link</span></a>
+              <a href="<?php echo SITE_ROOT ?>blog/browse"><i class="fa fa-link"></i> <span>Blog Link</span></a>
           </li>
       </ul>
