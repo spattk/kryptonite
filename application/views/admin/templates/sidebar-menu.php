@@ -63,7 +63,7 @@
               <a href=""><i class="fa fa-link"></i> <span>Collaborators</span></a>
               <ul class="treeview-menu">
                   <li><a href="">Browse</a></li>
-                  <li><a href="">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>collaborators/addnew">Add New</a></li>
               </ul>
           </li>
 
