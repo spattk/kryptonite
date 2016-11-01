@@ -53,7 +53,7 @@
     <div class="content-wrapper">
         <!-- BREADCRUMB ON THE RIGHT SIDE TOP--> 
         <section class="content-header">
-           <h1>Add New<small>Projects</small></h1>
+           <h1>Edit<small>Projects</small></h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><i class="fa fa-calendar"></i> Calendar</li>
@@ -65,22 +65,23 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form>
             <div class="box-info">
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                                <input type="text" name="" placeholder="Name of the Project" class="form-control input-lg">
+                                <input type="text" name="" placeholder="Name of the Project" class="form-control input-lg" value="<?php echo $project_title; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Project Description</label>
-                                <textarea class="form-control" rows="5"></textarea>
+                                <textarea class="form-control" rows="5"><?php echo $project_title; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Gallery Link</label>
-                                <input type="text" name="" class="form-control" placeholder="Gallery Link">
+                                <input type="text" name="" class="form-control" placeholder="Gallery Link" value="<?php echo $project_gallery_link; ?>">
                             </div>
 
                             <div class="form-group">
@@ -96,7 +97,7 @@
 
                             <div class="form-group">
                                 <label>Project Avatar</label>
-                                <input type="file" name="uploadFile" id="uploadFile" class="form-control">
+                                <input type="file" name="uploadFile" id="uploadFile" class="form-control" value="<?php echo $project_avatar; ?>">
                             </div>
 
                              <div id="imagePreview" class="col-xs-12"></div>
@@ -104,12 +105,13 @@
                         </div>
                         
                         <div class="form-group col-md-2" style="clear: both" >
-                            <input type="submit" name="" value="Add" class="form-control btn btn-primary">
+                            <input type="submit" name="" value="Update" class="form-control btn btn-primary">
                         </div>
                     </div>        
                 </div>
                 
             </div>
+            </form>
         </section>
     </div>
     
@@ -122,9 +124,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Projects")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
-            subListItem.addClass( 'active' );
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
