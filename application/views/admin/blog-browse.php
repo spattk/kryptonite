@@ -72,6 +72,11 @@
   </div>
 
 <script src="<?php echo ASSETS_URL?>js/jquery.min.js"></script>
+<script type="text/javascript">
+            // Expand current navigation item
+            var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Blog")' ).parent().parent();
+            listItem.addClass( 'active' );
+</script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 
 </body>
