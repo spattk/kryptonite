@@ -57,7 +57,7 @@
     <div class="content-wrapper">
         <!-- BREADCRUMB ON THE RIGHT SIDE TOP--> 
         <section class="content-header">
-           <h1>Add New<small>Events</small></h1>
+           <h1>Edit<small>Events</small></h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><i class="fa fa-calendar"></i> Calendar</li>
@@ -69,15 +69,17 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form>
             <div class="box-info">
                 <div class="box-body">
+                    <input type="hidden" name="aboutID" value="<?php echo $event_id; ?>"/>
                     <div class="form-group">
-                    	<input type="text" name="" placeholder="Event Name" class="form-control input-lg">
+                    	<input type="text" name="" placeholder="Event Name" value="<?php echo $event_name; ?>" class="form-control input-lg">
                     </div>
 
                     <div class="form-group">
                     	<label>Venue</label>
-                    	<input type="text" name="" placeholder="Event Venue" class="form-control ">
+                    	<input type="text" name="" value="<?php echo $event_venue; ?>" class="form-control ">
                     </div>
 
                     <div class="form-group">
@@ -88,7 +90,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-calendar"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="Start Date" class="form-control datepicker">
+                    				<input type="text" name="" placeholder="Start Date" class="form-control datepicker" value="<?php echo $event_start_date ; ?>">
                     			</div>
                     			
                     		</div>
@@ -97,7 +99,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-clock-o"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="Start Time(Optional) [24 hours clock]" class="form-control ">
+                    				<input type="text" name="" placeholder="Start Time(Optional) [24 hours clock]" class="form-control " value="<?php echo $event_start_time ; ?>">
                     			</div>
                     		</div>
                     	</div>
@@ -111,7 +113,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-calendar"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="End Date" class="form-control datepicker">
+                    				<input type="text" name="" placeholder="End Date" class="form-control datepicker" value="<?php echo $event_end_date ; ?>">
                     			</div>
                     			
                     		</div>
@@ -120,7 +122,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-clock-o"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="End Time(Optional) [24 hours clock]" class="form-control">
+                    				<input type="text" name="" placeholder="End Time(Optional) [24 hours clock]" class="form-control" value="<?php echo $event_end_time ; ?>">
                     			</div>
                     		</div>
                     	</div>
@@ -128,16 +130,17 @@
 
                     <div class="form-group">
                     	<label>Blog Link</label>
-                    	<input type="text" name="" placeholder="Blog Link" class="form-control ">
+                    	<input type="text" name="" placeholder="Blog Link" class="form-control" value="<?php echo $event_blog_link ; ?>">
                     </div>
 
                     
 	               
                 </div>
                 <div class="form-group col-md-2 box-body">
-		               <input type="submit" name="" value="Add" class="form-control btn btn-primary">
+		               <input type="submit" name="" value="Update" class="form-control btn btn-primary">
 		            </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -150,9 +153,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Events")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
-            subListItem.addClass( 'active' );
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>

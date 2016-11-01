@@ -76,14 +76,24 @@
                             <?php endif; ?>
 
                             <?php foreach( $events as $event ) : ?>
-                            <tr>
+                            <tr class="more-options">
                                 <td></td>
                                 <td><?php echo $event['event_name']?></td>
                                 <td><?php echo $event['event_start_date'] ?></td>
                                 <td><?php echo $event['event_end_date'] ?></td>
                                 <td><?php echo $event['event_venue'] ?></td>
                                 <td><?php echo $event['event_blog_link'] ?></td>
+
                             </tr>
+                            <tr class="hidden list-more-options" id="show-edit">
+                              
+                              <td></td>
+                              <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'events/edit/' . $event['event_id'] ?>" target="_blank"> Edit </a></center></td>
+                              <td colspan="3"><center><a href="">Delete <?php echo $event['event_id'] ?></a></center></td>
+                              
+
+                            </tr>
+
                             <?php endforeach; ?>
                             </tbody>                          
                         </form>
@@ -99,6 +109,24 @@
   </div>
 
 <script src="<?php echo ASSETS_URL?>js/jquery.min.js"></script>
+<script type="text/javascript">
+            // Expand current navigation item
+            var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Events")' ).parent().parent();
+            var subListItem = listItem.find( 'ul li a:contains("Browse")' ).parent();
+            listItem.addClass( 'active' );
+            subListItem.addClass( 'active' );
+</script>
+<script type="text/javascript">
+  $( "tr.more-options" ).click(function () {
+  if ( $(this).closest('tr').next('tr').is( ":hidden" ) ) {
+      $(this).closest('tr').next('tr').removeClass("hidden"); // on click opening the required tr
+      $("tr.list-more-options").not($(this).closest('tr').next('tr')).addClass("hidden"); //for hiding others when opening this
+  } 
+  else {
+    $(this).closest('tr').next('tr').addClass("hidden");
+  }
+});
+</script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 
 </body>

@@ -34,6 +34,19 @@ class Event_model extends CI_Model {
 	    return array( 'total_rows' => $total_rows, 'events' => $events );
 
 	}
+
+	public function getEventbyId( $event_id ) {
+
+		$this->db->where( 'event_id', $event_id );
+		$this->db->limit( 1 );
+
+		$query = $this->db->get( 'events' );
+
+		if ( $query || $query->num_rows() == 1 )
+			return $query->row_array();
+			
+		return false;	// Post doesn't exist
+	}
 }
 
 ?>
