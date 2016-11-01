@@ -30,7 +30,7 @@
           <li class="treeview">
               <a href=""><i class="fa fa-link"></i> <span>Projects</span></a>
               <ul class="treeview-menu">
-                  <li><a href="">Browse</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>projects/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>projects/addnew">Add New</a></li>
               </ul>
           </li>
@@ -46,7 +46,7 @@
           <li class="treeview">
               <a href=""><i class="fa fa-link"></i> <span>Post Holders</span></a>
               <ul class="treeview-menu">
-                  <li><a href="">Browse</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>team/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>team/addnew">Add New</a></li>
               </ul>
           </li>
@@ -54,7 +54,7 @@
           <li class="treeview">
               <a href=""><i class="fa fa-users"></i> <span>People Speak</span></a>
               <ul class="treeview-menu">
-                  <li><a href="">Browse</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>people/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>people/addnew">Add New</a></li>
               </ul>
           </li>
@@ -62,7 +62,7 @@
           <li class="treeview">
               <a href=""><i class="fa fa-link"></i> <span>Collaborators</span></a>
               <ul class="treeview-menu">
-                  <li><a href="">Browse</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>collaborators/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>collaborators/addnew">Add New</a></li>
               </ul>
           </li>
