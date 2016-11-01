@@ -40,7 +40,7 @@
     <div class="content-wrapper">
         <!-- BREADCRUMB ON THE RIGHT SIDE TOP--> 
         <section class="content-header">
-           <h1>Add New<small>Collaborators</small></h1>
+           <h1>Edit<small>Collaborators</small></h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><i class="fa fa-calendar"></i> Calendar</li>
@@ -53,23 +53,24 @@
         <!-- MAIN CONTENT -->
         <section class="content">
             <div class="box-info">
+            <form>
                 <div class="box-body">
                     <div class="form-group">
-                        <input type="text" name="" placeholder="Collaborator's Name" class="form-control input-lg">
+                        <input type="text" name="" placeholder="Collaborator's Name" class="form-control input-lg" value="<?php echo $collaborator_name; ?>">
                     </div>
 
                     <div class="form-group">
                         <label>Website Link</label>
-                        <input type="text" name="" placeholder="Website" class="form-control">
+                        <input type="text" name="" placeholder="Website" class="form-control" value="<?php echo $collaborator_website; ?>">
                     </div>
                 </div>
                     
                 <div class="form-group col-md-2 box-body" >
-                    <input type="submit" name="" value="Add" class="form-control btn btn-primary">
+                    <input type="submit" name="" value="Update" class="form-control btn btn-primary">
                 </div>
 
                 </div>
-            
+            </form>
         </section>
     </div>
     
@@ -82,9 +83,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Collaborators")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
-            subListItem.addClass( 'active' );
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
