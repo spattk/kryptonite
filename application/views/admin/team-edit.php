@@ -53,7 +53,7 @@
     <div class="content-wrapper">
         <!-- BREADCRUMB ON THE RIGHT SIDE TOP--> 
         <section class="content-header">
-           <h1>Add New<small>Team</small></h1>
+           <h1>Edit<small>Team</small></h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><i class="fa fa-calendar"></i> Calendar</li>
@@ -65,32 +65,33 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form>
             <div class="box-info">
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Post Holder Name" class="form-control input-lg">
+                            <input type="text" name="" placeholder="Post Holder Name" class="form-control input-lg" value="<?php echo $post_holder_name; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Post</label>
-                                <input type="text" name="" placeholder="Post" class="form-control">
+                                <input type="text" name="" placeholder="Post" class="form-control" value="<?php echo $post_holder_post; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Post Holders Phone</label>
-                                <input type="text" name="" placeholder="Phone No" class="form-control">
+                                <input type="text" name="" placeholder="Phone No" class="form-control" value="<?php echo $post_holder_phone; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Facebook Id</label>
-                                <input type="text" name="" placeholder="FB Id" class="form-control">
+                                <input type="text" name="" placeholder="FB Id" class="form-control" value="<?php echo $post_holder_fb; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Gmail Id</label>
-                                <input type="text" name="" placeholder="Gmail Id" class="form-control">
+                                <input type="text" name="" placeholder="Gmail Id" class="form-control" value="<?php echo $post_holder_gmail; ?>">
                             </div>
 
                         </div>
@@ -106,12 +107,13 @@
                         </div>
 
                         <div class="form-group col-md-2 box-body" >
-                            <input type="submit" name="" value="Add" class="form-control btn btn-primary">
+                            <input type="submit" name="" value="Update" class="form-control btn btn-primary">
                         </div>
 
                     </div>
                 </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -125,9 +127,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Post Holders")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
-            subListItem.addClass( 'active' );
 </script>
 
 <script type="text/javascript">
