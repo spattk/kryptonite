@@ -53,7 +53,7 @@
     <div class="content-wrapper">
         <!-- BREADCRUMB ON THE RIGHT SIDE TOP--> 
         <section class="content-header">
-           <h1>Add New<small>People</small></h1>
+           <h1>Edit<small>People</small></h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><i class="fa fa-calendar"></i> Calendar</li>
@@ -65,22 +65,23 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form>
             <div class="box-info">
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Person's Name" class="form-control input-lg">
+                            <input type="text" name="" placeholder="Person's Name" class="form-control input-lg" value="<?php echo $people_name; ?>" >
                             </div>
 
                             <div class="form-group">
                                 <label>Designation</label>
-                                <input type="text" name="" placeholder="Designation" class="form-control">
+                                <input type="text" name="" placeholder="Designation" class="form-control" value="<?php echo $people_desg; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Speech</label>
-                                <textarea class="form-control" rows="6"></textarea>
+                                <textarea class="form-control" rows="6"><?php echo $people_speech; ?></textarea>
                             </div>
                         </div>
 
@@ -101,6 +102,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -132,9 +134,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("People Speak")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
-            subListItem.addClass( 'active' );
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
