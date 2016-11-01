@@ -39,7 +39,7 @@
     <div class="content-wrapper">
         <!-- BREADCRUMB ON THE RIGHT SIDE TOP--> 
         <section class="content-header">
-           <h1>Browse About Us</h1>
+           <h1>Edit<small>About Us</small></h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><i class="fa fa-calendar"></i> Calendar</li>
@@ -51,11 +51,13 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form>
             <div class="box-info">
                 <div class="box-body">
+                    <input type="hidden" name="aboutID" value="<?php echo $about_id; ?>"/>
                     <div class="form-group">
                       <p><strong>Latest About Us</strong></p>
-                      <textarea class="form-control" placeholder="About us rendered here" rows="10"></textarea>
+                      <textarea class="form-control" rows="5"><?php echo $about_text; ?></textarea>
                     </div>
                 </div>
             </div>
@@ -63,6 +65,7 @@
             <div class="form-group col-md-2 box-body">
                <input type="submit" name="" value="Update" class="form-control btn btn-primary">
             </div>
+            </form>
         </section>
     </div>
     
