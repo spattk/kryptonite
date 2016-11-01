@@ -67,19 +67,49 @@
         <section class="content">
             <div class="box-info">
                 <div class="box-body">
-
-                    <div id="accordion" data-toggle="collapse">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                          <tr>
+                            <th width="4%"> <input id="selectAll" type="checkbox"> </th>
+                            <th width="150px" bgcolor="gray">Sector</th>
+                            <th width="100px" bgcolor="red">Captain Name</th>
+                            <th width="100px" bgcolor="green">VC Name</th>
+                            <th width="50px" bgcolor="pink">Captain Phone</th>
+                          </tr>
+                          <tr class="bulk-actions collapse">
+                              <td colspan="4">
+                              <!-- <a class="btn btn-sm btn-danger btn-delete">Delete Selected</a> -->
+                              </td>
+                          </tr>
+                        </thead>
+                        <form id="sectors-list" method="post">
+                            <tbody>
                             <?php if ( count($sectors)==0 ): ?>
-                            <h3><?php echo "No Sectors"?></h3>
+                            <tr><td></td><td>No Sectors.</td></tr>
                             <?php endif; ?>
 
                             <?php foreach( $sectors as $sector ) : ?>
-                            
-                               <h3 class="sector-name">Hello <?php echo $sector['sector_name']?></h3>
-                               <p>Sector Id : <?php echo $sector['sector_id'] ?></p>
-                     
+                            <tr class="more-options">
+                                <td></td>
+                                <td><?php echo $sector['sector_name']?></td>
+                                <td><?php echo $sector['sector_captain_name'] ?></td>
+                                <td><?php echo $sector['sector_vc_name'] ?></td>
+                                <td><?php echo $sector['sector_captain_phone'] ?></td>
+                            </tr>
+                            <tr class="hidden list-more-options" id="show-edit">
+                              
+                              <td></td>
+                              <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'sectors/edit/' . $sector['sector_id'] ?>" target="_blank"> Edit </a></center></td>
+                              <td colspan="3"><center><a href="">Delete <?php echo $sector['sector_id'] ?></a></center></td>
+                              
+
+                            </tr>
+
                             <?php endforeach; ?>
-                    </div> 
+                            </tbody>                          
+                        </form>
+                    </table>
+
                 </div>
             </div>
         </section>
@@ -91,11 +121,25 @@
   </div>
 
 <script src="<?php echo ASSETS_URL?>js/jquery.min.js"></script>
-<script>
-  $( function() {
-    $( "#accordion" ).accordion();
-  } );
-  </script>
+
+<script type="text/javascript">
+            // Expand current navigation item
+            var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Sectors")' ).parent().parent();
+            var subListItem = listItem.find( 'ul li a:contains("Browse")' ).parent();
+            listItem.addClass( 'active' );
+            subListItem.addClass( 'active' );
+</script>
+<script type="text/javascript">
+  $( "tr.more-options" ).click(function () {
+  if ( $(this).closest('tr').next('tr').is( ":hidden" ) ) {
+      $(this).closest('tr').next('tr').removeClass("hidden"); // on click opening the required tr
+      $("tr.list-more-options").not($(this).closest('tr').next('tr')).addClass("hidden"); //for hiding others when opening this
+  } 
+  else {
+    $(this).closest('tr').next('tr').addClass("hidden");
+  }
+});
+</script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 

@@ -62,7 +62,7 @@
     <div class="content-wrapper">
         <!-- BREADCRUMB ON THE RIGHT SIDE TOP--> 
         <section class="content-header">
-           <h1>Add New<small>Sectors</small></h1>
+           <h1>Edit<small>Sectors</small></h1>
             <!-- <ol class="breadcrumb">
                 <li><a href="index.php"><i class="fa fa-dashboard"></i>Home</a></li>
                 <li><i class="fa fa-calendar"></i> Calendar</li>
@@ -74,23 +74,24 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form>
             <div class="box-info">
                 <div class="box-body">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Sector Name" class="form-control input-lg">
+                            <input type="text" name="" placeholder="Sector Name" class="form-control input-lg" value="<?php echo $sector_name; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Captain/ViceCaptain</label>
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <input type="text" name="" placeholder="Name of Captain" class="form-control">
+                                        <input type="text" name="" placeholder="Name of Captain" class="form-control" value="<?php echo $sector_captain_name; ?>">
                                     </div>
 
                                     <div class="col-xs-6">
-                                        <input type="text" name="" placeholder="Name of Vice Captain" class="form-control">
+                                        <input type="text" name="" placeholder="Name of Vice Captain" class="form-control" value="<?php echo $sector_vc_name; ?>">
                                     </div>
                                 </div>
                                 
@@ -100,10 +101,10 @@
                                 <label>Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="" placeholder="Phone no" class="form-control">
+                                        <input type="text" name="" placeholder="Phone no" class="form-control" value="<?php echo $sector_captain_phone; ?>" >
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="" placeholder="Facebook Id" class="form-control">
+                                        <input type="text" name="" placeholder="Facebook Id" class="form-control" value="<?php echo $sector_captain_fb; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -112,22 +113,22 @@
                                 <label>Vice Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="" placeholder="Phone no" class="form-control">
+                                        <input type="text" name="" placeholder="Phone no" class="form-control" value="<?php echo $sector_vc_phone; ?>">
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="" placeholder="Facebook Id" class="form-control">
+                                        <input type="text" name="" placeholder="Facebook Id" class="form-control" value="<?php echo $sector_vc_fb; ?>">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>About Sector</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3"><?php echo $sector_details; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Achievements</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3"><?php echo $sector_achievements; ?></textarea>
                             </div>
                             
                         </div>
@@ -137,34 +138,35 @@
                                 <label>Sector Details</label>
                                 <div class="row">
                                     <div class="col-xs-5">
-                                        <input type="text" name="" placeholder="Total Students" class="form-control">
+                                        <input type="text" name="" placeholder="Total Students" class="form-control" value="<?php echo $sector_total_student; ?>">
                                     </div>
                                     <div class="col-xs-7">
-                                        <input type="text" name="" placeholder="Distance from NIT in kms" class="form-control">
+                                        <input type="text" name="" placeholder="Distance from NIT in kms" class="form-control" value="<?php echo $sector_distance; ?>">
                                     </div>
 
                                     <div class="col-xs-12">
                                         <br>
-                                        <input type="text" name="" placeholder="Location" class="form-control">
+                                        <input type="text" name="" placeholder="Location" class="form-control" value="<?php echo $sector_location; ?>">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Sector Avatar</label>
-                                <input type="file" name="uploadFile" id="uploadFile" class="form-control">
+                                <input type="file" name="uploadFile" id="uploadFile" class="form-control" value="C:\wamp\www\social\assets\img\portfolio\cake.png">
                                 <br>
                                 <div id="imagePreview" class="col-xs-12"></div>
                             </div>                            
                         </div>
 
                         <div class="form-group col-md-2 box-body" >
-                            <input type="submit" name="" value="Add" class="form-control btn btn-primary">
+                            <input type="submit" name="" value="Update" class="form-control btn btn-primary">
                         </div>
 
                     </div>
                 </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -177,9 +179,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Sectors")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
-            subListItem.addClass( 'active' );
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
