@@ -54,21 +54,6 @@ class Events extends CI_Controller {
 
 				$data['event_id'] = $event_id;
 
-				$response = $this->event_model->getEventById( $event_id );
-
-				if( $response ) {
-
-					$data['event_name'] = $response['event_name'];
-					$data['event_start_date'] = $response['event_start_date'];
-					$data['event_end_date'] = $response['event_end_date'];
-					$data['event_start_time'] = $response['event_start_time'];
-					$data['event_end_time'] = $response['event_end_time'];
-					$data['event_venue'] = $response['event_venue'];
-					$data['event_blog_link'] = $response['event_blog_link'];
-					$data['event_update_success'] = "Your post has been successfully updated";
-
-					$this->load->view( 'admin/events-edit', $data );
-
 					//New data fetched from the website form fields to be send to model
 					$update['event-id'] = $this->input->post('event-id');
 					$update['title'] =  $this->input->post('title');
@@ -80,7 +65,20 @@ class Events extends CI_Controller {
 					$update['blog-link'] = $this->input->post('blog-link');
 
 					$this->load->event_model->updateEvent( $update );
-			
+
+					$response = $this->event_model->getEventbyId( $event_id );
+
+				if( $response ) {
+					$data['event_name'] = $response['event_name'];
+					$data['event_start_date'] = $response['event_start_date'];
+					$data['event_end_date'] = $response['event_end_date'];
+					$data['event_start_time'] = $response['event_start_time'];
+					$data['event_end_time'] = $response['event_end_time'];
+					$data['event_venue'] = $response['event_venue'];
+					$data['event_blog_link'] = $response['event_blog_link'];
+					$data['event_update_success'] = "Your post has been successfully updated";
+
+					$this->load->view( 'admin/events-edit', $data );
 				}
 
 				else {
@@ -118,7 +116,6 @@ class Events extends CI_Controller {
 				else {
 					show_404();
 				}
-
 			} // End of isset() else
 			
 		}

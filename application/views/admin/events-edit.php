@@ -74,9 +74,16 @@
                 <div class="box-body">
                     <input type="hidden" name="event-id" value="<?php echo $event_id; ?>"/>
 
-                    <div class="form-group" class="col-md-12" class="btn btn-success" style="background-color: green;padding: 10px;color: white" id="update-sucess">
-                        <?php echo $event_update_success; ?>
-                    </div>
+                    <?php 
+                        $title = $this->input->post('title');
+                        if (isset($title))
+                        {
+                            echo 
+                                '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                    <?php echo $event_update_success; ?>
+                                <?php echo '</div>';   
+                        }
+                     ?>
 
                     <div class="form-group">
                     	<input type="text" name="title" placeholder="Event Name" value="<?php echo $event_name; ?>" class="form-control input-lg">
@@ -144,7 +151,7 @@
 	               
                 </div>
                 <div class="form-group col-md-2 box-body">
-		            <input type="submit" name="" value="Update" class="form-control btn btn-primary">
+		            <input type="submit" name="update" id="update" value="Update" class="form-control btn btn-primary">
 		        </div>
             </div>
             </form>
@@ -174,7 +181,7 @@
 <script type="text/javascript"> 
       $(document).ready( function() {
         setTimeout(function() {
-        $("#update-sucess").hide('blind', {}, 500)
+        $("#update-success").hide('blind', {}, 500)
     }, 5000);
 });
 </script>
