@@ -69,17 +69,22 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
-            <form>
+            <form method="post" action="<?php echo SITE_ROOT . 'events/edit/' . $event_id ?>" name="post" id="eventForm">
             <div class="box-info">
                 <div class="box-body">
-                    <input type="hidden" name="aboutID" value="<?php echo $event_id; ?>"/>
+                    <input type="hidden" name="event-id" value="<?php echo $event_id; ?>"/>
+
+                    <div class="form-group" class="col-md-12" class="btn btn-success" style="background-color: green;padding: 10px;color: white" id="update-sucess">
+                        <?php echo $event_update_success; ?>
+                    </div>
+
                     <div class="form-group">
-                    	<input type="text" name="" placeholder="Event Name" value="<?php echo $event_name; ?>" class="form-control input-lg">
+                    	<input type="text" name="title" placeholder="Event Name" value="<?php echo $event_name; ?>" class="form-control input-lg">
                     </div>
 
                     <div class="form-group">
                     	<label>Venue</label>
-                    	<input type="text" name="" value="<?php echo $event_venue; ?>" class="form-control ">
+                    	<input type="text" name="venue" value="<?php echo $event_venue; ?>" class="form-control ">
                     </div>
 
                     <div class="form-group">
@@ -90,7 +95,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-calendar"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="Start Date" class="form-control datepicker" value="<?php echo $event_start_date ; ?>">
+                    				<input type="text" name="start-date" placeholder="Start Date" class="form-control datepicker" value="<?php echo $event_start_date ; ?>">
                     			</div>
                     			
                     		</div>
@@ -99,7 +104,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-clock-o"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="Start Time(Optional) [24 hours clock]" class="form-control " value="<?php echo $event_start_time ; ?>">
+                    				<input type="text" name="start-time" placeholder="Start Time(Optional) [24 hours clock]" class="form-control " value="<?php echo $event_start_time ; ?>">
                     			</div>
                     		</div>
                     	</div>
@@ -113,7 +118,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-calendar"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="End Date" class="form-control datepicker" value="<?php echo $event_end_date ; ?>">
+                    				<input type="text" name="end-date" placeholder="End Date" class="form-control datepicker" value="<?php echo $event_end_date ; ?>">
                     			</div>
                     			
                     		</div>
@@ -122,7 +127,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-clock-o"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="End Time(Optional) [24 hours clock]" class="form-control" value="<?php echo $event_end_time ; ?>">
+                    				<input type="text" name="end-time" placeholder="End Time(Optional) [24 hours clock]" class="form-control" value="<?php echo $event_end_time ; ?>">
                     			</div>
                     		</div>
                     	</div>
@@ -130,15 +135,17 @@
 
                     <div class="form-group">
                     	<label>Blog Link</label>
-                    	<input type="text" name="" placeholder="Blog Link" class="form-control" value="<?php echo $event_blog_link ; ?>">
+                    	<input type="text" name="blog-link" placeholder="Blog Link" class="form-control" value="<?php echo $event_blog_link ; ?>">
                     </div>
+
+                    
 
                     
 	               
                 </div>
                 <div class="form-group col-md-2 box-body">
-		               <input type="submit" name="" value="Update" class="form-control btn btn-primary">
-		            </div>
+		            <input type="submit" name="" value="Update" class="form-control btn btn-primary">
+		        </div>
             </div>
             </form>
         </section>
@@ -163,6 +170,17 @@
 		$(".datepicker").datepicker();
 	} );
 </script>
+
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-sucess").hide('blind', {}, 500)
+    }, 5000);
+});
+</script>
+
+<script type="text/javascript"></script>
+
 </body>
 
  

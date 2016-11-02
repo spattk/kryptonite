@@ -47,6 +47,24 @@ class Event_model extends CI_Model {
 			
 		return false;	// Post doesn't exist
 	}
+
+	public function updateEvent( $update = array() ) {
+
+		$data = array(
+	        'event_name' => $update['title'],
+	        'event_venue' => $update['venue'],
+	        'event_start_date' => $update['start-date'],
+	        'event_start_time' => $update['start-time'],
+	        'event_end_date' => $update['end-date'],
+	        'event_end_time' => $update['end-time'],
+	        'event_blog_link' => $update['blog-link'],
+		);
+
+		$this->db->where('event_id', $update['event-id']);
+		$this->db->update('events', $data);
+
+	}
+	
 }
 
 ?>
