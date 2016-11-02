@@ -51,13 +51,18 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
-            <form>
+            <form method="post" action="<?php echo SITE_ROOT . 'about/edit/' . $about_id ?>" name="post" id="aboutForm">
             <div class="box-info">
                 <div class="box-body">
-                    <input type="hidden" name="aboutID" value="<?php echo $about_id; ?>"/>
+                    <input type="hidden" name="about-id" value="<?php echo $about_id; ?>"/>
+
+                    <div class="form-group" class="col-md-12" class="btn btn-success" style="background-color: green;padding: 10px;color: white" id="update-success">
+                        <?php echo $about_update_success; ?>
+                    </div>
+
                     <div class="form-group">
                       <p><strong>Latest About Us</strong></p>
-                      <textarea class="form-control" rows="5"><?php echo $about_text; ?></textarea>
+                      <textarea class="form-control" rows="5" name="about-text"><?php echo $about_text; ?></textarea>
                     </div>
                 </div>
             </div>
@@ -79,6 +84,14 @@
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("About Us")' ).parent().parent();
             listItem.addClass( 'active' );
+</script>
+
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-sudcess").hide('blind', {}, 500)
+    }, 3000);
+});
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 

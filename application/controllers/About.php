@@ -24,23 +24,61 @@ class About extends CI_Controller {
 
 		if( $about_id != NULL )
 		{
-			$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
-			$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
-			$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
-			$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+			$check = $this->input->post('about-text');
+			//This part is executed when the submit button is pressed
+			if(isset($check))
+			{
+				$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+				$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+				$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+				$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
 
-			$data['about_id'] = $about_id;
+				$data['about_id'] = $about_id;
 
-			$response = $this->about_model->getAboutById( $about_id );
+				$response = $this->about_model->getAboutById( $about_id );
 
-			if( $response ) {
+				if( $response ) {
 
-				$data['about_text'] = $response['about_text'];
-				$this->load->view( 'admin/about-edit', $data );
+					$data['about_text'] = $response['about_text'];
+					$data['about_update_success'] = "Your post has been successfully updated";
+					$this->load->view( 'admin/about-edit', $data );
+
+					//New data fetched from the website form fields to be send to model
+					$update['about-id'] = $this->input->post('about-id');
+					$update['about-text'] = $this->input->post('about-text');
+					
+
+					$this->load->about_model->updateAbout( $update );
+				}
+
+				else {
+					show_404();
+				}
+
 			}
 
-			else {
-				show_404();
+			else
+			{
+				$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+				$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+				$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+				$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+				$data['about_update_success'] = "Your post has been successfully updated";
+
+				$data['about_id'] = $about_id;
+
+				$response = $this->about_model->getAboutById( $about_id );
+
+				if( $response ) {
+
+					$data['about_text'] = $response['about_text'];
+					$this->load->view( 'admin/about-edit', $data );
+				}
+
+				else {
+					show_404();
+				}
+
 			}
 
 			
