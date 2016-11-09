@@ -52,24 +52,35 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form method="post" action="<?php echo SITE_ROOT . 'collaborators/addnew'  ?>">
             <div class="box-info">
                 <div class="box-body">
+                            <?php 
+                                $title = $this->input->post('collaborator-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo "Your post has been successfully added ." ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
                     <div class="form-group">
-                        <input type="text" name="" placeholder="Collaborator's Name" class="form-control input-lg">
+                        <input type="text" name="collaborator-name" placeholder="Collaborator's Name" class="form-control input-lg" required>
                     </div>
 
                     <div class="form-group">
                         <label>Website Link</label>
-                        <input type="text" name="" placeholder="Website" class="form-control">
+                        <input type="text" name="collaborator-website" placeholder="Website" class="form-control" required>
                     </div>
                 </div>
                     
                 <div class="form-group col-md-2 box-body" >
-                    <input type="submit" name="" value="Add" class="form-control btn btn-primary">
+                    <input type="submit" name="" value="Add" class="form-control btn btn-primary" >
                 </div>
 
                 </div>
-            
+              </form>
         </section>
     </div>
     
@@ -85,6 +96,13 @@
             var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
             subListItem.addClass( 'active' );
+</script>
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
+});
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>

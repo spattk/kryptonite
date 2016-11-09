@@ -43,6 +43,29 @@ class Collaborators_model extends CI_Model {
 			
 		return false;	// Post doesn't exist
 	}
+
+	public function updateCollaborator( $update = array() ) {
+				
+			
+		$data = array(
+	        'collaborator_name' => $update['collaborator-name'],
+			'collaborator_website' => $update['collaborator-website']
+		);
+
+		$this->db->where('collaborator_id', $update['collaborator-id']);
+		$this->db->update('collaborators', $data);
+
+	}
+
+	public function addCollaborator ( $add = array() ) {
+
+		$data = array(
+	        'collaborator_name' => $add['collaborator-name'],
+			'collaborator_website' => $add['collaborator-website']
+		);
+
+		$this->db->insert('collaborators', $data);
+	}
 }
 
 ?>

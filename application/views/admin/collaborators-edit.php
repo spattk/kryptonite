@@ -53,15 +53,27 @@
         <!-- MAIN CONTENT -->
         <section class="content">
             <div class="box-info">
-            <form>
+            <form method="post" action="<?php echo SITE_ROOT .  'collaborators/edit/' .  $collaborator_id ?>">
+            <input type="hidden" name="collaborator-id" value="<?php echo $collaborator_id ?>">
                 <div class="box-body">
+                            <?php 
+                                $title = $this->input->post('collaborator-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo $collaborator_update_success; ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
+                    
                     <div class="form-group">
-                        <input type="text" name="" placeholder="Collaborator's Name" class="form-control input-lg" value="<?php echo $collaborator_name; ?>">
+                        <input type="text" name="collaborator-name" placeholder="Collaborator's Name" class="form-control input-lg" value="<?php echo $collaborator_name; ?>">
                     </div>
 
                     <div class="form-group">
                         <label>Website Link</label>
-                        <input type="text" name="" placeholder="Website" class="form-control" value="<?php echo $collaborator_website; ?>">
+                        <input type="text" name="collaborator-website" placeholder="Website" class="form-control" value="<?php echo $collaborator_website; ?>">
                     </div>
                 </div>
                     
@@ -84,6 +96,13 @@
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Collaborators")' ).parent().parent();
             listItem.addClass( 'active' );
+</script>
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
+});
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>

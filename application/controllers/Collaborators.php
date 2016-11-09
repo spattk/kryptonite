@@ -20,6 +20,17 @@ class Collaborators extends CI_Controller {
 		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
 
 		$this->load->view( 'admin/collaborators-add-new', $data );
+
+		$check = $this->input->post('collaborator-name');
+
+		if(isset($check)) {
+
+			$add['collaborator-id'] = $this->input->post('collaborator-id');
+			$add['collaborator-name'] =  $this->input->post('collaborator-name');
+			$add['collaborator-website'] = $this->input->post('collaborator-website');
+
+			$this->load->collaborators_model->addCollaborator( $add );
+		}
 	}
 
 	public function browse() {
@@ -41,28 +52,69 @@ class Collaborators extends CI_Controller {
 
 		if( $collaborator_id != NULL )
 		{
-			$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
-			$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
-			$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
-			$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
 
-			$data['collaborator_id'] = $collaborator_id;
+			$check = $this->input->post('collaborator-name');
 
-			$response = $this->collaborators_model->getCollaboratorById( $collaborator_id );
+			if(isset($check))
+			{
+				$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+				$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+				$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+				$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
 
-			if( $response ) {
+				$data['collaborator_id'] = $collaborator_id;
 
-				$data['collaborator_name'] = $response['collaborator_name'];
-				$data['collaborator_website'] = $response['collaborator_website'];
+				//New data fetched from the website form fields to be send to model
+				$update['collaborator-id'] = $this->input->post('collaborator-id');
+				$update['collaborator-name'] =  $this->input->post('collaborator-name');
+				$update['collaborator-website'] = $this->input->post('collaborator-website');
+
+				$this->load->collaborators_model->updateCollaborator( $update );
+
+				$response = $this->collaborators_model->getCollaboratorById( $collaborator_id );
+
+				if( $response ) {
+
+					$data['collaborator_name'] = $response['collaborator_name'];
+					$data['collaborator_website'] = $response['collaborator_website'];
+					$data['collaborator_update_success'] = "Your post have been successfully updated.";
+					
+
+					$this->load->view( 'admin/collaborators-edit', $data );
+				}
+
+				else {
+					show_404();
+				}
+
+			}
+
+			else
+			{
+				$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+				$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+				$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+				$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+				$data['collaborator_id'] = $collaborator_id;
+
+				$response = $this->collaborators_model->getCollaboratorById( $collaborator_id );
+
+				if( $response ) {
+
+					$data['collaborator_name'] = $response['collaborator_name'];
+					$data['collaborator_website'] = $response['collaborator_website'];
+					
+
+					$this->load->view( 'admin/collaborators-edit', $data );
+				}
+
+				else {
+					show_404();
+				}
+
+			}
 				
-
-				$this->load->view( 'admin/collaborators-edit', $data );
-			}
-
-			else {
-				show_404();
-			}
-
 			
 		}
 
