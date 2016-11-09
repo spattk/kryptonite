@@ -65,27 +65,38 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form method="post" action="<?php echo SITE_ROOT . 'projects/addnew'  ?>">
             <div class="box-info">
                 <div class="box-body">
+                 <?php 
+                                $title = $this->input->post('project-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo "Your post has been successfully added ." ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                                <input type="text" name="" placeholder="Name of the Project" class="form-control input-lg">
+                                <input type="text" name="project-name" placeholder="Name of the Project" class="form-control input-lg" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Project Description</label>
-                                <textarea class="form-control" rows="5"></textarea>
+                                <textarea class="form-control" rows="5" name="project-desc" required></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Gallery Link</label>
-                                <input type="text" name="" class="form-control" placeholder="Gallery Link">
+                                <input type="text" name="project-gallery-link" class="form-control" placeholder="Gallery Link" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Type (to be used for gallery)</label>
-                                <input type="dropdown" name="" class="form-control">
+                                <input type="dropdown" name="project-type" class="form-control">
                             </div>  
 
 
@@ -110,6 +121,7 @@
                 </div>
                 
             </div>
+            </form>
         </section>
     </div>
     
@@ -150,6 +162,13 @@
             }
         }
     });
+});
+</script>
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
 });
 </script>
 </body>

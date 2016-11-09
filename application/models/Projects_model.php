@@ -44,6 +44,34 @@ class Projects_model extends CI_Model {
 			
 		return false;	// Post doesn't exist
 	}
+
+	public function updateProject( $update = array() ) {
+				
+			
+		$data = array(
+	        'project_title' => $update['project-title'],
+			'project_avatar' => $update['uploadFile'],
+			'project_desc' => $update['project-desc'] ,
+			'project_gallery_link' => $update['project-gallery-link'] 
+		);
+
+		$this->db->where('project_id', $update['project-id']);
+		$this->db->update('projects', $data);
+
+	}
+
+	public function addProject( $add = array() ) {
+
+		$data = array(
+
+			'project_title' => $add['project-name'],
+			'project_desc' => $add['project-desc'], 
+			'project_avatar' => $add['uploadFile'],
+			'project_gallery_link' => $add['project-gallery-link'],
+		);
+
+		$this->db->insert('projects',$data);
+	}
 }
 
 ?>
