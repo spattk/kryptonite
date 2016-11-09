@@ -45,6 +45,37 @@ class Team_model extends CI_Model {
 			
 		return false;	// Post doesn't exist
 	}
+
+	public function updateTeam( $update = array() ) {
+				
+			
+		$data = array(
+	        'post_holder_name' => $update['post-holder-name'],
+			'post_holder_post' => $update['post-holder-post'],
+			'post_holder_phone' => $update['post-holder-phone'] ,
+			'post_holder_fb' => $update['post-holder-fb'] ,
+			'post_holder_gmail' => $update['post-holder-gmail'] ,
+			'post_holder_avatar' => $update['uploadFile'] 
+		);
+
+		$this->db->where('post_holder_id', $update['post-holder-id']);
+		$this->db->update('post_holders', $data);
+
+	}
+
+	public function addTeam( $add = array() ) {
+
+		$data = array(
+	        'post_holder_name' => $add['post-holder-name'],
+			'post_holder_post' => $add['post-holder-post'],
+			'post_holder_phone' => $add['post-holder-phone'] ,
+			'post_holder_fb' => $add['post-holder-fb'] ,
+			'post_holder_gmail' => $add['post-holder-gmail'] ,
+			'post_holder_avatar' => $add['uploadFile'] 
+		);
+
+		$this->db->insert('post_holders', $data);
+	}
 }
 
 ?>

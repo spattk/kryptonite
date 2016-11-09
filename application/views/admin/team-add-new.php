@@ -65,32 +65,43 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form method="post" action="<?php echo SITE_ROOT . 'team/addnew' ?>">
             <div class="box-info">
                 <div class="box-body">
+                            <?php 
+                                $title = $this->input->post('post-holder-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo "Your post has been successfully added ." ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Post Holder Name" class="form-control input-lg">
+                            <input type="text" name="post-holder-name" placeholder="Post Holder Name" class="form-control input-lg" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Post</label>
-                                <input type="text" name="" placeholder="Post" class="form-control">
+                                <input type="text" name="post-holder-post" placeholder="Post" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Post Holders Phone</label>
-                                <input type="text" name="" placeholder="Phone No" class="form-control">
+                                <input type="text" name="post-holder-phone" placeholder="Phone No" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Facebook Id</label>
-                                <input type="text" name="" placeholder="FB Id" class="form-control">
+                                <input type="text" name="post-holder-fb" placeholder="FB Id" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Gmail Id</label>
-                                <input type="text" name="" placeholder="Gmail Id" class="form-control">
+                                <input type="text" name="post-holder-gmail" placeholder="Gmail Id" class="form-control" required>
                             </div>
 
                         </div>
@@ -112,6 +123,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -146,6 +158,13 @@
             }
         }
     });
+});
+</script>
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
 });
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
