@@ -35,6 +35,11 @@ class About extends CI_Controller {
 
 				$data['about_id'] = $about_id;
 
+				//New data fetched from the website form fields to be send to model
+				$update['about-id'] = $this->input->post('about-id');
+				$update['about-text'] = $this->input->post('about-text');		
+				$this->load->about_model->updateAbout( $update );
+
 				$response = $this->about_model->getAboutById( $about_id );
 
 				if( $response ) {
@@ -42,13 +47,7 @@ class About extends CI_Controller {
 					$data['about_text'] = $response['about_text'];
 					$data['about_update_success'] = "Your post has been successfully updated";
 					$this->load->view( 'admin/about-edit', $data );
-
-					//New data fetched from the website form fields to be send to model
-					$update['about-id'] = $this->input->post('about-id');
-					$update['about-text'] = $this->input->post('about-text');
 					
-
-					$this->load->about_model->updateAbout( $update );
 				}
 
 				else {
@@ -57,13 +56,14 @@ class About extends CI_Controller {
 
 			}
 
+			//This is called when the submit button is not pressed
 			else
 			{
 				$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
 				$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
 				$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
 				$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
-				$data['about_update_success'] = "Your post has been successfully updated";
+				$data['about_update_success'] = '';
 
 				$data['about_id'] = $about_id;
 
