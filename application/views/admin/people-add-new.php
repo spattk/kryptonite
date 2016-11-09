@@ -65,22 +65,33 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form action="<?php echo SITE_ROOT . 'people/addnew'  ?>" method="post">
             <div class="box-info">
                 <div class="box-body">
+                            <?php 
+                                $title = $this->input->post('people-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo "Your post has been successfully added ." ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Person's Name" class="form-control input-lg">
+                            <input type="text" name="people-name" placeholder="Person's Name" class="form-control input-lg" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Designation</label>
-                                <input type="text" name="" placeholder="Designation" class="form-control">
+                                <input type="text" name="people-desg" placeholder="Designation" class="form-control" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Speech</label>
-                                <textarea class="form-control" rows="6"></textarea>
+                                <textarea class="form-control" rows="6" name="people-speech" required></textarea>
                             </div>
                         </div>
 
@@ -88,7 +99,7 @@
                             
                             <div class="form-group">
                                 <label>Person Avatar</label>
-                                <input type="file" name="uploadFile" id="uploadFile" class="form-control">
+                                <input type="file" name="uploadFile" id="uploadFile" class="form-control" required>
                                 <br>
                                 <div id="imagePreview" class="col-xs-12"></div>
                             </div>                            
@@ -101,6 +112,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -135,6 +147,13 @@
             var subListItem = listItem.find( 'ul li a:contains("Add New")' ).parent();
             listItem.addClass( 'active' );
             subListItem.addClass( 'active' );
+</script>
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
+});
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>

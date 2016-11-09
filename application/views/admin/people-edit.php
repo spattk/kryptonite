@@ -65,23 +65,36 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
-            <form>
+            <form method="post" action="<?php echo SITE_ROOT . 'people/edit/' . $people_id ; ?>">
+
+            <input type="hidden" name="people-id" value="<?php echo $people_id; ?>"/>
             <div class="box-info">
                 <div class="box-body">
+                        <?php 
+                                $title = $this->input->post('people-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo $people_update_success; ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
+                    
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Person's Name" class="form-control input-lg" value="<?php echo $people_name; ?>" >
+                            <input type="text" name="people-name" placeholder="Person's Name" class="form-control input-lg" value="<?php echo $people_name; ?>" >
                             </div>
 
                             <div class="form-group">
                                 <label>Designation</label>
-                                <input type="text" name="" placeholder="Designation" class="form-control" value="<?php echo $people_desg; ?>">
+                                <input type="text" name="people-desg" placeholder="Designation" class="form-control" value="<?php echo $people_desg; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Speech</label>
-                                <textarea class="form-control" rows="6"><?php echo $people_speech; ?></textarea>
+                                <textarea class="form-control" name="people-speech" rows="6"><?php echo $people_speech; ?></textarea>
                             </div>
                         </div>
 
@@ -135,6 +148,14 @@
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("People Speak")' ).parent().parent();
             listItem.addClass( 'active' );
+</script>
+
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
+});
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>

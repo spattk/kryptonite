@@ -44,6 +44,35 @@ class People_model extends CI_Model {
 			
 		return false;	// Post doesn't exist
 	}
+
+	public function updatePeople( $update = array() ) {
+				
+			
+		$data = array(
+	        'people_name' => $update['people-name'],
+			'people_desg' => $update['people-desg'],
+			'people_avatar' => $update['uploadFile'] ,
+			'people_speech' => $update['people-speech'] ,
+			'people_avatar' => $update['uploadFile'] 
+		);
+
+		$this->db->where('people_id', $update['people-id']);
+		$this->db->update('people', $data);
+
+	}
+
+	public function addPeople ( $add = array() ) {
+
+		$data = array(
+	        'people_name' => $add['people-name'],
+			'people_desg' => $add['people-desg'],
+			'people_avatar' => $add['uploadFile'] ,
+			'people_speech' => $add['people-speech'] ,
+			'people_avatar' => $add['uploadFile'] 
+		);
+
+		$this->db->insert('people', $data);
+	}
 }
 
 ?>
