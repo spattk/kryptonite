@@ -69,15 +69,16 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form method="post" action="<?php echo SITE_ROOT . 'events/addnew/' ?>">
             <div class="box-info">
                 <div class="box-body">
                     <div class="form-group">
-                    	<input type="text" name="" placeholder="Event Name" class="form-control input-lg">
+                    	<input type="text" name="event-name" placeholder="Event Name" class="form-control input-lg" required>
                     </div>
 
                     <div class="form-group">
                     	<label>Venue</label>
-                    	<input type="text" name="" placeholder="Event Venue" class="form-control ">
+                    	<input type="text" name="event-venue" placeholder="Event Venue" class="form-control " required>
                     </div>
 
                     <div class="form-group">
@@ -88,7 +89,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-calendar"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="Start Date" class="form-control datepicker">
+                    				<input type="text" name="event-start-date" placeholder="Start Date" class="form-control datepicker" required>
                     			</div>
                     			
                     		</div>
@@ -97,7 +98,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-clock-o"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="Start Time(Optional) [24 hours clock]" class="form-control ">
+                    				<input type="text" name="event-start-time" placeholder="Start Time(Optional) [24 hours clock]" class="form-control ">
                     			</div>
                     		</div>
                     	</div>
@@ -111,7 +112,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-calendar"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="End Date" class="form-control datepicker">
+                    				<input type="text" name="event-end-date" placeholder="End Date" class="form-control datepicker" required>
                     			</div>
                     			
                     		</div>
@@ -120,7 +121,7 @@
                     				<div class="input-group-addon">
                     					<i class="fa fa-clock-o"></i>
                     				</div>
-                    				<input type="text" name="" placeholder="End Time(Optional) [24 hours clock]" class="form-control">
+                    				<input type="text" name="event-end-time" placeholder="End Time(Optional) [24 hours clock]" class="form-control">
                     			</div>
                     		</div>
                     	</div>
@@ -128,7 +129,7 @@
 
                     <div class="form-group">
                     	<label>Blog Link</label>
-                    	<input type="text" name="" placeholder="Blog Link" class="form-control ">
+                    	<input type="text" name="event-blog" placeholder="Blog Link" class="form-control " required>
                     </div>
 
                     
@@ -136,8 +137,9 @@
                 </div>
                 <div class="form-group col-md-2 box-body">
 		               <input type="submit" name="" value="Add" class="form-control btn btn-primary">
-		            </div>
+		        </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -159,7 +161,7 @@
 <script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
 <script type="text/javascript">
 	$( function() {
-		$(".datepicker").datepicker();
+		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' }).val();
 	} );
 </script>
 </body>

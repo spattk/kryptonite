@@ -83,7 +83,7 @@
                                     <?php echo $event_update_success; ?>
                                 <?php echo '</div>';   
                         }
-                     ?>
+                    ?>
 
                     <div class="form-group">
                     	<input type="text" name="title" placeholder="Event Name" value="<?php echo $event_name; ?>" class="form-control input-lg">
@@ -174,7 +174,7 @@
 <script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
 <script type="text/javascript">
 	$( function() {
-		$(".datepicker").datepicker();
+		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' }).val();
 	} );
 </script>
 

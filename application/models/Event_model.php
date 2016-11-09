@@ -64,6 +64,21 @@ class Event_model extends CI_Model {
 		$this->db->update('events', $data);
 
 	}
+
+	public function addEvent ( $add = array() ) {
+
+		$data = array(
+			'event_name' => $add['event-name'],
+			'event_venue' => $add['event-venue'],
+			'event_start_date' => $add['event-start-date'],
+			'event_start_time' => $add['event-start-time'],
+			'event_end_date' => $add['event-end-date'],
+			'event_end_time' => $add['event-end-time'],
+			'event_blog_link' => $add['event-blog']
+		);
+
+		$this->db->insert('events',$data);
+	}
 	
 }
 

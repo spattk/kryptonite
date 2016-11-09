@@ -35,6 +35,21 @@ class Events extends CI_Controller {
 		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
 
 		$this->load->view( 'admin/events-add-new', $data );
+
+		$check = $this->input->post('event-name');
+
+		if(isset($check))
+		{
+			$add['event-name'] = $this->input->post('event-name');
+			$add['event-venue'] = $this->input->post('event-venue');
+			$add['event-start-date'] = $this->input->post('event-start-date');
+			$add['event-start-time'] = $this->input->post('event-start-time');
+			$add['event-end-date'] = $this->input->post('event-end-date');
+			$add['event-end-time'] = $this->input->post('event-end-time');
+			$add['event-blog'] = $this->input->post('event-blog');
+
+			$this->load->event_model->addEvent( $add );
+		}
 	}
 
 	public function edit( $event_id = NULL ) {
@@ -108,7 +123,6 @@ class Events extends CI_Controller {
 					$data['event_end_time'] = $response['event_end_time'];
 					$data['event_venue'] = $response['event_venue'];
 					$data['event_blog_link'] = $response['event_blog_link'];
-					$data['event_update_success']  = '';
 
 					$this->load->view( 'admin/events-edit', $data );
 				}
