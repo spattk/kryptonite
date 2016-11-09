@@ -74,23 +74,34 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
+            <form method="post" action="<?php echo SITE_ROOT . 'sectors/addnew' ; ?>">
             <div class="box-info">
                 <div class="box-body">
+                     <?php 
+                                $title = $this->input->post('sector-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo "Your post has been successfully added ." ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Sector Name" class="form-control input-lg">
+                            <input type="text" name="sector-name" placeholder="Sector Name" class="form-control input-lg" required>
                             </div>
 
                             <div class="form-group">
                                 <label>Captain/ViceCaptain</label>
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <input type="text" name="" placeholder="Name of Captain" class="form-control">
+                                        <input type="text" name="sector-captain" placeholder="Name of Captain" class="form-control" required>
                                     </div>
 
                                     <div class="col-xs-6">
-                                        <input type="text" name="" placeholder="Name of Vice Captain" class="form-control">
+                                        <input type="text" name="sector-vc" placeholder="Name of Vice Captain" class="form-control" required>
                                     </div>
                                 </div>
                                 
@@ -100,10 +111,10 @@
                                 <label>Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="" placeholder="Phone no" class="form-control">
+                                        <input type="text" name="sector-captain-phone" placeholder="Phone no" class="form-control" required>
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="" placeholder="Facebook Id" class="form-control">
+                                        <input type="text" name="sector-captain-fb" placeholder="Facebook Id" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -112,22 +123,22 @@
                                 <label>Vice Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="" placeholder="Phone no" class="form-control">
+                                        <input type="text" name="sector-vc-phone" placeholder="Phone no" class="form-control" required>
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="" placeholder="Facebook Id" class="form-control">
+                                        <input type="text" name="sector-vc-fb" placeholder="Facebook Id" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>About Sector</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3" name="sector-about" required></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Achievements</label>
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3" name="sector-achievements"></textarea>
                             </div>
                             
                         </div>
@@ -137,15 +148,15 @@
                                 <label>Sector Details</label>
                                 <div class="row">
                                     <div class="col-xs-5">
-                                        <input type="text" name="" placeholder="Total Students" class="form-control">
+                                        <input type="text" name="sector-total" placeholder="Total Students" class="form-control" required>
                                     </div>
                                     <div class="col-xs-7">
-                                        <input type="text" name="" placeholder="Distance from NIT in kms" class="form-control">
+                                        <input type="text" name="sector-distance" placeholder="Distance from NIT in kms" class="form-control" required>
                                     </div>
 
                                     <div class="col-xs-12">
                                         <br>
-                                        <input type="text" name="" placeholder="Location" class="form-control">
+                                        <input type="text" name="sector-location" placeholder="Location" class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -165,6 +176,7 @@
                     </div>
                 </div>
             </div>
+            </form>
         </section>
     </div>
     
@@ -205,6 +217,13 @@
             }
         }
     });
+});
+</script>
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
 });
 </script>
 </body>

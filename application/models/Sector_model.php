@@ -44,6 +44,52 @@ class Sector_model extends CI_Model {
 			
 		return false;	// Post doesn't exist
 	}
+
+	public function updateSector( $update = array() ) {
+				
+			
+		$data = array(
+	        'sector_name' => $update['sector-name'],
+			'sector_captain_name' => $update['sector-captain'],
+			'sector_vc_name' => $update['sector-vc'] ,
+			'sector_captain_phone' => $update['sector-captain-phone'] ,
+			'sector_captain_fb' => $update['sector-captain-fb'] ,
+			'sector_vc_phone' => $update['sector-vc-phone'] ,
+			'sector_vc_fb' => $update['sector-vc-fb'] ,
+			'sector_details' => $update['sector-about'] ,
+			'sector_achievements' => $update['sector-achievements'] ,
+			'sector_total_student' => $update['sector-total'] ,
+			'sector_distance' => $update['sector-distance'],
+			'sector_location' => $update['sector-location'] ,
+			'sector_avatar' => $update['uploadFile'] 
+		);
+
+		$this->db->where('sector_id', $update['sector-id']);
+		$this->db->update('sectors', $data);
+
+	}
+
+	public function addSector( $add = array() ) {
+
+		$data = array(
+
+			'sector_name' => $add['sector-name'],
+			'sector_avatar' => $add['uploadFile'], 
+			'sector_captain_name' => $add['sector-captain'],
+			'sector_captain_phone' => $add['sector-captain-phone'],
+			'sector_captain_fb' => $add['sector-captain-fb'],
+			'sector_vc_name' => $add['sector-vc'],
+			'sector_vc_phone' => $add['sector-vc-phone'],
+			'sector_vc_fb' => $add['sector-vc-fb'],
+			'sector_details' => $add['sector-about'],
+			'sector_distance' => $add['sector-distance'],
+			'sector_location' => $add['sector-location'],
+			'sector_achievements' => $add['sector-achievements'] ,
+			'sector_avatar' => $add['uploadFile']
+		);
+
+		$this->db->insert('sectors',$data);
+	}
 }
 
 

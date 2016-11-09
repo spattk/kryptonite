@@ -74,24 +74,41 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
-            <form>
+            <form method="post" action="<?php echo SITE_ROOT . 'sectors/edit/' . $sector_id ?>" name="post" id="sectorForm">
             <div class="box-info">
                 <div class="box-body">
+
+                            <?php 
+                                $title = $this->input->post('sector-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo $sector_update_success; ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
+                    
                     <div class="row">
                         <div class="col-md-8">
+
+                            <input type="hidden" name="sector-id" value="<?php echo $sector_id; ?>"/>
+
+                            
+
                             <div class="form-group">
-                            <input type="text" name="" placeholder="Sector Name" class="form-control input-lg" value="<?php echo $sector_name; ?>">
+                            <input type="text" name="sector-name" placeholder="Sector Name" class="form-control input-lg" value="<?php echo $sector_name; ?>">
                             </div>
 
                             <div class="form-group">
                                 <label>Captain/ViceCaptain</label>
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <input type="text" name="" placeholder="Name of Captain" class="form-control" value="<?php echo $sector_captain_name; ?>">
+                                        <input type="text" name="sector-captain" placeholder="Name of Captain" class="form-control" value="<?php echo $sector_captain_name; ?>">
                                     </div>
 
                                     <div class="col-xs-6">
-                                        <input type="text" name="" placeholder="Name of Vice Captain" class="form-control" value="<?php echo $sector_vc_name; ?>">
+                                        <input type="text" name="sector-vc" placeholder="Name of Vice Captain" class="form-control" value="<?php echo $sector_vc_name; ?>">
                                     </div>
                                 </div>
                                 
@@ -101,10 +118,10 @@
                                 <label>Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="" placeholder="Phone no" class="form-control" value="<?php echo $sector_captain_phone; ?>" >
+                                        <input type="text" name="sector-captain-phone" placeholder="Phone no" class="form-control" value="<?php echo $sector_captain_phone; ?>" >
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="" placeholder="Facebook Id" class="form-control" value="<?php echo $sector_captain_fb; ?>">
+                                        <input type="text" name="sector-captain-fb" placeholder="Facebook Id" class="form-control" value="<?php echo $sector_captain_fb; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -113,22 +130,22 @@
                                 <label>Vice Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="" placeholder="Phone no" class="form-control" value="<?php echo $sector_vc_phone; ?>">
+                                        <input type="text" name="sector-vc-phone" placeholder="Phone no" class="form-control" value="<?php echo $sector_vc_phone; ?>">
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="" placeholder="Facebook Id" class="form-control" value="<?php echo $sector_vc_fb; ?>">
+                                        <input type="text" name="sector-vc-fb" placeholder="Facebook Id" class="form-control" value="<?php echo $sector_vc_fb; ?>">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>About Sector</label>
-                                <textarea class="form-control" rows="3"><?php echo $sector_details; ?></textarea>
+                                <textarea class="form-control" rows="3" name="sector-about"><?php echo $sector_details; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Achievements</label>
-                                <textarea class="form-control" rows="3"><?php echo $sector_achievements; ?></textarea>
+                                <textarea class="form-control" rows="3" class="sector-achievement"><?php echo $sector_achievements; ?></textarea>
                             </div>
                             
                         </div>
@@ -138,22 +155,22 @@
                                 <label>Sector Details</label>
                                 <div class="row">
                                     <div class="col-xs-5">
-                                        <input type="text" name="" placeholder="Total Students" class="form-control" value="<?php echo $sector_total_student; ?>">
+                                        <input type="text" name="sector-total" placeholder="Total Students" class="form-control" value="<?php echo $sector_total_student; ?>">
                                     </div>
                                     <div class="col-xs-7">
-                                        <input type="text" name="" placeholder="Distance from NIT in kms" class="form-control" value="<?php echo $sector_distance; ?>">
+                                        <input type="text" name="sector-distance" placeholder="Distance from NIT in kms" class="form-control" value="<?php echo $sector_distance; ?>">
                                     </div>
 
                                     <div class="col-xs-12">
                                         <br>
-                                        <input type="text" name="" placeholder="Location" class="form-control" value="<?php echo $sector_location; ?>">
+                                        <input type="text" name="sector-location" placeholder="Location" class="form-control" value="<?php echo $sector_location; ?>">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>Sector Avatar</label>
-                                <input type="file" name="uploadFile" id="uploadFile" class="form-control" value="C:\wamp\www\social\assets\img\portfolio\cake.png">
+                                <input type="file" name="uploadFile" id="uploadFile" class="form-control" value="<?php echo $sector_avatar; ?>">
                                 <br>
                                 <div id="imagePreview" class="col-xs-12"></div>
                             </div>                            
@@ -184,6 +201,13 @@
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
+});
+</script>
 <script type="text/javascript">
     $( function() {
         $(".datepicker").datepicker();
