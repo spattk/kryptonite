@@ -3,7 +3,7 @@
           <!-- Optionally, you can add icons to the links -->
           
           <li class="treeview">
-              <a href="<?php echo SITE_ROOT ?>about/browse"><i class="fa fa-link"></i> <span>About Us</span></a>
+              <a href="<?php echo SITE_ROOT ?>about/edit/1"><i class="fa fa-link"></i> <span>About Us</span></a>
           </li>
 
           <li>
@@ -68,6 +68,6 @@
           </li>
 
           <li class="treeview">
-              <a href="<?php echo SITE_ROOT ?>blog/browse"><i class="fa fa-link"></i> <span>Blog Link</span></a>
+              <a href="<?php echo SITE_ROOT ?>blog/edit/1"><i class="fa fa-link"></i> <span>Blog Link</span></a>
           </li>
       </ul>
