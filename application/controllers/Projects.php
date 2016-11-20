@@ -5,7 +5,16 @@ class Projects extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-        $this->load->model('projects_model');	
+        $this->load->model('projects_model');
+        $this->load->model('user_model');	
+	}
+
+	/* Check if the user is authorized to access admin panel features */
+	private function checkLogin() {
+		
+		if ( ! $this->user_model->isLoggedIn() )
+			redirect( base_url() . 'admin' );
+
 	}
 
 	public function index() {
@@ -13,6 +22,8 @@ class Projects extends CI_Controller {
 	}
 
 	public function addNew() {
+
+		$this->checkLogin();
 
 		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
 		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
@@ -37,6 +48,8 @@ class Projects extends CI_Controller {
 
 	public function browse() {
 
+		$this->checkLogin();
+
 		$projects = array();
 		$projects = $this->projects_model->getProjects();
 
@@ -52,6 +65,8 @@ class Projects extends CI_Controller {
 
 	public function edit( $project_id = NULL ) {
 
+		$this->checkLogin();
+		
 		if( $project_id != NULL )
 		{	
 			// $this->checkLogin();

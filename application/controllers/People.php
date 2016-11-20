@@ -6,6 +6,15 @@ class People extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
         $this->load->model('people_model');	
+        $this->load->model('user_model');	
+	}
+
+	/* Check if the user is authorized to access admin panel features */
+	private function checkLogin() {
+		
+		if ( ! $this->user_model->isLoggedIn() )
+			redirect( base_url() . 'admin' );
+
 	}
 
 	public function index() {
@@ -13,6 +22,8 @@ class People extends CI_Controller {
 	}
 
 	public function addNew() {
+
+		$this->checkLogin();
 
 		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
 		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
@@ -38,6 +49,8 @@ class People extends CI_Controller {
 
 	public function browse() {
 
+		$this->checkLogin();
+
 		$peoples = array();
 		$peoples = $this->people_model->getPeople();
 
@@ -53,7 +66,7 @@ class People extends CI_Controller {
 
 	public function edit( $people_id = NULL ) {
 
-		// $this->checkLogin();
+		$this->checkLogin();
 
 		if( $people_id != NULL )
 		{

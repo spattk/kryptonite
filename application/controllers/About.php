@@ -5,10 +5,21 @@ class About extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
-        $this->load->model('about_model');	
+        $this->load->model('about_model');
+        $this->load->model('user_model');	
+	}
+
+	/* Check if the user is authorized to access admin panel features */
+	private function checkLogin() {
+		
+		if ( ! $this->user_model->isLoggedIn() )
+			redirect( base_url() . 'admin' );
+
 	}
 
 	public function browse() {
+
+		$this->checkLogin();
 
 		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
 		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
@@ -21,6 +32,7 @@ class About extends CI_Controller {
 	public function edit( $about_id = NULL ) {
 
 		// $this->checkLogin();
+		$this->checkLogin();
 
 		if( $about_id != NULL )
 		{
