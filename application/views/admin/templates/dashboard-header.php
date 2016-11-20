@@ -33,7 +33,7 @@
 
                 <p>
                   Sitesh Pattanaik - Web Developer
-                  <small>Member since Nov. 2014</small>
+                  <small>Member since Nov. 2019</small>
                 </p>
               </li>
               <!-- Menu Footer-->
@@ -42,7 +42,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="<?php echo SITE_ROOT . 'admin/logout/' ?>" class="btn btn-default btn-flat">Sign out</a>
                 </div>
               </li>
             </ul>
