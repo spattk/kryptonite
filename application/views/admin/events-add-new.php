@@ -72,6 +72,16 @@
             <form method="post" action="<?php echo SITE_ROOT . 'events/addnew/' ?>">
             <div class="box-info">
                 <div class="box-body">
+                        <?php 
+                                $title = $this->input->post('event-name');
+                                if (isset($title))
+                                {
+                                    echo 
+                                        '<div class="form-group" class="col-md-12" class="btn btn-success"                    style="background-color: green;padding: 10px;color: white" id="update-success">' ?>
+                                            <?php echo "Your post has been successfully added ." ?>
+                                        <?php echo '</div>';   
+                                }
+                            ?>
                     <div class="form-group">
                     	<input type="text" name="event-name" placeholder="Event Name" class="form-control input-lg" required>
                     </div>
@@ -163,6 +173,13 @@
 	$( function() {
 		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' }).val();
 	} );
+</script>
+<script type="text/javascript"> 
+      $(document).ready( function() {
+        setTimeout(function() {
+        $("#update-success").hide('blind', {}, 500)
+    }, 5000);
+});
 </script>
 </body>
 
