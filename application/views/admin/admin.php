@@ -30,21 +30,21 @@
         <center><h1>Welcome Admin</h1></center>
         <br>
         <div class="col-md-4 col-md-offset-4" style="border:2px dotted #233140">
-            <form id="login" method="post">
+            <form id="login" method="post" action="<?php echo SITE_ROOT . 'admin' ?>">
             <div >
                 <div>
                     <div class="form-group">
                         <br>
                         <label>Username</label>
-                        <input id="username" type="text" class="form-control" name="username" />
+                        <input id="username" type="text" class="form-control" name="username" required/>
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="password" class="form-control" name="password" />
+                        <input id="password" type="password" class="form-control" name="password" required/>
                     </div>
                 </div>
                 <div class="box-footer">
-                    <input class="btn btn-primary pull-right" type="submit" value="Log In" />
+                    <input class="btn pull-right" type="submit" value="Log In" id="LogIn" />
                     <br><br>
                 </div>
             </div>
@@ -58,3 +58,20 @@
         <?php echo $footer; ?>
     </div>
 </body>
+<script type="text/javascript" src="<?php echo ASSETS_URL . 'js/jquery.min.js' ?>"></script>
+<script >
+$(document).ready(function(){
+
+    $("#LogIn").click(function(){
+
+        if( ($('.username').val() != null) && ($('.password').val() != null) )
+        {
+            $(this).addClass("btn-success");
+            $(this).val("Logging you in ...");   
+        }
+        
+    });
+});
+    
+</script>
+</html>
