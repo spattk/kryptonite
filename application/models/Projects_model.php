@@ -7,7 +7,7 @@ class Projects_model extends CI_Model {
 
 		$projects = array();
 
-		$this->db->select( 'project_id, project_title, project_slug, project_desc, project_gallery_link' );
+		$this->db->select( 'project_id, project_avatar, project_title, project_slug, project_desc, project_gallery_link' );
 		$this->db->from( 'projects' );
 	    $this->db->order_by( 'project_id ' );
 
@@ -20,6 +20,7 @@ class Projects_model extends CI_Model {
 	        if ( $query && $query->num_rows() > 0 ) {
 	            foreach( $query->result_array() as $row ) {
 	                $project['project_id'] = $row['project_id'];
+	                $project['project_avatar'] = $row['project_avatar'];
 	                $project['project_title'] = $row['project_title'];
 	                $project['project_desc'] = $row['project_desc'];
 	                $project['project_gallery_link'] = $row['project_gallery_link'];

@@ -6,17 +6,21 @@ class Sector_model extends CI_Model {
 
 		$sectors = array();
 
-		$this->db->select( 'sector_id,sector_name,sector_captain_name, sector_vc_name, sector_captain_phone' );
-		$this->db->from( 'sectors' );
+		$this->db->select('*');
+		$this->db->from('sectors');
+		$this->db->where('sector_trash', '0');
+		$query = $this->db->get();
 	    $total_rows = $this->db->count_all_results( '', false );
 
-	    $query = $this->db->get();
+	    
 
 	    if ( $query ) {
 
 	        if ( $query && $query->num_rows() > 0 ) {
 	            foreach( $query->result_array() as $row ) {
 	                $sector['sector_id'] = $row['sector_id'];
+	                $sector['sector_slug'] = $row['sector_slug'];
+	                $sector['sector_avatar'] = $row['sector_avatar'];
 	                $sector['sector_name'] = $row['sector_name'];
 	                $sector['sector_captain_name'] = $row['sector_captain_name'];
 	                $sector['sector_vc_name'] = $row['sector_vc_name'];
@@ -43,6 +47,20 @@ class Sector_model extends CI_Model {
 			return $query->row_array();
 			
 		return false;	// Post doesn't exist
+	}
+
+	public function getSectorByName( $slug ) {
+
+		$sectors = array();
+
+		$this->db->where( 'sector_slug', $slug );
+		$this->db->limit(1);
+		$query = $this->db->get( 'sectors' );
+
+	    if ( $query || $query->num_rows() == 1 )
+			return $query->row_array();
+			
+		return false;	
 	}
 
 	public function updateSector( $update = array() ) {
@@ -74,7 +92,7 @@ class Sector_model extends CI_Model {
 		$data = array(
 
 			'sector_name' => $add['sector-name'],
-			'sector_avatar' => $add['uploadFile'], 
+			'sector_slug' => $add['sector-slug'],
 			'sector_captain_name' => $add['sector-captain'],
 			'sector_captain_phone' => $add['sector-captain-phone'],
 			'sector_captain_fb' => $add['sector-captain-fb'],
@@ -84,11 +102,26 @@ class Sector_model extends CI_Model {
 			'sector_details' => $add['sector-about'],
 			'sector_distance' => $add['sector-distance'],
 			'sector_location' => $add['sector-location'],
-			'sector_achievements' => $add['sector-achievements'] ,
-			'sector_avatar' => $add['uploadFile']
+			'sector_achievements' => $add['sector-achievements'],
+			'sector_avatar' => $add['uploadFile']  
 		);
 
+		// $config['upload_path'] = './uploads/test/';
+		// $config['allowed_types']= 'gif|jpg|png';
+
+		// $this->load->library('upload', $config);
+		// $this->sector_model->addSector('uploadFile');
+
 		$this->db->insert('sectors',$data);
+
+		
+	}
+
+	public function deleteSectorById ( $sector_id ) {
+
+		$this->db->set('sector_trash', '1');
+		$this->db->where('sector_id', $sector_id);
+		$this->db->update('sectors');
 	}
 }
 
