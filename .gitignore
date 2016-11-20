@@ -26,4 +26,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-workspace
 *.sublime-project
 
+*.jpg
+*.png
+*.jpeg
 .gitignore
