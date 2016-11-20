@@ -74,7 +74,8 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
-            <form method="post" action="<?php echo SITE_ROOT . 'sectors/addnew' ; ?>">
+            <?php echo form_open_multipart('sectors/addnew');?>
+            
             <div class="box-info">
                 <div class="box-body">
                      <?php 
@@ -90,18 +91,18 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                            <input type="text" name="sector-name" placeholder="Sector Name" class="form-control input-lg" required>
+                            <input type="text" name="sector-name" placeholder="Sector Name" class="form-control input-lg" >
                             </div>
 
                             <div class="form-group">
                                 <label>Captain/ViceCaptain</label>
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <input type="text" name="sector-captain" placeholder="Name of Captain" class="form-control" required>
+                                        <input type="text" name="sector-captain" placeholder="Name of Captain" class="form-control" >
                                     </div>
 
                                     <div class="col-xs-6">
-                                        <input type="text" name="sector-vc" placeholder="Name of Vice Captain" class="form-control" required>
+                                        <input type="text" name="sector-vc" placeholder="Name of Vice Captain" class="form-control" >
                                     </div>
                                 </div>
                                 
@@ -111,10 +112,10 @@
                                 <label>Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="sector-captain-phone" placeholder="Phone no" class="form-control" required>
+                                        <input type="text" name="sector-captain-phone" placeholder="Phone no" class="form-control" >
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="sector-captain-fb" placeholder="Facebook Id" class="form-control" required>
+                                        <input type="text" name="sector-captain-fb" placeholder="Facebook Id" class="form-control" >
                                     </div>
                                 </div>
                             </div>
@@ -123,17 +124,17 @@
                                 <label>Vice Captain Details</label>
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <input type="text" name="sector-vc-phone" placeholder="Phone no" class="form-control" required>
+                                        <input type="text" name="sector-vc-phone" placeholder="Phone no" class="form-control" >
                                     </div>
                                     <div class="col-xs-9">
-                                        <input type="text" name="sector-vc-fb" placeholder="Facebook Id" class="form-control" required>
+                                        <input type="text" name="sector-vc-fb" placeholder="Facebook Id" class="form-control" >
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label>About Sector</label>
-                                <textarea class="form-control" rows="3" name="sector-about" required></textarea>
+                                <textarea class="form-control" rows="3" name="sector-about" ></textarea>
                             </div>
 
                             <div class="form-group">
@@ -148,15 +149,15 @@
                                 <label>Sector Details</label>
                                 <div class="row">
                                     <div class="col-xs-5">
-                                        <input type="text" name="sector-total" placeholder="Total Students" class="form-control" required>
+                                        <input type="text" name="sector-total" placeholder="Total Students" class="form-control" >
                                     </div>
                                     <div class="col-xs-7">
-                                        <input type="text" name="sector-distance" placeholder="Distance from NIT in kms" class="form-control" required>
+                                        <input type="text" name="sector-distance" placeholder="Distance from NIT in kms" class="form-control" >
                                     </div>
 
                                     <div class="col-xs-12">
                                         <br>
-                                        <input type="text" name="sector-location" placeholder="Location" class="form-control" required>
+                                        <input type="text" name="sector-location" placeholder="Location" class="form-control" >
                                     </div>
                                 </div>
                             </div>

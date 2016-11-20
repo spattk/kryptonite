@@ -99,7 +99,7 @@
                             
                             <div class="form-group">
                                 <label>Person Avatar</label>
-                                <input type="file" name="uploadFile" id="uploadFile" class="form-control" required>
+                                <input type="file" name="uploadFile" id="uploadFile" class="form-control" >
                                 <br>
                                 <div id="imagePreview" class="col-xs-12"></div>
                             </div>                            
