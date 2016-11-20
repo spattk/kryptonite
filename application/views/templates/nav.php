@@ -40,7 +40,7 @@
                         <a href="<?php echo SITE_ROOT ?>gallery">Gallery</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#blog">Blog</a>
+                        <a href="http://aasranitrkl.blogspot.in">Blog</a>
                     </li>
                 </ul>
             </div>
