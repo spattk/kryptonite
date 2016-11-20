@@ -90,7 +90,7 @@
             
 
             <div class="row">
-                <div class="col-md-7">
+                <div class="col-md-5">
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <h2>About Us</h2>
@@ -98,33 +98,42 @@
                         </div>
                     </div>
                     <div style="text-align: justify;">
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
-                        
+                        <?php echo $about ;?>                        
                     </div>
                 </div>
 
-                <div class="col-md-5">
+                <div class="col-md-7">
                     <div class="row">
                         <div class="col-lg-12 text-center" id="events">
                             <h2>Events</h2>
                             <hr class="star-primary">
                         </div>
-                        <div >
+                        <div style="text-align: center;">
                             <!-- insert all the list which will be in round robin algorithm -->
                             <div style="max-height: 250px;font-size: 20px; " id="event-scroll">
+                                <div>
+                                    <div class="col-md-6">Event Name</div>
+                                    <div class="col-md-3">Start Date</div>
+                                    <div class="col-md-3">End Date</div>
+                                </div>
+
                                 <marquee direction="up" height="250px" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="4">
                                     <ol>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>                                        
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
-                                        <li><a href="">event</a></li>
+                                        
+                                        <?php if ( count($events)==0 ): ?>
+                                            <li>No events.</li>
+                                        <?php endif; ?>
+
+                                        <?php foreach( $events as $event ) : ?>
+                                            <div style="clear: both;padding-top: 5px">
+                                                <a href="<?php echo $event['event_id'] ?>">
+                                                    <div class="col-md-6"><?php echo $event['event_name']?></div>
+                                                    <div class="col-md-3"><?php echo $event['event_start_date']?></div>
+                                                    <div class="col-md-3"><?php echo $event['event_end_date']?></div>
+                                                </a>
+                                            </div> 
+                                        <?php endforeach; ?>
+
                                     </ol>
                                 </marquee>
                             </div>
@@ -148,67 +157,23 @@
             </div>
             <div class="row">
 
-                <div class="col-sm-4 portfolio-item">
-                    <a href="sector2.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-external-link fa-2x"></i>
-                            </div>
-                        </div>
-                        <img src="assets/img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
-                </div>
+                <?php if ( count($sectors)==0 ): ?>
+                    No Sectors
+                <?php endif; ?>
 
-                <div class="col-sm-4 portfolio-item">
-                    <a href="sector5.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-external-link fa-2x"></i>
+                <?php foreach( $sectors as $sector ) : ?>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="<?php echo 'sectors/index/' . $sector['sector_slug'] ?>" class="portfolio-link">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-external-link fa-2x"></i>
+                                </div>
                             </div>
-                        </div>
-                        <img src="assets/img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="sector6.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-external-link fa-2x"></i>
-                            </div>
-                        </div>
-                        <img src="assets/img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="sector21.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-external-link fa-2x"></i>
-                            </div>
-                        </div>
-                        <img src="assets/img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="osap.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-external-link fa-2x"></i>
-                            </div>
-                        </div>
-                        <img src="assets/img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="khalsa.html" class="portfolio-link">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-external-link fa-2x"></i>
-                            </div>
-                        </div>
-                        <img src="assets/img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>
+                            <img src="<?php echo 'assets/img/portfolio/' . $sector['sector_avatar'] ?>" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+
             </div>
         </div>
     </section>
@@ -224,39 +189,19 @@
             </div>
             <div class="row">
 
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link pro-section" data-toggle="modal">
-                       <img src="assets/img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
-                    <br>
-                </div>
+                <?php if ( count($projects)==0 ): ?>
+                    No projects.
+                <?php endif; ?>
 
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link pro-section" data-toggle="modal">
-                        <img src="assets/img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
-                    <br>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link pro-section" data-toggle="modal">
-                        <img src="assets/img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a><br>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link pro-section" data-toggle="modal">
-                        <img src="assets/img/portfolio/game.png" class="img-responsive" alt="">
-                    </a><br>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link pro-section" data-toggle="modal">
-                        <img src="assets/img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a><br>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link pro-section" data-toggle="modal">
-                        <img src="assets/img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a><br>
-                </div>
+                <?php foreach( $projects as $project ) : ?>
+                    <div class="col-sm-4 portfolio-item">
+                        <a href="<?php echo '#portfolioModal' . $project['project_id'] ?>" class="portfolio-link pro-section" data-toggle="modal">
+                           <img src="<?php echo 'assets/img/portfolio/' . $project['project_avatar'] ?>" class="img-responsive" alt="">
+                        </a>
+                        <br>
+                    </div>
+                <?php endforeach; ?>
+
             </div>
         </div>
     </section>
@@ -272,31 +217,18 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <p>President</p>
-                    <img src="assets/img/1-375.jpg" width="100%">
-                </div>
-                <div class="col-md-4">
-                    <p>VP</p>
-                    <img src="assets/img/1-375.jpg" width="100%">
-                </div>
-                <div class="col-md-4">
-                    <p>Gen Sec 1</p>
-                    <img src="assets/img/1-375.jpg" width="100%">
-                </div>
-                <div class="col-md-4">
-                    <p>Gen sec 2</p>
-                    <img src="assets/img/1-375.jpg" width="100%">
-                </div>
-                <div class="col-md-4">
-                    <p>tech sec</p>
-                    <img src="assets/img/1-375.jpg" width="100%">
-                </div>
-                <div class="col-md-4">
-                    <p>treasurer</p>
-                    <img src="assets/img/1-375.jpg" width="100%">
-                </div>
                 
+                <?php if ( count($teams)==0 ): ?>
+                    No team.
+                <?php endif; ?>
+
+                <?php foreach( $teams as $team ) : ?>
+                    <div class="col-md-4">
+                        <p><?php echo $team['post_holder_post'] ?></p>
+                        <img src="assets/img/1-375.jpg" width="100%">
+                    </div>    
+                <?php endforeach; ?>
+               
             </div>
         </div>
     </section>
@@ -316,27 +248,37 @@
                 <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
                   <!-- Indicators -->
                     <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active people-li"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1" class="people-li"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="2" class="people-li"></li>
+                        <?php for ($i=0; $i < count($peoples); $i++) : ?>
+                            <li data-target="#carousel-example-generic" data-slide-to="<?php echo $i ?>" class="active people-li"></li>
+                        <?php endfor;?>
                     </ol>
 
                   <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
-                    
-                        <div class="item active">
-                            <div >
-                                <img src="assets/img/1-375.jpg" alt="..." ">
-                            </div>
 
-                            <div class="carousel-caption col-md-5 col-md-offset-2 people-cap" >
-                                <h4>Diro's speak</h4>
-                                <br>
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                        <?php if ( count($peoples)==0 ): ?>
+                            No Speech.
+                        <?php endif; ?>
+
+                        <?php foreach( $peoples as $people ) : ?>
+
+                            <div class="item" id="people<?php echo $people['people_id'] ?>">
+                                <div >
+                                    <img src="assets/img/1-375.jpg" alt="..." ">
+                                </div>
+
+                                <div class="carousel-caption col-md-5 col-md-offset-2 people-cap" >
+                                    <h4><?php echo $people['people_name'] ?></h4>
+                                    <br>
+                                    <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  -->
+                                    <?php echo $people['people_speech'] ?>
+                                </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
+                    
                         
-                        <div class="item">
+                        
+                        <!-- <div class="item">
                             <img src="assets/img/2-375.jpg" alt="...">
                             <div class="carousel-caption col-md-5 col-md-offset-2 people-cap">
                                 <h4>Diro's speak</h4>
@@ -352,7 +294,7 @@
                                 <br>
                                 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
@@ -453,17 +395,20 @@
                     </div>
                 </div>
                 <div style="text-align: center;">
-                     <a href=""><h4>Its me</h4></a>
-                     <br>
-                     <a href=""><h4>Its me</h4></a>
-                     <br>
-                     <a href=""><h4>Its me</h4></a>
-                     <br>
-                     <a href=""><h4>Its me</h4></a>
-                     <br>
-                     <a href=""><h4>Its me</h4></a>
-                     <br>
-                     <a href=""><h4>Its me</h4></a>
+                     
+                    <?php if ( count($collaborators)==0 ): ?>
+                        No Collaborators.
+                    <?php endif; ?>
+
+                    <?php foreach( $collaborators as $collaborator ) : ?>   
+                        <a href="<?php echo $collaborator['collaborator_website'] ?>">
+                            <h4>                        
+                                <?php echo $collaborator['collaborator_name']?>
+                        </h4>
+                        </a>
+                        <br>                      
+                    <?php endforeach; ?>                 
+                     
                 </div>
                 
             </div>   
@@ -476,7 +421,12 @@
 
     
     <!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <?php if ( count($projects)==0 ): ?>
+        No Projects.
+    <?php endif; ?>
+
+    <?php foreach( $projects as $project ) : ?>   
+        <div class="portfolio-modal modal fade" id="portfolioModal<?php echo $project['project_id'] ;?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -488,18 +438,16 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2><?php echo $project['project_title'] ?></h2>
                             <hr class="star-primary">
-                            <img src="assets/img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <h4>General Description of Project</h4>
-                            <p class="project-desc">Use this area of the page to describe your project. The icon above is part of a free icon set by On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="<?php echo 'assets/img/portfolio/' . $project['project_avatar'] ?>" class="img-responsive img-centered" alt="">
+                            <h4>General Description of the project</h4>
+                            <p class="project-desc"><?php echo $project['project_desc'] ?></p>
 
                             <br>
                             <div class="project-extra-desc">
-                                <p>Start Date : </p>
-                                <p>End Date : </p>
-                                <p>Venue : </p>
-                                <p>Link to blog : </p>
+                                
+                                <p>Link to Gallery : <?php echo $project['project_gallery_link'] ?></p>
                                 <p>View more images : </p>
                             </div>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
@@ -508,192 +456,9 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </div>                      
+    <?php endforeach; ?>      
+
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
@@ -720,6 +485,12 @@
 
     <!-- custom script -->
     <script src="assets/js/script.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#people1").addClass("active");
+        });
+    </script>
 </body>
 
 </html>
