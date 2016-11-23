@@ -1,2 +1,2 @@
 # kryptonite
-The latest website for AASRA.
+The Next Generation CMS for AASRA.
