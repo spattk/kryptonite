@@ -46,9 +46,14 @@ class Projects extends CI_Controller {
 		}
 	}
 
-	public function browse() {
+	public function browse( $var = false ) {
 
 		$this->checkLogin();
+
+		if( $var == true )
+			$data['deleted'] = true;
+		else
+			$data['deleted'] = false;
 
 		$projects = array();
 		$projects = $this->projects_model->getProjects();
@@ -145,6 +150,45 @@ class Projects extends CI_Controller {
 			show_404();
 		}
 		
+	}
+public function delete( $project_id = NULL ) {
+
+		if( $project_id != NULL )
+		$result = $this->projects_model->deleteProjectById( $project_id );
+
+		if( $result ) {
+
+			redirect('projects/browse/true');
+		}
+	}
+
+	public function trash() {
+
+		$this->checkLogin();
+
+		$projects = array();
+		$projects = $this->projects_model->getTrashedProjects();
+
+		$data['projects'] = $projects['projects'];
+
+		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+		$this->load->view( 'admin/projects-trash', $data );	
+	}
+
+	public function untrash ( $project_id = NULL ) {
+
+		$this->checkLogin();
+
+		if( $project_id != NULL )
+			$result = $this->projects_model->untrashProjectById( $project_id );
+
+		if( $result ) {
+			redirect('projects/trash');
+		}
 	}
 }
 

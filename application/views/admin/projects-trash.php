@@ -56,7 +56,7 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                           <tr>
-                            <th width="4%" bgcolor="#222D32" style="color: white"> <input id="selectAll" type="checkbox"> </th>
+                             <th width="4%" bgcolor="#222D32" style="color: white"> <input id="selectAll" type="checkbox"> </th>
                             <th width="150px" bgcolor="#222D32" style="color: white">Title</th>
                             <th width="100px" bgcolor="#222D32" style="color: white">Desc</th>
                             <th width="100px" bgcolor="#222D32" style="color: white">Gallery Link</th>
@@ -68,23 +68,6 @@
                           </tr>
                         </thead>
                         <form id="project-list" method="post">
-
-                            <?php 
-                                if( $deleted ) {
-                                  
-                                  echo 
-                                   '<div class="form-group" class="col-md-12" class="btn btn-success" style="background-color:green;padding:10px;color:white" id="delete-success">' ?>
-                                                     <?php echo "Your post has been added to trash ." ?>
-                                                  <?php echo '</div>';
-
-                                                  echo
-                                                  '<div class="form-group" class="col-md-12" class="btn btn-default" style="background-color:blue;padding: 10px;color: white" id="untrash-success">' ?>
-                                                     <?php echo "Deleted by Mistake ?" ?>
-                                                     <a href="<?php echo SITE_ROOT . 'projects/trash' ?>" style="color: red; font-weight: bold" target="_blank">Untrash</a>
-                                                  <?php echo '</div>'; 
-                                               }  
-                              ?>
-
                             <tbody>
                             <?php if ( count($projects)==0 ): ?>
                             <tr><td></td><td>No projects.</td></tr>
@@ -101,7 +84,7 @@
                               
                               <td></td>
                               <td><center><a href="<?php echo SITE_ROOT . 'projects/edit/' . $project['project_id'] ?>" target="_blank">Edit </a></a></center></td>
-                              <td><center><a href="<?php echo SITE_ROOT . 'projects/delete/' . $project['project_id'] ?>">Delete</a></center></td>
+                              <td><center><a href="<?php echo SITE_ROOT . 'projects/untrash/' . $project['project_id'] ?>">Untrash</a></center></td>
                               
 
                             </tr>
@@ -124,7 +107,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Projects")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Browse")' ).parent();
+            var subListItem = listItem.find( 'ul li a:contains("Trash")' ).parent();
             listItem.addClass( 'active' );
             subListItem.addClass( 'active' );
 </script>
@@ -139,25 +122,6 @@
   }
 });
 </script>
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#delete-success").hide('blind', {}, 500)
-    }, 5000);
-});
-</script>
-
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#untrash-success").hide('blind', {}, 500)
-    }, 10000);
-});
-</script>
-
-<script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 
 </body>

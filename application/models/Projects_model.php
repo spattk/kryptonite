@@ -9,6 +9,7 @@ class Projects_model extends CI_Model {
 
 		$this->db->select( 'project_id, project_avatar, project_title, project_slug, project_desc, project_gallery_link' );
 		$this->db->from( 'projects' );
+		$this->db->where('project_trash' , '0');
 	    $this->db->order_by( 'project_id ' );
 
 	    $total_rows = $this->db->count_all_results( '', false );
@@ -72,6 +73,55 @@ class Projects_model extends CI_Model {
 		);
 
 		$this->db->insert('projects',$data);
+	}
+
+	public function deleteProjectById ( $project_id ) {
+
+		$this->db->set('project_trash', '1');
+		$this->db->where('project_id', $project_id);
+		$result = $this->db->update('projects');
+
+		return $result;
+	}
+
+	public function getTrashedProjects() {
+
+		$projects = array();
+
+		$this->db->select( 'project_id, project_avatar, project_title, project_slug, project_desc, project_gallery_link' );
+		$this->db->from( 'projects' );
+		$this->db->where('project_trash' , '1');
+	    $this->db->order_by( 'project_id ' );
+
+	    $total_rows = $this->db->count_all_results( '', false );
+
+	    $query = $this->db->get();
+
+	    if ( $query ) {
+
+	        if ( $query && $query->num_rows() > 0 ) {
+	            foreach( $query->result_array() as $row ) {
+	                $project['project_id'] = $row['project_id'];
+	                $project['project_avatar'] = $row['project_avatar'];
+	                $project['project_title'] = $row['project_title'];
+	                $project['project_desc'] = $row['project_desc'];
+	                $project['project_gallery_link'] = $row['project_gallery_link'];
+	                array_push( $projects, $project );
+	            }
+	        }
+	    }
+
+	    return array( 'total_rows' => $total_rows, 'projects' => $projects );
+
+	}
+
+	public function untrashProjectById ( $project_id ) {
+
+		$this->db->set('project_trash', '0');
+		$this->db->where('project_id', $project_id);
+		$result = $this->db->update('projects');
+
+		return $result;
 	}
 }
 
