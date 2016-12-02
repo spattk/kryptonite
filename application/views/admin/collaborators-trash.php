@@ -56,9 +56,9 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                           <tr>
-                            <th width="4%" bgcolor="#222D32" style="color: white"> <input id="selectAll" type="checkbox"> </th>
-                            <th bgcolor="#222D32" style="color: white">Name</th>
-                            <th bgcolor="#222D32" style="color: white">Webiste</th>
+                            <th width="4%"> <input id="selectAll" type="checkbox"> </th>
+                            <th bgcolor="gray">Name</th>
+                            <th bgcolor="red">Webiste</th>
                           </tr>
                           <tr class="bulk-actions collapse">
                               <td colspan="4">
@@ -67,22 +67,6 @@
                           </tr>
                         </thead>
                         <form id="team-list" method="post">
-                            <?php 
-                                if( $deleted ) {
-                                  
-                                  echo 
-                                   '<div class="form-group" class="col-md-12" class="btn btn-success" style="background-color:green;padding:10px;color:white" id="delete-success">' ?>
-                                                     <?php echo "Your post has been added to trash ." ?>
-                                                  <?php echo '</div>';
-
-                                                  echo
-                                                  '<div class="form-group" class="col-md-12" class="btn btn-default" style="background-color:blue;padding: 10px;color: white" id="untrash-success">' ?>
-                                                     <?php echo "Deleted by Mistake ?" ?>
-                                                     <a href="<?php echo SITE_ROOT . 'collaborators/trash' ?>" style="color: red; font-weight: bold" target="_blank">Untrash</a>
-                                                  <?php echo '</div>'; 
-                                               }  
-                              ?>
-
                             <tbody>
                             <?php if ( count($collaborators)==0 ): ?>
                             <tr><td></td><td>No Collaborators.</td></tr>
@@ -98,7 +82,7 @@
                               
                               <td></td>
                               <td ><center><a href="<?php echo SITE_ROOT . 'collaborators/edit/' . $collaborator['collaborator_id'] ?>" target="_blank">Edit </a></center></td>
-                              <td ><center><a href="<?php echo SITE_ROOT . 'collaborators/delete/' . $collaborator['collaborator_id'] ?>">Delete</a></center></td>
+                              <td ><center><a href="<?php echo SITE_ROOT . 'collaborators/untrash/' . $collaborator['collaborator_id'] ?>">Untrash</a></center></td>
                               
 
                             </tr>
@@ -121,7 +105,7 @@
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Collaborators")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Browse")' ).parent();
+            var subListItem = listItem.find( 'ul li a:contains("Trash")' ).parent();
             listItem.addClass( 'active' );
             subListItem.addClass( 'active' );
 </script>
@@ -136,24 +120,6 @@
   }
 });
 </script>
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#delete-success").hide('blind', {}, 500)
-    }, 5000);
-});
-</script>
-
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#untrash-success").hide('blind', {}, 500)
-    }, 10000);
-});
-</script>
-<script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 
 </body>

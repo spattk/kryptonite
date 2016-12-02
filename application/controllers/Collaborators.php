@@ -44,9 +44,15 @@ class Collaborators extends CI_Controller {
 		}
 	}
 
-	public function browse() {
+	public function browse( $var = false ) {
 
 		$this->checkLogin();
+
+		if( $var )
+			$data['deleted'] = true;
+
+		else 
+			$data['deleted'] = false;
 		
 		$collaborators = array();
 		$collaborators = $this->collaborators_model->getCollaborators();
@@ -136,6 +142,46 @@ class Collaborators extends CI_Controller {
 			show_404();
 		}
 
+	}
+
+	public function delete( $collaborator_id = NULL ) {
+
+		if( $collaborator_id != NULL )
+		$result = $this->collaborators_model->deleteCollaboratorById( $collaborator_id );
+
+		if( $result ) {
+
+			redirect('collaborators/browse/true');
+		}
+	}
+
+	public function trash() {
+
+		$this->checkLogin();
+
+		$collaborators = array();
+		$collaborators = $this->collaborators_model->getTrashedCollaborators();
+
+		$data['collaborators'] = $collaborators['collaborators'];
+
+		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+		$this->load->view( 'admin/collaborators-trash', $data );	
+	}
+
+	public function untrash ( $collaborator_id = NULL ) {
+
+		$this->checkLogin();
+
+		if( $collaborator_id != NULL )
+			$result = $this->collaborators_model->untrashCollaboratorById( $collaborator_id );
+
+		if( $result ) {
+			redirect('collaborators/trash');
+		}
 	}
 
 }

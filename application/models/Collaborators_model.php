@@ -9,6 +9,7 @@ class Collaborators_model extends CI_Model {
 
 		$this->db->select( 'collaborator_id, collaborator_name, collaborator_website' );
 		$this->db->from( 'collaborators' );
+		$this->db->where('collaborator_trash','0');
 	    $this->db->order_by( 'collaborator_id ' );
 
 	    $total_rows = $this->db->count_all_results( '', false );
@@ -65,6 +66,52 @@ class Collaborators_model extends CI_Model {
 		);
 
 		$this->db->insert('collaborators', $data);
+	}
+
+	public function deleteCollaboratorById ( $collaborator_id ) {
+
+		$this->db->set('collaborator_trash', '1');
+		$this->db->where('collaborator_id', $collaborator_id);
+		$result = $this->db->update('collaborators');
+
+		return $result;
+	}
+
+	public function getTrashedCollaborators() {
+
+		$collaborators = array();
+
+		$this->db->select( 'collaborator_id, collaborator_name, collaborator_website' );
+		$this->db->from( 'collaborators' );
+		$this->db->where('collaborator_trash','1');
+	    $this->db->order_by( 'collaborator_id ' );
+
+	    $total_rows = $this->db->count_all_results( '', false );
+
+	    $query = $this->db->get();
+
+	    if ( $query ) {
+
+	        if ( $query && $query->num_rows() > 0 ) {
+	            foreach( $query->result_array() as $row ) {
+	                $collaborator['collaborator_id'] = $row['collaborator_id'];
+	                $collaborator['collaborator_name'] = $row['collaborator_name'];
+	                $collaborator['collaborator_website'] = $row['collaborator_website'];
+	                array_push( $collaborators, $collaborator );
+	            }
+	        }
+	    }
+
+	    return array( 'total_rows' => $total_rows, 'collaborators' => $collaborators );
+	}
+
+	public function untrashCollaboratorById( $collaborator_id ) {
+
+		$this->db->set('collaborator_trash', '0');
+		$this->db->where('collaborator_id', $collaborator_id);
+		$result = $this->db->update('collaborators');
+
+		return $result;
 	}
 }
 
