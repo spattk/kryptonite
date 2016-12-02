@@ -69,23 +69,6 @@
                           </tr>
                         </thead>
                         <form id="team-list" method="post">
-
-                            <?php 
-                                if( $deleted ) {
-                                  
-                                  echo 
-                                   '<div class="form-group" class="col-md-12" class="btn btn-success" style="background-color:green;padding:10px;color:white" id="delete-success">' ?>
-                                                     <?php echo "Your post has been added to trash ." ?>
-                                                  <?php echo '</div>';
-
-                                                  echo
-                                                  '<div class="form-group" class="col-md-12" class="btn btn-default" style="background-color:blue;padding: 10px;color: white" id="untrash-success">' ?>
-                                                     <?php echo "Deleted by Mistake ?" ?>
-                                                     <a href="<?php echo SITE_ROOT . 'sectors/trash' ?>" style="color: red; font-weight: bold" target="_blank">Untrash</a>
-                                                  <?php echo '</div>'; 
-                                               }  
-                              ?>
-
                             <tbody>
                             <?php if ( count($teams)==0 ): ?>
                             <tr><td></td><td>No team.</td></tr>
@@ -103,7 +86,7 @@
                               
                               <td></td>
                               <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'team/edit/' . $team['post_holder_id'] ?>" target="_blank">Edit </a></center></td>
-                              <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'team/delete/' . $team['post_holder_id'] ?>">Delete</a></center></td>
+                              <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'team/untrash/' . $team['post_holder_id'] ?>">Untrash </a></center></td>
                               
 
                             </tr>
@@ -123,11 +106,10 @@
   </div>
 
 <script src="<?php echo ASSETS_URL?>js/jquery.min.js"></script>
-<script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Post Holders")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Browse")' ).parent();
+            var subListItem = listItem.find( 'ul li a:contains("Trash")' ).parent();
             listItem.addClass( 'active' );
             subListItem.addClass( 'active' );
 </script>
@@ -140,23 +122,6 @@
   else {
     $(this).closest('tr').next('tr').addClass("hidden");
   }
-});
-</script>
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#delete-success").hide('blind', {}, 500)
-    }, 5000);
-});
-</script>
-
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#untrash-success").hide('blind', {}, 500)
-    }, 10000);
 });
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>

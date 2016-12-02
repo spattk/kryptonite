@@ -47,9 +47,15 @@ class Team extends CI_Controller {
 		}
 	}
 
-	public function browse() {
+	public function browse( $var = false ) {
 
 		$this->checkLogin();
+
+		if( $var )
+			$data['deleted'] = true;
+
+		else
+			$data['deleted'] = false;
 
 		$teams = array();
 		$teams = $this->team_model->getTeam();
@@ -150,4 +156,44 @@ class Team extends CI_Controller {
 		}
 
 	}
+
+	public function delete( $post_holder_id = NULL ) {
+
+		if( $post_holder_id != NULL )
+		$result = $this->team_model->deleteTeamById( $post_holder_id );
+
+		if( $result ) {
+
+			redirect('team/browse/true');
+		}
+	}
+
+	public function trash() {
+
+		$this->checkLogin();
+
+		$teams = array();
+		$teams = $this->team_model->getTrashedTeam();
+
+		$data['teams'] = $teams['teams'];
+
+		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+		$this->load->view( 'admin/team-trash', $data );	
+	}
+
+	public function untrash ( $post_holder_id = NULL ) {
+
+		$this->checkLogin();
+
+		if( $post_holder_id != NULL )
+			$result = $this->team_model->untrashTeamById( $post_holder_id );
+
+		if( $result ) {
+			redirect('team/trash');
+		}
+	} 
 }
