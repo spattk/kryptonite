@@ -37,6 +37,9 @@
 
 ###Features to be updated
 
+- [ ] Make a deleted global variable to show that one of the post from the browse has been deleted (It's implemented now with the use of a parameter in the browse function , change it to without parameter)
+- [ ] On clicking delete show confirm delete alert
+- [ ] Add transition to the edit and delete of Admin Panel
 - [ ] Add delete functionality to every section
 - [ ] Make the user detail who logged in dynamic instead of Sitesh
 - [ ] Change the link of left side AASRA to point to dashboard
