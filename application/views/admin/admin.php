@@ -29,7 +29,7 @@
         <br>
         <center><h1>Welcome Admin</h1></center>
         <br>
-        <div class="col-md-4 col-md-offset-4" style="border:2px dotted #233140">
+        <div class="col-md-4 col-md-offset-4" style="border:1px solid #233140; padding: 15px;">
             <form id="login" method="post" action="<?php echo SITE_ROOT . 'admin' ?>">
             <div >
                 <div>
