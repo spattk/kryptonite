@@ -1,7 +1,7 @@
 <header class="main-header">
 
     <!-- Logo -->
-    <a href="index.html" class="logo">
+    <a href="<?php echo SITE_ROOT . 'dashboard' ?>" class="logo">
       
       <!-- logo for regular state and mobile devices -->
       <span class="logo-lg">AASRA</span>
