@@ -9,6 +9,7 @@ class People_model extends CI_Model {
 
 		$this->db->select( 'people_id, people_name, people_desg, people_speech' );
 		$this->db->from( 'people' );
+		$this->db->where( 'people_trash', '0' );
 	    $this->db->order_by( 'people_id ' );
 
 	    $total_rows = $this->db->count_all_results( '', false );
@@ -72,6 +73,53 @@ class People_model extends CI_Model {
 		);
 
 		$this->db->insert('people', $data);
+	}
+
+	public function getTrashedPeople () {
+
+		$peoples = array();
+
+		$this->db->select( 'people_id, people_name, people_desg, people_speech' );
+		$this->db->from( 'people' );
+		$this->db->where( 'people_trash', '1' );
+	    $this->db->order_by( 'people_id ' );
+
+	    $total_rows = $this->db->count_all_results( '', false );
+
+	    $query = $this->db->get();
+
+	    if ( $query ) {
+
+	        if ( $query && $query->num_rows() > 0 ) {
+	            foreach( $query->result_array() as $row ) {
+	                $people['people_id'] = $row['people_id'];
+	                $people['people_name'] = $row['people_name'];
+	                $people['people_desg'] = $row['people_desg'];
+	                $people['people_speech'] = $row['people_speech'];
+	                array_push( $peoples, $people );
+	            }
+	     	}
+		}
+		 return array( 'total_rows' => $total_rows, 'peoples' => $peoples );
+	}
+
+	public function deletePeopleById( $people_id ) {
+
+		$this->db->set('people_trash', '1');
+		$this->db->where('people_id', $people_id);
+		$result = $this->db->update('people');
+
+		return $result;
+	}
+
+	public function untrashPeopleById ( $people_id ) {
+
+
+		$this->db->set('people_trash', '0');
+		$this->db->where('people_id', $people_id);
+		$result = $this->db->update('people');
+
+		return $result;
 	}
 }
 

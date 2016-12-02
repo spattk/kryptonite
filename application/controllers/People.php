@@ -47,10 +47,16 @@ class People extends CI_Controller {
 		}
 	}
 
-	public function browse() {
+	public function browse( $var = false ) {
 
 		$this->checkLogin();
 
+		if( $var )
+			$data['deleted'] = true;
+
+		else
+			$data['deleted'] = false;
+		
 		$peoples = array();
 		$peoples = $this->people_model->getPeople();
 
@@ -143,6 +149,46 @@ class People extends CI_Controller {
 			show_404();
 		}
 		
+	}
+
+	public function delete ( $people_id ) {
+
+		if( $people_id != NULL )
+		$result = $this->people_model->deletePeopleById( $people_id );
+
+		if( $result ) {
+
+			redirect('people/browse/true');
+		}
+	}
+
+	public function trash() {
+
+		$this->checkLogin();
+
+		$peoples = array();
+		$peoples = $this->people_model->getTrashedPeople();
+
+		$data['peoples'] = $peoples['peoples'];
+
+		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+		$this->load->view( 'admin/people-trash', $data );	
+	}
+
+	public function untrash ( $people_id = NULL ) {
+
+		$this->checkLogin();
+
+		if( $people_id != NULL )
+			$result = $this->people_model->untrashPeopleById( $people_id );
+
+		if( $result ) {
+			redirect('people/trash');
+		}
 	}
 
 }
