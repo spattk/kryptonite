@@ -39,9 +39,14 @@ class Sectors extends CI_Controller {
 		
 	}
 
-	public function browse() {
+	public function browse( $var = false ) {
 
 		$this->checkLogin();
+
+		if( $var == true )
+			$data['deleted'] = true;
+		else
+			$data['deleted'] = false;
 
 		$sectors = array();
 		$sectors = $this->sector_model->getSectors();
@@ -224,7 +229,41 @@ class Sectors extends CI_Controller {
 	public function delete( $sector_id = NULL ) {
 
 		if( $sector_id != NULL )
-		$this->sector_model->deleteSectorById( $sector_id );
+		$result = $this->sector_model->deleteSectorById( $sector_id );
+
+		if( $result ) {
+
+			redirect('sectors/browse/true');
+		}
+	}
+
+	public function trash() {
+
+		$this->checkLogin();
+
+		$sectors = array();
+		$sectors = $this->sector_model->getTrashedSectors();
+
+		$data['sectors'] = $sectors['sectors'];
+
+		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+		$this->load->view( 'admin/sectors-trash', $data );	
+	}
+
+	public function untrash ( $sector_id = NULL ) {
+
+		$this->checkLogin();
+
+		if( $sector_id != NULL )
+			$result = $this->sector_model->untrashSectorById( $sector_id );
+
+		if( $result ) {
+			redirect('sectors/trash');
+		}
 	}
 
 }

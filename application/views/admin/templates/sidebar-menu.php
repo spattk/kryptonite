@@ -11,6 +11,7 @@
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>events/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>events/addnew">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>events/trash">Trash</a></li>
               </ul>
           </li>
 
@@ -22,7 +23,7 @@
                -->
                   <li><a href="<?php echo SITE_ROOT ?>sectors/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>sectors/addnew">Add New</a></li>
-                  
+                  <li><a href="<?php echo SITE_ROOT ?>sectors/trash">Trash</a></li>
                   
               </ul>
           </li>
@@ -32,6 +33,7 @@
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>projects/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>projects/addnew">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>projects/trash">Trash</a></li>
               </ul>
           </li>
 
@@ -40,6 +42,7 @@
               <ul class="treeview-menu">
                   <li><a href="">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>gallery/addnew">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>gallery/trash">Trash</a></li>
               </ul>
           </li>
 
@@ -48,6 +51,7 @@
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>team/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>team/addnew">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>team/trash">Trash</a></li>
               </ul>
           </li>
 
@@ -56,6 +60,7 @@
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>people/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>people/addnew">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>people/trash">Trash</a></li>
               </ul>
           </li>
 
@@ -64,6 +69,7 @@
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>collaborators/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>collaborators/addnew">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>collaborators/trash">Trash</a></li>
               </ul>
           </li>
 

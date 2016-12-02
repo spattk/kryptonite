@@ -169,7 +169,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Sector Avatar</label>
+                              <label>Sector Avatar</label>         
                                 <input type="file" name="uploadFile" id="uploadFile" class="form-control" value="<?php echo $sector_avatar; ?>">
                                 <br>
                                 <div id="imagePreview" class="col-xs-12"></div>

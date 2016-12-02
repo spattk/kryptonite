@@ -121,7 +121,52 @@ class Sector_model extends CI_Model {
 
 		$this->db->set('sector_trash', '1');
 		$this->db->where('sector_id', $sector_id);
-		$this->db->update('sectors');
+		$result = $this->db->update('sectors');
+
+		return $result;
+	}
+
+	public function getTrashedSectors() {
+
+		$sectors = array();
+
+		$this->db->select('*');
+		$this->db->from('sectors');
+		$this->db->where('sector_trash', '1');
+		$query = $this->db->get();
+	    $total_rows = $this->db->count_all_results( '', false );
+
+	    
+
+	    if ( $query ) {
+
+	        if ( $query && $query->num_rows() > 0 ) {
+	            foreach( $query->result_array() as $row ) {
+	                $sector['sector_id'] = $row['sector_id'];
+	                $sector['sector_slug'] = $row['sector_slug'];
+	                $sector['sector_avatar'] = $row['sector_avatar'];
+	                $sector['sector_name'] = $row['sector_name'];
+	                $sector['sector_captain_name'] = $row['sector_captain_name'];
+	                $sector['sector_vc_name'] = $row['sector_vc_name'];
+	                $sector['sector_captain_phone'] = $row['sector_captain_phone'];
+
+
+	                array_push( $sectors, $sector );
+	            }
+	        }
+	    }
+
+	    return array( 'total_rows' => $total_rows, 'sectors' => $sectors );
+
+	}
+
+	public function untrashSectorById( $sector_id ) {
+
+		$this->db->set('sector_trash', '0');
+		$this->db->where('sector_id', $sector_id);
+		$result = $this->db->update('sectors');
+
+		return $result;
 	}
 }
 
