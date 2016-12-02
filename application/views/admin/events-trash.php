@@ -70,23 +70,6 @@
                           </tr>
                         </thead>
                         <form id="events-list" method="post">
-
-                            <?php 
-                                if( $deleted ) {
-                                  
-                                  echo 
-                                   '<div class="form-group" class="col-md-12" class="btn btn-success" style="background-color:green;padding:10px;color:white" id="delete-success">' ?>
-                                                     <?php echo "Your post has been added to trash ." ?>
-                                                  <?php echo '</div>';
-
-                                                  echo
-                                                  '<div class="form-group" class="col-md-12" class="btn btn-default" style="background-color:blue;padding: 10px;color: white" id="untrash-success">' ?>
-                                                     <?php echo "Deleted by Mistake ?" ?>
-                                                     <a href="<?php echo SITE_ROOT . 'events/trash' ?>" style="color: red; font-weight: bold" target="_blank">Untrash</a>
-                                                  <?php echo '</div>'; 
-                                               }  
-                              ?>
-
                             <tbody>
                             <?php if ( count($events)==0 ): ?>
                             <tr><td></td><td>No events.</td></tr>
@@ -106,7 +89,7 @@
                               
                               <td></td>
                               <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'events/edit/' . $event['event_id'] ?>" target="_blank"> Edit </a></center></td>
-                              <td colspan="3"><center><a href="<?php echo SITE_ROOT . 'events/delete/' . $event['event_id'] ?>">Delete </a></center></td>
+                              <td colspan="3"><center><a href="<?php echo SITE_ROOT . 'events/untrash/' . $event['event_id'] ?>">UnTrash</a></center></td>
                               
 
                             </tr>
@@ -126,32 +109,13 @@
   </div>
 
 <script src="<?php echo ASSETS_URL?>js/jquery.min.js"></script>
-<script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Events")' ).parent().parent();
-            var subListItem = listItem.find( 'ul li a:contains("Browse")' ).parent();
+            var subListItem = listItem.find( 'ul li a:contains("Trash")' ).parent();
             listItem.addClass( 'active' );
             subListItem.addClass( 'active' );
 </script>
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#delete-success").hide('blind', {}, 500)
-    }, 5000);
-});
-</script>
-
-
-<script type="text/javascript"> 
-      $(document).ready( function() {
-        setTimeout(function() {
-        $("#untrash-success").hide('blind', {}, 500)
-    }, 10000);
-});
-</script>
-
 <script type="text/javascript">
   $( "tr.more-options" ).click(function () {
   if ( $(this).closest('tr').next('tr').is( ":hidden" ) ) {

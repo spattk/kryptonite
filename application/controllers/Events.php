@@ -21,9 +21,14 @@ class Events extends CI_Controller {
 		show_404();	// List of events can be displayed instead
 	}
 
-	public function browse() {
+	public function browse( $var = false ) {
 
 		$this->checkLogin();
+
+		if( $var == true )
+			$data['deleted'] = true;
+		else
+			$data['deleted'] = false;
 
 		$events = array();
 		$events = $this->event_model->getEvents();
@@ -152,6 +157,46 @@ class Events extends CI_Controller {
 			show_404();
 		}
 		
+	}
+
+	public function delete( $event_id = NULL ) {
+
+		if( $event_id != NULL )
+		$result = $this->event_model->deleteEventById( $event_id );
+
+		if( $result ) {
+
+			redirect('events/browse/true');
+		}
+	}
+
+	public function trash() {
+
+		$this->checkLogin();
+
+		$events = array();
+		$events = $this->event_model->getTrashedEvents();
+
+		$data['events'] = $events['events'];
+
+		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+		$this->load->view( 'admin/events-trash', $data );	
+	}
+
+	public function untrash ( $event_id = NULL ) {
+
+		$this->checkLogin();
+
+		if( $event_id != NULL )
+			$result = $this->event_model->untrashEventById( $event_id );
+
+		if( $result ) {
+			redirect('events/trash');
+		}
 	}
 
 
