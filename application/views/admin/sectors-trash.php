@@ -70,11 +70,11 @@
 					<table class="table table-bordered table-striped table-hover">
 						<thead>
 						  <tr>
-							<th width="4%"> <input id="selectAll" type="checkbox"> </th>
-							<th width="150px" bgcolor="gray">Sector</th>
-							<th width="100px" bgcolor="red">Captain Name</th>
-							<th width="100px" bgcolor="green">VC Name</th>
-							<th width="50px" bgcolor="pink">Captain Phone</th>
+							<th width="4%" bgcolor="#222D32" style="color: white"> <input id="selectAll" type="checkbox" > </th>
+							<th width="150px" bgcolor="#222D32" style="color: white">Sector</th>
+							<th width="100px" bgcolor="#222D32" style="color: white">Captain Name</th>
+							<th width="100px" bgcolor="#222D32" style="color: white">VC Name</th>
+							<th width="50px" bgcolor="#222D32" style="color: white">Captain Phone</th>
 						  </tr>
 						  <tr class="bulk-actions collapse">
 							  <td colspan="4">
