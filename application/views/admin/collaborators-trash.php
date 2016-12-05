@@ -56,9 +56,9 @@
                     <table class="table table-bordered table-hover">
                         <thead>
                           <tr>
-                            <th width="4%"> <input id="selectAll" type="checkbox"> </th>
-                            <th bgcolor="gray">Name</th>
-                            <th bgcolor="red">Webiste</th>
+                            <th width="4%" bgcolor="#222D32" style="color: white"> <input id="selectAll" type="checkbox"> </th>
+                            <th bgcolor="#222D32" style="color: white">Name</th>
+                            <th bgcolor="#222D32" style="color: white">Webiste</th>
                           </tr>
                           <tr class="bulk-actions collapse">
                               <td colspan="4">
