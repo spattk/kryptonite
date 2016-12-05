@@ -106,7 +106,7 @@
                               
                               <td></td>
                               <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'events/edit/' . $event['event_id'] ?>" target="_blank"> Edit </a></center></td>
-                              <td colspan="3"><center><a href="<?php echo SITE_ROOT . 'events/delete/' . $event['event_id'] ?>">Delete </a></center></td>
+                             <td colspan="3"><center><a href="javascript:void(0);" onclick="deleteConfirm(<?php echo $event['event_id']; ?>);">Delete</a></center></td>
                               
 
                             </tr>
@@ -162,6 +162,17 @@
     $(this).closest('tr').next('tr').addClass("hidden");
   }
 });
+</script>
+
+<script type="text/javascript">
+    var url="<?php echo base_url();?>";
+    function deleteConfirm(id){
+       var value = confirm("Do you want to delete this?")
+        if ( value == true )
+          window.location = url+"events/delete/"+id;
+        else
+          return false;
+        } 
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 

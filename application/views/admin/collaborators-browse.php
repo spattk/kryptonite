@@ -97,8 +97,8 @@
                             <tr class="hidden list-more-options" id="show-edit">
                               
                               <td></td>
-                              <td ><center><a href="<?php echo SITE_ROOT . 'collaborators/edit/' . $collaborator['collaborator_id'] ?>" target="_blank">Edit </a></center></td>
-                              <td ><center><a href="<?php echo SITE_ROOT . 'collaborators/delete/' . $collaborator['collaborator_id'] ?>">Delete</a></center></td>
+                              <td><center><a href="<?php echo SITE_ROOT . 'collaborators/edit/' . $collaborator['collaborator_id'] ?>" target="_blank">Edit</a></center></td>
+                              <td><center><a href="javascript:void(0);" onclick="deleteConfirm(<?php echo $collaborator['collaborator_id']; ?>);">Delete</a></center></td>
                               
 
                             </tr>
@@ -118,6 +118,7 @@
   </div>
 
 <script src="<?php echo ASSETS_URL?>js/jquery.min.js"></script>
+
 <script type="text/javascript">
             // Expand current navigation item
             var listItem = $( 'ul.sidebar-menu' ).find( 'li span:contains("Collaborators")' ).parent().parent();
@@ -153,6 +154,18 @@
     }, 10000);
 });
 </script>
+
+<script type="text/javascript">
+    var url="<?php echo base_url();?>";
+    function deleteConfirm(id){
+       var value = confirm("Do you want to delete this?")
+        if ( value == true )
+          window.location = url+"collaborators/delete/"+id;
+        else
+          return false;
+        } 
+</script>
+
 <script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 

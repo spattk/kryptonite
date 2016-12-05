@@ -118,7 +118,7 @@
 							  
 							  <td></td>
 							  <td colspan="2"><center><a href="<?php echo SITE_ROOT . 'sectors/edit/' . $sector['sector_id'] ?>" target="_blank"> Edit </a></center></td>
-							  <td colspan="3"><center><a href="<?php echo SITE_ROOT . 'sectors/delete/' . $sector['sector_id'] ?>">Delete</a></center></td>
+							  <td colspan="3"><center><a href="javascript:void(0);" onclick="deleteConfirm(<?php echo $sector['sector_id']; ?>);">Delete</a></center></td>
 							  
 
 							</tr>
@@ -175,6 +175,17 @@
         $("#untrash-success").hide('blind', {}, 500)
     }, 10000);
 });
+</script>
+
+<script type="text/javascript">
+    var url="<?php echo base_url();?>";
+    function deleteConfirm(id){
+       var value = confirm("Do you want to delete this?")
+        if ( value == true )
+          window.location = url+"sectors/delete/"+id;
+        else
+          return false;
+        } 
 </script>
 
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
