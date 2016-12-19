@@ -18,10 +18,6 @@ class Admin extends CI_Controller {
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 
-			var_dump($username);
-			var_dump($password);
-			var_dump($this->user_model->checkLogin( $username, $password ));
-
 			if( $this->user_model->checkLogin( $username, $password ) ){
 				redirect( base_url() . 'dashboard');
 			}
