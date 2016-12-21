@@ -12,8 +12,6 @@ class Sector_model extends CI_Model {
 		$query = $this->db->get();
 	    $total_rows = $this->db->count_all_results( '', false );
 
-	    
-
 	    if ( $query ) {
 
 	        if ( $query && $query->num_rows() > 0 ) {
@@ -61,6 +59,56 @@ class Sector_model extends CI_Model {
 			return $query->row_array();
 			
 		return false;	
+	}
+
+	public function getSectorStudents( $slug, $name, $class, $income, $category ) {
+
+		$students = array();
+
+		if( $name != NULL && $name != 'all' )
+			$this->db->like('student_name', $name);
+
+		if( $class != NULL && $class != 'all' )
+			$this->db->where('student_class', $class);
+
+		if( $income != NULL && $income != 'all' )
+			$this->db->where('student_income <', $income);
+
+		if( $category != NULL && $category != 'all' )
+			$this->db->where('student_category' , $category);
+
+		$this->db->select('student_id,student_name,student_class,student_class_year,student_income,student_category,student_category_certificate,student_aspire,student_voc_courses,student_other_talents,student_hobbies,student_performance');
+		$this->db->from('students');
+		$this->db->where('student_sector', $slug);
+
+		$query = $this->db->get();
+	    $total_rows = $this->db->count_all_results( '', false );
+
+	    if ( $query ) {
+
+	        if ( $query && $query->num_rows() > 0 ) {
+	            foreach( $query->result_array() as $row ) {
+	                $student['student_id'] = $row['student_id'];
+	                $student['student_name'] = $row['student_name'];
+	                $student['student_class'] = $row['student_class'];
+	                $student['student_class_year'] = $row['student_class_year'];
+	                $student['student_aspire'] = $row['student_aspire'];
+	                $student['student_income'] = $row['student_income'];
+	                $student['student_category'] = $row['student_category'];
+	                $student['student_category_certificate'] = $row['student_category_certificate'];
+	                $student['student_voc_courses'] = $row['student_voc_courses'];
+	                $student['student_other_talents'] = $row['student_other_talents'];
+	                $student['student_hobbies'] = $row['student_hobbies'];
+	                $student['student_performance'] = $row['student_performance'];
+
+	                array_push( $students, $student );
+	            }
+	        }
+	    }
+
+	    return array( 'total_rows' => $total_rows, 'students' => $students );
+
+		
 	}
 
 	public function updateSector( $update = array() ) {

@@ -61,8 +61,7 @@
             </div>
             <div class="container-fluid">
                 <div class="sector-gen-details">
-                    <p>
-                        
+                    <p>                        
                         <strong>General Details of the workplace :</strong><br>
                         Total No of students : <?php echo $sectors['sector_total_student'] ?><br>
                         Location : <?php echo $sectors['sector_location'] ?><br>
@@ -79,18 +78,18 @@
                       <center>
 
                         <div class="form-group col-md-2">
-                          <input type="text" name="" class="form-control" placeholder="Name ">
+                          <input type="text" name="name" class="form-control" placeholder="Name ">
                         </div>
                         <div class="form-group col-md-2">
-                          <input type="text" name="" class="form-control" placeholder="Class ">
-                        </div>
-
-                        <div class="form-group col-md-2">
-                          <input type="text" name="" class="form-control" placeholder="Income ">
+                          <input type="text" name="class" class="form-control" placeholder="Class ">
                         </div>
 
                         <div class="form-group col-md-2">
-                          <input type="text" name="" class="form-control" placeholder="Category ">
+                          <input type="text" name="income" class="form-control" placeholder="Income ">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                          <input type="text" name="category" class="form-control" placeholder="Category ">
                         </div>
 
                         <div class="form-group col-md-2">
@@ -105,66 +104,50 @@
                       </div>
                         <!-- Accordion -->
                         <div class="panel-group" id="accordion" style="clear: both;">
-                            <div class="panel panel-default">
 
-                                <div class="panel-heading">
-                                  <h4 class="panel-title">
-                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                                      Collapsible Group 1</a>
-                                  </h4>
-                                </div>
+                            <?php if ( count($students)==0 ): ?>
+                                <p style="margin-left: 15px;">No students.</p>
+                            <?php endif; ?>
+
+                            <?php foreach( $students as $student ) : ?>
+                                <div class="panel panel-default" >
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $student['student_id'] ?>">
+                                                <table>
+                                                    <tr>
+                                                        <td class="col-md-4"> <?php echo $student['student_name'] ?> </td>
+                                                        <td class="col-md-4"> Class : <?php echo $student['student_class'] ?> </td>
+                                                    </tr>
+                                                </table>
+                                            </a>
+                                        </h4>
+                                    </div>
+
+                                    <div id="collapse<?php echo $student['student_id'] ?>" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <h4>Aspire to be: <?php echo $student['student_aspire'] ?></h4> <br>
+
+                                            <h5>
+                                            Family Income : <?php echo $student['student_income'] ?> <br><br>
+
+                                            Category : <?php echo $student['student_category'] ?> <br><br>
+
+                                            Category Certificate Available : <?php echo $student['student_category_certificate'] ?> <br><br>
+
+                                            Vocational Courses done : <?php echo $student['student_voc_courses'] ?> <br><br>
+
+                                            Other Talents : <?php echo $student['student_other_talents'] ?> <br><br>
+
+                                            Hobbies : <?php echo $student['student_hobbies'] ?> <br><br>
+                                            </h5>
+                                        </div>
+                                    </div>                            
+                                </div>   
+                            <?php endforeach; ?>
+
                             
-                              <div id="collapse1" class="panel-collapse collapse"> 
-                                <!-- "in" is added in class to open it by default -->
-                                <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                commodo consequat.</div>
-                              </div>
 
-                          </div>
-
-                          <div class="panel panel-default">
-                              <div class="panel-heading">
-                                  <h4 class="panel-title">
-                                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-                                          <table>
-                                              <tr>
-                                                  <td class="col-md-4">hi</td>
-                                                  <td class="col-md-4">hello</td>
-                                                  <td class="col-md-4">bi</td>
-                                              </tr>
-                                          </table>
-                                      </a>
-                                  </h4>
-                              </div>
-
-                              <div id="collapse2" class="panel-collapse collapse">
-                                  <div class="panel-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                    commodo consequat.
-                                  </div>
-                              </div>                            
-                          </div>
-
-                          <div class="panel panel-default">
-                              <div class="panel-heading">
-                                  <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                                    Collapsible Group 3</a>
-                                  </h4>
-                              </div>
-                              <div id="collapse3" class="panel-collapse collapse">
-                                  <div class="panel-body">
-                                      Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                      sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                      commodo consequat.
-                                  </div>
-                              </div>
-                            </div>
                         </div>
                   </div>
                 <br>
@@ -199,6 +182,93 @@
 
     <!-- Theme JavaScript -->
     <script src="<?php echo ASSETS_URL?>js/freelancer.min.js"></script>
+
+    <script>
+        $( 'button[name="filter"]' ).click(function() {
+
+            console.log("hello");
+
+            var redirectTo = '';
+            var check = [];
+            var sname, sclass, sincome, scategory;
+            if( $( 'input[name="name"]' ).val() != '' ) {
+                sname = $( 'input[name="name"]' ).val() + '/';
+                check.push(1);
+            }
+
+            else {
+                sname = '';
+                check.push(0);
+            } 
+                
+
+            if( $( 'input[name="class"]' ).val() != '' ) {
+                sclass = $( 'input[name="class"]' ).val() + '/';
+                check.push(1);
+            }
+
+            else {
+                sclass = '';
+                check.push(0);
+            }
+
+            if( $( 'input[name="income"]' ).val() != '' ) {
+                sincome = $( 'input[name="income"]' ).val() + '/';
+                check.push(1);
+            }
+
+            else {
+                sincome = '';
+                check.push(0);
+            }
+
+            if( $( 'input[name="category"]' ).val() != '' ) {
+                scategory = $( 'input[name="category"]' ).val() + '/';
+                check.push(1);
+            }
+
+            else {
+                scategory = '';
+                check.push(0);
+            }
+
+            
+            var lastIndex = check.lastIndexOf(1);
+            var i;
+            for( i = 0 ; (i < lastIndex) && (check[i] == 0) ; i++ ) {
+
+                if ( i == 0 )
+                    sname = 'all/';
+                
+                else if( i == 1 )
+                    sclass = 'all/';
+
+                else if ( i == 2 )
+                    sincome = 'all/';
+
+                else if ( i == 3 )
+                    scategory = 'all/';
+            }
+
+            // console.log(check);
+            // console.log(sname);
+            // console.log(sclass);
+            // console.log(sincome);
+            // console.log(scategory);
+            // console.log(lastIndex);
+
+            redirectTo = '<?php echo SITE_ROOT; ?>sectors/index/'+ '<?php echo $sector_name;?>' + '/' + sname + sclass + sincome + scategory;
+
+            window.location = redirectTo;
+
+        });
+
+        $( 'button[name="reset"]' ).click(function() {
+
+            redirectTo = '<?php echo SITE_ROOT; ?>sectors/index/'+ '<?php echo $sector_name;?>' ;
+            window.location  = redirectTo;  
+        });
+    </script>
 
 </body>
 </html>

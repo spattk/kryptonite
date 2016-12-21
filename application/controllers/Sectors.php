@@ -18,7 +18,7 @@ class Sectors extends CI_Controller {
 
 	}
 
-	public function index( $sector ) {
+	public function index( $sector, $name = NULL, $class = NULL, $income = NULL, $category = NULL, $page = 1 ) {
 
 		if($sector == NULL) {
 			redirect(SITE_ROOT);
@@ -27,7 +27,12 @@ class Sectors extends CI_Controller {
 		else{
 		
 			$sectors = array();
+			$students = array();
+			$data['sector_name'] = $sector; //Not good try to find another way ASAP
 			$data['sectors'] = $this->sector_model->getSectorByName( $sector );
+
+			$students = $this->sector_model->getSectorStudents( $sector , $name , $class , $income , $category );
+			$data['students'] = $students['students'];
 
 			$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
 			$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
