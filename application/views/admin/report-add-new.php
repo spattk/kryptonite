@@ -118,7 +118,7 @@
                 <div class="member-box">
                     <div class="form-group" >
                         <div class="row" style="padding-bottom: 10px">
-                            <div class="col-md-11" style="border: 1px solid black;padding: 10px;">
+                            <div class="col-md-11" style="border: 2px solid black;padding: 10px;">
                                 <div class="form-group">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -133,10 +133,10 @@
                                 </div>
 
                                 <strong>Teaching</strong>
-                                <div class="teaching-box">
-                                    <div class="form-group" style="border: 1px solid black;padding-left: 25px;padding-top: 10px; padding-bottom: 10px">
+                                <div class="teaching-box" id="tbox[1][1]">
+                                    <div class="form-group" style="border: 1px dotted black;padding-left: 25px;padding-top: 10px; padding-bottom: 10px">
                                         <div class="row" style="padding-bottom: 10px;">
-                                            <div class="col-md-11" style="border: 1px solid black;padding: 10px; ">
+                                            <div class="col-md-11" style="border: 1px dotted black;padding: 10px; ">
                                                 <div class="form-group">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -166,19 +166,20 @@
 
                                             <div class="col-md-1" style="top: 130px;padding: 5px;">
                                                 <div class="input-group-btn">
-                                                    <button type="button" class="btn btn-warning" onclick="addTeaching()" ><i class="fa fa-plus"></i></button>
+                                                    <button type="button" class="btn btn-warning" onclick="addTeaching(this)" ><i class="fa fa-plus"></i></button>
                                                 </div>
                                             </div>
 
                                         </div>
                                     </div>
                                 </div>
-                                <div class="teaching-box-placeholder"></div>
+                                <div class="teaching-box-placeholder"></div> 
+                                <!-- This is the problem so it needs to be added to the end of respective objects. -->
                             </div>
                             <div class="col-md-1" style=";padding-left: 5px;padding-right: 5px; top: 285px;">
                                 <div class="input-group top-padding" >
 
-                                    <span class="input-group-addon  placement-addon top-padding">
+                                    <span class="input-group-addon  top-padding">
                                         <input name="count0" class="form-control input-sm" value="1" type="text" style="width: 50px;border-left: 1px;">
                                     </span>
 
