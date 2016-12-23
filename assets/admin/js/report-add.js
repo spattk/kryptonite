@@ -3,7 +3,6 @@ function addTeaching(obj) {
 	var teaching = '<div class="teaching-box"><div class="form-group" style="border: 1px dotted black;padding-left: 25px;padding-top: 10px; padding-bottom: 10px"><div class="row" style="padding-bottom: 10px;"><div class="col-md-11" style="border: 1px dotted black;padding: 10px; "><div class="form-group"><div class="row"><div class="col-md-6"><label>Name of the student (if specific) </label><input type="text" name="" class="form-control"></div><div class="col-md-6"><label>Class taught </label><input type="text" name="" class="form-control"></div></div></div><div class="form-group"><div class="row"><div class="col-md-6"><label>Name of chapter taught </label><input type="text" name="" class="form-control"></div><div class="col-md-6"><label>Name of subject taught</label><input type="text" name="" class="form-control"></div></div></div></div><div class="col-md-1" style="top: 130px;padding: 5px;"><div class="input-group-btn"><button type="button" class="btn btn-warning" onclick="removeTeaching(this)" ><i class="fa fa-minus"></i></button></div></div></div></div></div>';
 
 	 $( 'div.teaching-box-placeholder' ).append( teaching );
-	 console.log($(this).closest('div'));
 
 }
 
