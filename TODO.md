@@ -3,16 +3,16 @@
 ## TOP PRIORITY TASKS
  - [ ] Image resizing
  - [ ] Gallery module
- - [ ] Profiling
- - [ ] Discuss the fortnight report thing on the forum
- - [ ] Discuss the profiling to the team and others.
+ - [x] Profiling
+ - [x] Discuss the fortnight report thing on the forum
+ - [x] Discuss the profiling to the team and others.
 
 ##FRONT-END DESIGN
 
 ###New features to design
 
 - [x] Fortnight Report Layout and Wireframing
-- [ ] Add Filters and Pagination to the profiling of student in each sectors page
+- [ ] Add Pagination to the profiling of student in each sectors page
 - [ ] Add styling to team members that one (dont remember the name )
 - [ ] Design Gallery Page
 
