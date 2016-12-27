@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Gallery Page Redirection</title>
+	<title>Gallery Category</title>
 	
 	<!-- Bootstrap Core CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
@@ -21,75 +21,24 @@
 	<?php echo $nav ; ?>
 
 	<div class="container gallery-mid">
+
+		<?php if ( count($albums)==0 ): ?>
+            <li>No Albums.</li>
+        <?php endif; ?>
+
+        <?php foreach( $albums as $album ) : ?>
 		<div class="col-md-3 first">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
+			<a href="<?php echo SITE_ROOT?>gallery/view/<?php echo $album['album_slug']?>">
+				<img src="<?php echo GALLERY_URL_ADMIN?>img/<?php echo $album['album_cover_image'] ?>" width="100%">
 			</a>
-			<p>name of the event</p>
+			<center><p><?php echo $album['album_name'] ?></p></center>
 		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
-		<div class="col-md-3">
-			<a href="gallery.html">
-				<img src="assets/img/1-375.jpg" width="100%">
-			</a>
-			<p>name of the event</p>
-		</div>
+		<?php endforeach; ?>
 	</div>
 
 	<!-- Footer -->
+	<div style="position: absolute;bottom: 0;width: 100%">
 	<?php echo $footer ; ?>
+	</div>
 </body>
 </html>

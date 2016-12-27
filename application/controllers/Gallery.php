@@ -22,6 +22,9 @@ class Gallery extends CI_Controller {
 		$data['nav'] = $this->load->view('templates/other-nav', '' , TRUE);
 		$data['footer'] = $this->load->view('templates/footer', '' , TRUE);
 
+		//List all the available albums
+		$albums = $this->gallery_model->getAlbumsAll();
+		$data['albums'] = $albums['albums'];
 		$this->load->view( 'gallery/gallery', $data );
 	}
 
@@ -43,4 +46,20 @@ class Gallery extends CI_Controller {
 		
 		$this->load->view( 'admin/gallery-add-new', $data );
 	}
+
+	public function view( $slug ) {
+
+		$images = array();
+
+		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
+		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
+		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
+		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
+
+		$data['albums'] = $this->gallery_model->getImages( $slug );
+
+		$this->load->view( 'gallery/gallery-redirect', $data );
+	}
 }
+
+?>
