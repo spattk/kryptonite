@@ -29,6 +29,15 @@
           </li>
 
           <li class="treeview">
+              <a href=""><i class="fa fa-link"></i> <span>Students</span></a>
+              <ul class="treeview-menu">
+                  <li><a href="<?php echo SITE_ROOT ?>student/browse">Browse</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>student/addnew">Add New</a></li>
+                  <li><a href="<?php echo SITE_ROOT ?>student/trash">Trash</a></li>
+              </ul>
+          </li>
+
+          <li class="treeview">
               <a href=""><i class="fa fa-link"></i> <span>Projects</span></a>
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>projects/browse">Browse</a></li>
