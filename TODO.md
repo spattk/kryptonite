@@ -43,16 +43,16 @@
 - [ ] Design back-end (insert function with JSON implementations) for gallery and student profiling. 
 - [ ] Add caching system
 - [x] Add trash feature to every section
-
+- [ ] In the edit post page, show the image using "img" tag and there should be remove image and after removal of the image "input" for new image to be shown (not prior to that). 
 ###Features to be updated
 
 - [ ] Make a deleted global variable to show that one of the post from the browse has been deleted (It's implemented now with the use of a parameter in the browse function , change it to without parameter)
 - [x] On clicking delete show confirm delete alert
-- [ ] Add transition to the edit and delete of Admin Panel
+- [x] Add transition to the edit and delete of Admin Panel
 - [x] Add delete functionality to every section
 - [ ] Make the user detail who logged in dynamic instead of Sitesh
 - [x] Change the link of left side AASRA to point to dashboard
-- [ ] Change the fa-icons on the left of each section
+- [x] Change the fa-icons on the left of each section
 
 ###Important Fixes
 
