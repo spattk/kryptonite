@@ -260,21 +260,34 @@
                             No Speech.
                         <?php endif; ?>
 
-                        <?php foreach( $peoples as $people ) : ?>
-
-                            <div class="item" id="people<?php echo $people['people_id'] ?>">
+                            <div class="item active" id="people<?php echo $peoples[0]['people_id'] ?>">
                                 <div >
-                                    <img src="assets/img/1-375.jpg" alt="..." ">
+                                    <img src="<?php echo ASSETS_URL ?>img/<?php echo $peoples[0]['people_avatar'] ?>" alt="..." ">
                                 </div>
 
                                 <div class="carousel-caption col-md-5 col-md-offset-2 people-cap" >
-                                    <h4><?php echo $people['people_name'] ?></h4>
+                                    <h4><?php echo $peoples[0]['people_name'] ?></h4>
                                     <br>
-                                    <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  -->
-                                    <?php echo $people['people_speech'] ?>
+                                    <?php echo $peoples[0]['people_speech'] ?>
                                 </div>
                             </div>
-                        <?php endforeach; ?>
+
+                        <?php for ($i=1; $i <count($peoples) ; $i++) : ?>
+                            <div class="item" id="people<?php echo $peoples[$i]['people_id'] ?>">
+                                <div >
+                                    <img src="<?php echo ASSETS_URL ?>img/<?php echo $peoples[$i]['people_avatar'] ?>" alt="..." ">
+                                </div>
+
+                                <div class="carousel-caption col-md-5 col-md-offset-2 people-cap" >
+                                    <h4><?php echo $peoples[$i]['people_name'] ?></h4>
+                                    <br>
+                                    <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  -->
+                                    <?php echo $peoples[$i]['people_speech'] ?>
+                                </div>
+                            </div>
+                        <?php endfor;?>
+                        <!-- It is repaired temporarilly using the above kam-chalay code-->
+                        
                     
                         
                         

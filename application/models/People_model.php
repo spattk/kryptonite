@@ -7,7 +7,7 @@ class People_model extends CI_Model {
 
 		$peoples = array();
 
-		$this->db->select( 'people_id, people_name, people_desg, people_speech' );
+		$this->db->select( 'people_id, people_name, people_desg, people_speech , people_avatar' );
 		$this->db->from( 'people' );
 		$this->db->where( 'people_trash', '0' );
 	    $this->db->order_by( 'people_id ' );
@@ -24,6 +24,7 @@ class People_model extends CI_Model {
 	                $people['people_name'] = $row['people_name'];
 	                $people['people_desg'] = $row['people_desg'];
 	                $people['people_speech'] = $row['people_speech'];
+	                $people['people_avatar'] = $row['people_avatar'];
 	                array_push( $peoples, $people );
 	            }
 	        }
