@@ -7,7 +7,7 @@
           </li>
 
           <li>
-              <a href=""><i class="fa fa-link" aria-hidden="true"></i> <span>Events</span></a>
+              <a href=""><i class="fa fa-calendar" aria-hidden="true"></i> <span>Events</span></a>
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>events/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>events/addnew">Add New</a></li>
@@ -29,7 +29,7 @@
           </li>
 
           <li class="treeview">
-              <a href=""><i class="fa fa-link"></i> <span>Students</span></a>
+              <a href=""><i class="fa fa-graduation-cap"></i> <span>Students</span></a>
               <ul class="treeview-menu">
                   <li><a href="<?php echo SITE_ROOT ?>student/browse">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>student/addnew">Add New</a></li>
@@ -47,7 +47,7 @@
           </li>
 
           <li class="treeview">
-              <a href=""><i class="fa fa-link"></i> <span>Gallery</span></a>
+              <a href=""><i class="fa fa-picture-o"></i> <span>Gallery</span></a>
               <ul class="treeview-menu">
                   <li><a href="">Browse</a></li>
                   <li><a href="<?php echo SITE_ROOT ?>gallery/addnew">Add New</a></li>
@@ -83,6 +83,6 @@
           </li>
 
           <li class="treeview">
-              <a href="<?php echo SITE_ROOT ?>blog/edit/1"><i class="fa fa-link"></i> <span>Blog Link</span></a>
+              <a href="<?php echo SITE_ROOT ?>blog/edit/1"><i class="fa fa-rss"></i> <span>Blog Link</span></a>
           </li>
       </ul>
