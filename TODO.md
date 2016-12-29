@@ -2,7 +2,7 @@
 
 ## TOP PRIORITY TASKS
  - [ ] Image resizing
- - [ ] Gallery module
+ - [x] Gallery module
  - [x] Profiling
  - [x] Discuss the fortnight report thing on the forum
  - [x] Discuss the profiling to the team and others.
@@ -18,6 +18,7 @@
 
 ###Features to be updated
 
+- [ ] when you are not logged in and try to open some admin page, you are redirected to login page and after login it should be redirected to the requested page (which is now set to default as dashboard) using $_SERVER['HTTP_HOST'] & $_SERVER['REQUEST_URI'].
 - [ ] Add routing to sector/index/sector-2 to sector/sector-2
 - [ ] Make people speak image dynamic
 - [ ] Make the working of contact us mail service
@@ -39,6 +40,7 @@
 
 ###New features to design
 
+- [ ] Design back-end (insert function with JSON implementations) for gallery and student profiling. 
 - [ ] Add caching system
 - [x] Add trash feature to every section
 
