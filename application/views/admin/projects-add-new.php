@@ -65,7 +65,7 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
-            <form method="post" action="<?php echo SITE_ROOT . 'projects/addnew'  ?>">
+            <?php echo form_open_multipart('projects/addnew');?>
             <div class="box-info">
                 <div class="box-body">
                  <?php 
@@ -81,17 +81,17 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="form-group">
-                                <input type="text" name="project-name" placeholder="Name of the Project" class="form-control input-lg" required>
+                                <input type="text" name="project-name" placeholder="Name of the Project" class="form-control input-lg" >
                             </div>
 
                             <div class="form-group">
                                 <label>Project Description</label>
-                                <textarea class="form-control" rows="5" name="project-desc" required></textarea>
+                                <textarea class="form-control" rows="5" name="project-desc" ></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Gallery Link</label>
-                                <input type="text" name="project-gallery-link" class="form-control" placeholder="Gallery Link" required>
+                                <input type="text" name="project-gallery-link" class="form-control" placeholder="Gallery Link" >
                             </div>
 
                             <div class="form-group">

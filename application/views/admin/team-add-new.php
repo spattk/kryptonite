@@ -65,7 +65,7 @@
 
         <!-- MAIN CONTENT -->
         <section class="content">
-            <form method="post" action="<?php echo SITE_ROOT . 'team/addnew' ?>">
+            <?php echo form_open_multipart('team/addnew');?>
             <div class="box-info">
                 <div class="box-body">
                             <?php 

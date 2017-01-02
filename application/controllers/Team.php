@@ -41,7 +41,21 @@ class Team extends CI_Controller {
 			$add['post-holder-phone'] = $this->input->post('post-holder-phone');
 			$add['post-holder-fb'] = $this->input->post('post-holder-fb');
 			$add['post-holder-gmail'] = $this->input->post('post-holder-gmail');
-			$add['uploadFile'] = $this->input->post('uploadFile');		
+			
+			$config['upload_path']          = 'assets/img/team/'; //check this if any error
+            $config['allowed_types']        = 'gif|jpg|png';
+
+            $this->load->library('upload', $config);
+        
+            if ( ! $this->upload->do_upload('uploadFile') ) {
+                    // $error = array('error' => $this->upload->display_errors());
+                	die(print_r($_POST));
+                    // $this->load->view('upload_form', $error);
+            }
+            
+            else {
+                $add['uploadFile'] = $this->upload->data('file_name');
+            }		
 
 			$this->load->team_model->addTeam( $add );	
 		}

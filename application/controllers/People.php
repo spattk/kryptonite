@@ -40,7 +40,21 @@ class People extends CI_Controller {
 			$add['people-name'] =  $this->input->post('people-name');
 			$add['people-desg'] = $this->input->post('people-desg');
 			$add['people-speech'] = $this->input->post('people-speech');
-			$add['uploadFile'] = $this->input->post('uploadFile');
+			
+			$config['upload_path']          = 'assets/img/people/'; //check this if any error
+            $config['allowed_types']        = 'gif|jpg|png';
+
+            $this->load->library('upload', $config);
+        
+            if ( ! $this->upload->do_upload('uploadFile') ) {
+                    // $error = array('error' => $this->upload->display_errors());
+                	die(print_r($_POST));
+                    // $this->load->view('upload_form', $error);
+            }
+            
+            else {
+                $add['uploadFile'] = $this->upload->data('file_name');
+            }
 
 			$this->load->people_model->addPeople( $add );
 

@@ -40,7 +40,21 @@ class Projects extends CI_Controller {
 			$add['project-desc'] = $this->input->post('project-desc');
 			$add['project-gallery-link'] = $this->input->post('project-gallery-link');
 			$add['project-type'] = $this->input->post('project-type');
-			$add['uploadFile'] = $this->input->post('uploadFile');
+			
+			$config['upload_path']          = 'assets/img/projects/'; //check this if any error
+            $config['allowed_types']        = 'gif|jpg|png';
+
+            $this->load->library('upload', $config);
+        
+            if ( ! $this->upload->do_upload('uploadFile') ) {
+                    // $error = array('error' => $this->upload->display_errors());
+                	die(print_r($_POST));
+                    // $this->load->view('upload_form', $error);
+            }
+            
+            else {
+                $add['uploadFile'] = $this->upload->data('file_name');
+            }
 
 			$this->load->projects_model->addProject( $add );
 		}
