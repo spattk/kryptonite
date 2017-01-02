@@ -7,7 +7,7 @@ class Team_model extends CI_Model {
 
 		$teams = array();
 
-		$this->db->select( 'post_holder_id, post_holder_name, post_holder_post, post_holder_phone, post_holder_fb, post_holder_trash' );
+		$this->db->select( '*' );
 		$this->db->from( 'post_holders' );
 		$this->db->where( 'post_holder_trash', '0' );
 	    $this->db->order_by( 'post_holder_id ' );
@@ -25,6 +25,7 @@ class Team_model extends CI_Model {
 	                $team['post_holder_post'] = $row['post_holder_post'];
 	                $team['post_holder_phone'] = $row['post_holder_phone'];
 	                $team['post_holder_fb'] = $row['post_holder_fb'];
+	                $team['post_holder_gmail'] = $row['post_holder_gmail'];
 	                array_push( $teams, $team );
 	            }
 	        }

@@ -22,6 +22,10 @@
     <link href="assets/css/font-dl-1.css" rel="stylesheet" type="text/css">
     <link href="assets/css/font-dl-2.css" rel="stylesheet" type="text/css">
     <link href="assets/css/custom.css"  rel="stylesheet" type="text/css" >
+    <link href="assets/admin/team/css/set2.css"  rel="stylesheet" type="text/css" >
+    <link href="assets/admin/team/css/demo.css"  rel="stylesheet" type="text/css" >
+    <link href="assets/admin/team/css/font-awesome.min.css"  rel="stylesheet" type="text/css" >
+    
 
 </head>
 
@@ -216,19 +220,35 @@
                     <hr class="star-light">
                 </div>
             </div>
-            <div class="row">
-                
+
+            <div class="content">
+            <div class="grid">                
                 <?php if ( count($teams)==0 ): ?>
                     No team.
                 <?php endif; ?>
 
                 <?php foreach( $teams as $team ) : ?>
+
                     <div class="col-md-4">
+                        <figure class="effect-winston">
+                        <img src="<?php echo ASSETS_URL_ADMIN ?>/team/img/newone.jpg" width="100%">
+                        <figcaption>
+                            <h5><?php echo $team['post_holder_name'] ?></h5>
+                            <p>
+                                <a href="<?php echo $team['post_holder_fb'] ?>"><i class="fa fa-fw fa-facebook-official"></i></a>
+                                <a href="<?php echo $team['post_holder_gmail'] ?>"><i class="fa fa-fw fa-envelope"></i></a>
+                                <a href="<?php echo $team['post_holder_phone'] ?>"><i class="fa fa-fw fa-phone-square"></i></a>
+                            </p>
+                        </figcaption>           
+                        </figure>
+
+
+
                         <p><?php echo $team['post_holder_post'] ?></p>
-                        <img src="assets/img/1-375.jpg" width="100%">
+                        
                     </div>    
-                <?php endforeach; ?>
-               
+                <?php endforeach; ?>               
+            </div>
             </div>
         </div>
     </section>
@@ -499,11 +519,14 @@
     <!-- custom script -->
     <script src="assets/js/script.js"></script>
 
-    <script>
+    <!-- <script>
         $(document).ready(function(){
             $("#people1").addClass("active");
         });
-    </script>
+    </script> -->
+   <!--  <script >
+        $("#popover").popover({ trigger: "hover focus" });
+    </script> -->
 </body>
 
 </html>
