@@ -28,5 +28,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 
 *.jpg
 *.png
+*.svg
 *.jpeg
 .gitignore
