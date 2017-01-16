@@ -126,20 +126,15 @@
 
                                     <div id="collapse<?php echo $student['student_id'] ?>" class="panel-collapse collapse">
                                         <div class="panel-body">
-                                            <h4>Aspire to be: <?php echo $student['student_aspire'] ?></h4> <br>
+                                            <h4 style="color: red">Aspire to be: <?php echo $student['student_aspire'] ?></h4> <br>
 
                                             <h5>
-                                            Family Income : <?php echo $student['student_income'] ?> <br><br>
+                                           
+                                            <span style="color: blue">Vocational Courses</span> : <?php echo $student['student_voc_courses'] ?> <br><br>
 
-                                            Category : <?php echo $student['student_category'] ?> <br><br>
+                                            <span style="color: blue">Other Talents</span> : <?php echo $student['student_other_talents'] ?> <br><br>
 
-                                            Category Certificate Available : <?php echo $student['student_category_certificate'] ?> <br><br>
-
-                                            Vocational Courses done : <?php echo $student['student_voc_courses'] ?> <br><br>
-
-                                            Other Talents : <?php echo $student['student_other_talents'] ?> <br><br>
-
-                                            Hobbies : <?php echo $student['student_hobbies'] ?> <br><br>
+                                            <span style="color: blue">Hobbies</span> : <?php echo $student['student_hobbies'] ?> <br><br>
                                             </h5>
                                         </div>
                                     </div>                            
