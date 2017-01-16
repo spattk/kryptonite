@@ -36,6 +36,20 @@ class Upload extends CI_Controller {
                         $this->load->view('upload_success', $data);
                 }
         }
+
+        public function upload() {
+
+            $dir = 'test';
+            $imageVersion = array(
+                        '' => array(
+                            'crop' => true,
+                            'max_width' => 50,
+                            'max_height' => 50
+                        )
+                );
+            $this->load->model( 'Upload_model' );
+            $this->Upload_model->uploadTo( $dir, $imageVersion );
+        }   
 }
 
 
