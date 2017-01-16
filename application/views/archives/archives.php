@@ -43,7 +43,31 @@
 	                </ul>
 	                <div class="tab-content" style="margin-left: 10px;">
 	                    <div class="tab-pane fade active in" id="sub11">
-	                        <p>Tab 1.1</p>
+	                        <p>Active Members of 2016 of various Workplaces</p>
+	                        <div style="padding-left: 20px;">
+	                        	<h5>Sector - 2</h5>
+		                        <table class="table table-striped table-hover">
+		                        	<thead>
+		                        		<tr>
+		                        			<th>Name</th>
+		                        			<th>Branch</th>
+		                        			<th>Gmail ID</th>
+		                        			<th>Phone No</th>
+		                        			<th>Year of Passing</th>
+		                        		</tr>
+		                        	</thead>
+		                        	<tbody>
+		                        		<tr>
+		                        			<td>Sitesh Pattanaik</td>
+		                        			<td>Computer Science</td>
+		                        			<td>siteshpattnaik001@gmail.com</td>
+		                        			<td>9040655124</td>
+		                        			<td>2018</td>
+		                        		</tr>
+		                        		
+		                        	</tbody>
+		                        </table>
+	                        </div>
 	                    </div>
 	                    <div class="tab-pane fade" id="sub12">
 	                        <p>Tab 1.2</p>
@@ -95,7 +119,9 @@
 	</div>
 
 	<!-- Footer -->
-	<?php echo $footer ?>
+	<div style="position: absolute;bottom: 0;width: 100%">
+	<?php echo $footer ; ?>
+	</div>
 <script type="text/javascript" src="assets/js/jquery.min.js"></script>
 <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>
