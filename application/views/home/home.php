@@ -12,7 +12,7 @@
     <title>AASRA | NITR</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
     <!-- Theme CSS -->
     <link href="assets/css/freelancer.min.css" rel="stylesheet">
@@ -167,7 +167,7 @@
 
                 <?php foreach( $sectors as $sector ) : ?>
                     <div class="col-sm-4 portfolio-item">
-                        <a href="<?php echo 'sectors/index/' . $sector['sector_slug'] ?>" class="portfolio-link">
+                        <a href="<?php echo 'sectors/' . $sector['sector_slug'] ?>" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
                                     <i class="fa fa-external-link fa-2x"></i>
@@ -200,7 +200,7 @@
                 <?php foreach( $projects as $project ) : ?>
                     <div class="col-sm-4 portfolio-item">
                         <a href="<?php echo '#portfolioModal' . $project['project_id'] ?>" class="portfolio-link pro-section" data-toggle="modal">
-                           <img src="<?php echo 'assets/img/portfolio/' . $project['project_avatar'] ?>" class="img-responsive" alt="">
+                           <img src="<?php echo 'assets/img/projects/' . $project['project_avatar'] ?>" class="img-responsive" alt="">
                         </a>
                         <br>
                     </div>
@@ -473,7 +473,7 @@
                         <div class="modal-body">
                             <h2><?php echo $project['project_title'] ?></h2>
                             <hr class="star-primary">
-                            <img src="<?php echo 'assets/img/portfolio/' . $project['project_avatar'] ?>" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo 'assets/img/projects/' . $project['project_avatar'] ?>" class="img-responsive img-centered" alt="">
                             <h4>General Description of the project</h4>
                             <p class="project-desc"><?php echo $project['project_desc'] ?></p>
 
