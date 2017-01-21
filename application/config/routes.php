@@ -51,6 +51,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'home';
 $route['sectors/addnew'] = 'sectors/addnew';
+$route['sectors/browse'] = 'sectors/browse';
+$route['sectors/trash'] = 'sectors/trash';
 $route['sectors/(:any)'] = 'sectors/index/$1';
+$route['gallery/'] = 'gallery';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
