@@ -231,7 +231,7 @@
 
                     <div class="col-md-4">
                         <figure class="effect-winston">
-                        <img src="<?php echo ASSETS_URL_ADMIN ?>/team/img/newone.jpg" width="100%">
+                        <img src="<?php echo ASSETS_URL_ADMIN ?>team/img/<?php echo $team['post_holder_avatar']?>" width="100%">
                         <figcaption>
                             <h5><?php echo $team['post_holder_name'] ?></h5>
                             <p>
