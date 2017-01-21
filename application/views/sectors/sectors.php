@@ -181,8 +181,6 @@
     <script>
         $( 'button[name="filter"]' ).click(function() {
 
-            console.log("hello");
-
             var redirectTo = '';
             var check = [];
             var sname, sclass, sincome, scategory;
@@ -264,6 +262,8 @@
             window.location  = redirectTo;  
         });
     </script>
+
+    <script src="<?php echo ASSETS_URL_ADMIN; ?>plugins//ckeditor/ckeditor.js" type="text/javascript"></script>
 
 </body>
 </html>
