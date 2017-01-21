@@ -42,7 +42,7 @@ class Team extends CI_Controller {
 			$add['post-holder-fb'] = $this->input->post('post-holder-fb');
 			$add['post-holder-gmail'] = $this->input->post('post-holder-gmail');
 			
-			$config['upload_path']          = 'assets/img/team/'; //check this if any error
+			$config['upload_path']          = 'assets/admin/team/img'; //check this if any error
             $config['allowed_types']        = 'gif|jpg|png';
 
             $this->load->library('upload', $config);

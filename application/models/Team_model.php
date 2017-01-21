@@ -26,6 +26,7 @@ class Team_model extends CI_Model {
 	                $team['post_holder_phone'] = $row['post_holder_phone'];
 	                $team['post_holder_fb'] = $row['post_holder_fb'];
 	                $team['post_holder_gmail'] = $row['post_holder_gmail'];
+	                $team['post_holder_avatar'] = $row['post_holder_avatar'];
 	                array_push( $teams, $team );
 	            }
 	        }
