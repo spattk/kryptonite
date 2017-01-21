@@ -39,27 +39,27 @@
                     <h4>
                         <div class="container-fluid">
                             
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <strong>Sector Name : </strong><?php echo $report['report_sector_name'] ; ?> <br>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-2">
                                 <strong>Date : </strong><?php echo $report['report_date'] ; ?> <br>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <strong>Mode of Transport : </strong><?php echo $report['report_mode_of_transport'] ; ?> <br>
                             </div>
                            
-                            <div class="col-md-4" style="padding-top: 10px;">
-                                <strong>No of students : </strong><?php echo $report['report_no_of_students'] ; ?> <br>
+                            <div class="col-md-2">
+                                <strong>Students : </strong><?php echo $report['report_no_of_students'] ; ?> <br>
                             </div>
 
-                            <div class="col-md-4" style="padding-top: 10px">
-                                <strong>Stay Duration : </strong><?php echo $report['report_duration_of_stay'] . ' hrs' ; ?> <br>
+                            <div class="col-md-2">
+                                <strong>Duration : </strong><?php echo $report['report_duration_of_stay'] . ' hrs' ; ?> <br>
                             </div>
                             
-                            <div style="clear: both; padding-top: 20px">
+                            <div style="clear: both; padding-top: 15px">
                                 <strong>Members Details</strong>
                             </div>
 
@@ -67,19 +67,20 @@
                                 <?php $var =  json_decode($report['report_member_details'], true); 
                                         
                                         foreach ($var as $member) {
-                                            echo '<h4 style="text-transform: uppercase;color: red;"><strong>';
+                                            echo '<h4 style="text-transform: uppercase;color: red;padding-top:15px;"><strong>';
                                             echo $member['name']; 
                                             echo '</strong></h4>';
                                             $sname = $member['teaching']['sname'];                                            
                                             $sclass = $member['teaching']['sclass'];
                                             $schapter = $member['teaching']['schapter'];
                                             $ssubject = $member['teaching']['ssubject'];
+                                            $sremark = $member['teaching']['sremark'];
                                             
                                             for($i=0; $i<count($sname);$i++) {
 
                                                 echo '<div style="padding-bottom: 5px;">';
                                             
-                                                echo '<div class="col-md-3" style="border: 1px dotted black">';
+                                                echo '<div class="col-md-2" style="border: 1px dotted black">';
                                                 if($sname[$i] == NULL)
                                                 $sname[$i] = 'Whole';
                                                 echo  '<strong>Name:</strong>  ' .  $sname[$i];
@@ -89,12 +90,16 @@
                                                 echo  '<strong>Class:</strong>  ' . $sclass[$i];
                                                 echo '</div>';
                                                 
-                                                echo '<div class="col-md-3" style="border: 1px dotted black">';
+                                                echo '<div class="col-md-2" style="border: 1px dotted black">';
                                                 echo  '<strong>Subject:</strong>  ' . $ssubject[$i];
                                                 echo '</div>';
 
-                                                echo '<div class="col-md-5" style="border: 1px dotted black">';
+                                                echo '<div class="col-md-3" style="border: 1px dotted black">';
                                                 echo  '<strong>Chapter:</strong>  ' . $schapter[$i];
+                                                echo '</div>';
+
+                                                echo '<div class="col-md-4" style="border: 1px dotted black">';
+                                                echo  '<strong>Remarks:</strong>  ' . $sremark[$i];
                                                 echo '</div>';
 
                                                 echo '</div>';
@@ -109,7 +114,7 @@
                             </div> 
 
                             <div class="form-group" style="padding-top: 10px;">
-                                <label for="">Problems Faced</label>
+                                <label for="">Problems Faced : </label>
                                 <?php echo $report['report_problem_faced'] ; ?>
                             </div>                           
 

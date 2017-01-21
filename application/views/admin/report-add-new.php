@@ -109,8 +109,8 @@
                             <label>Mode of Transportation</label>
                             <select class="form-control" name="mode">
                                 <option value="">Select Mode</option>
-                                <option value="cycle">Auto</option>
-                                <option value="auto">Cycle</option>
+                                <option value="auto">Auto</option>
+                                <option value="cycle">Cycle</option>
                             </select>
                         </div>
                         <div class="col-md-4">
@@ -178,9 +178,14 @@
                                                                 </div>
                                                             </div>                                
                                                         </div>
+
+                                                        <div class="form-group">
+                                                            <label for="">Remark</label>
+                                                            <input type="text" name="sremark[0][]" class="form-control">
+                                                        </div>
                                                     </div>
 
-                                                    <div class="col-md-1" style="top: 130px;padding: 5px;">
+                                                    <div class="col-md-1" style="top: 205px;padding: 5px;">
                                                         <div class="input-group-btn">
                                                             <button type="button" data-name="0" class="btn btn-warning" onclick="addTeaching(this)" ><i class="fa fa-plus"></i></button>
                                                         </div>
@@ -192,7 +197,7 @@
                                     </div>
                                     <!-- This is the problem so it needs to be added to the end of respective objects. -->
                                 </div>
-                                <div class="col-md-1" style=";padding-left: 5px;padding-right: 5px; top: 285px;">
+                                <div class="col-md-1" style=";padding-left: 5px;padding-right: 5px; top: 360px;">
                                     <div class="input-group top-padding" >
 
                                         <span class="input-group-addon  top-padding">

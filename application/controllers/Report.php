@@ -51,6 +51,7 @@ class Report extends CI_Controller {
 			$student_class = $this->input->post('sclass');
 			$student_chapter = $this->input->post('schapter');
 			$student_subject = $this->input->post('ssubject');
+			$student_remark = $this->input->post('sremark');
 
 			for($i = 0; $i < count( $member_name ); $i++ ) {
 
@@ -68,6 +69,7 @@ class Report extends CI_Controller {
 					$members[$i]['teaching']['sclass'][$j] = $student_class[$i][$j];
 					$members[$i]['teaching']['schapter'][$j] = $student_chapter[$i][$j];
 					$members[$i]['teaching']['ssubject'][$j] = $student_subject[$i][$j];
+					$members[$i]['teaching']['sremark'][$j] = $student_remark[$i][$j];
 				}
 			}
 

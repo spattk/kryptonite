@@ -11,7 +11,7 @@ class Report_model extends CI_Model {
 			'report_sector_slug' => $add['sector-slug'],
 			'report_name_of_member' => $add['reporter-name'],
 			'report_mode_of_transport' => $add['mode'],
-			'report_problem_faced' => $add['problem'],
+			'report_problem_faced' => $add['problems'],
 			'report_no_of_students' => $add['total-students'],
 			'report_duration_of_stay' => $add['hours'],
 			'report_member_details' => $add['report-members']
