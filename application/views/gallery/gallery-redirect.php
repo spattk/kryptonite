@@ -3,6 +3,7 @@
     <head>
         <title>AASRA Album <?php echo $albums['album_name'] ?></title>
         <link href="<?php echo GALLERY_URL_ADMIN?>css/lightgallery.css" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo ASSETS_URL?>css/bootstrap.min.css">
         <style type="text/css">
             body{
                 background-color: #152836
@@ -125,9 +126,14 @@
         <script src="<?php echo ASSETS_URL ?>js/jquery.min.js"></script>
     </head>
     <body class="home">
+        <div style="font-size: 20px;" class="pull-right">
+            <a href="<?php echo SITE_ROOT ?>gallery" style="color: white; padding-right: 20px;">BACK</a>
+        </div>
+
         <center><h2 style="color: white"><?php echo $albums['album_name'] ?></h2></center>
         <div class="demo-gallery">
-            <ul id="lightgallery" class="list-unstyled row">
+            
+            <ul id="lightgallery" class="list-unstyled row" style="margin-left: 25px;">
                     
                     <?php 
                         $images = json_decode($albums['album_pictures']);
@@ -138,7 +144,7 @@
                                 $img = substr($images[$i], 0, strpos($images[$i], '.'));
                             ?>               
                    
-                            <li class="col-xs-6 col-sm-4 col-md-3" data-responsive="<?php echo GALLERY_URL_ADMIN ?>img/<?php echo $img?>-375.<?php echo $ext ?> 375, img/<?php echo $img?>-480.<?php echo $ext ?> 480, img/<?php echo $img?>.<?php echo $ext ?> 800" data-src="<?php echo GALLERY_URL_ADMIN ?>img/<?php echo $img?>-1600.<?php echo $ext ?>" >
+                            <li data-responsive="<?php echo GALLERY_URL_ADMIN ?>img/<?php echo $img?>-375.<?php echo $ext ?> 375, img/<?php echo $img?>-480.<?php echo $ext ?> 480, img/<?php echo $img?>.<?php echo $ext ?> 800" data-src="<?php echo GALLERY_URL_ADMIN ?>img/<?php echo $img?>-1600.<?php echo $ext ?>"  >
                                 <a href="">
                                     <img class="img-responsive" src="<?php echo GALLERY_URL_ADMIN ?>img/<?php echo $img ?>.<?php echo $ext ?>">
                                 </a>
