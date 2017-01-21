@@ -2,7 +2,7 @@
 
 ## TOP PRIORITY TASKS
  - [ ] Image resizing
- - [ ] Gallery module
+ - [x] Gallery module
  - [x] Profiling
  - [x] Discuss the fortnight report thing on the forum
  - [x] Discuss the profiling to the team and others.
@@ -18,6 +18,7 @@
 
 ###Features to be updated
 
+- [ ] when you are not logged in and try to open some admin page, you are redirected to login page and after login it should be redirected to the requested page (which is now set to default as dashboard) using $_SERVER['HTTP_HOST'] & $_SERVER['REQUEST_URI'].
 - [ ] Add routing to sector/index/sector-2 to sector/sector-2
 - [ ] Make people speak image dynamic
 - [ ] Make the working of contact us mail service
@@ -39,18 +40,19 @@
 
 ###New features to design
 
+- [ ] Design back-end (insert function with JSON implementations) for gallery and student profiling. 
 - [ ] Add caching system
 - [x] Add trash feature to every section
-
+- [ ] In the edit post page, show the image using "img" tag and there should be remove image and after removal of the image "input" for new image to be shown (not prior to that). 
 ###Features to be updated
 
 - [ ] Make a deleted global variable to show that one of the post from the browse has been deleted (It's implemented now with the use of a parameter in the browse function , change it to without parameter)
 - [x] On clicking delete show confirm delete alert
-- [ ] Add transition to the edit and delete of Admin Panel
+- [x] Add transition to the edit and delete of Admin Panel
 - [x] Add delete functionality to every section
 - [ ] Make the user detail who logged in dynamic instead of Sitesh
 - [x] Change the link of left side AASRA to point to dashboard
-- [ ] Change the fa-icons on the left of each section
+- [x] Change the fa-icons on the left of each section
 
 ###Important Fixes
 
