@@ -140,12 +140,12 @@
 
                             <div class="form-group">
                                 <label>About Sector</label>
-                                <textarea class="form-control" rows="3" name="sector-about"><?php echo $sector_details; ?></textarea>
+                                <textarea class="form-control" rows="3" name="sector-about" id="sector-editor1"><?php echo $sector_details; ?></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Achievements</label>
-                                <textarea class="form-control" rows="3" class="sector-achievement"><?php echo $sector_achievements; ?></textarea>
+                                <textarea class="form-control" rows="3" class="sector-achievement" id="sector-editor2"><?php echo $sector_achievements; ?></textarea>
                             </div>
                             
                         </div>
@@ -230,6 +230,11 @@
         }
     });
 });
+</script>
+<script src="<?php echo ASSETS_URL_ADMIN; ?>plugins//ckeditor/ckeditor.js" type="text/javascript"></script>
+<script>
+    CKEDITOR.replace('sector-editor1');
+    CKEDITOR.replace('sector-editor2');
 </script>
 </body>
 

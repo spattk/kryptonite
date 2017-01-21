@@ -91,7 +91,7 @@
 
                             <div class="form-group">
                                 <label>Speech</label>
-                                <textarea class="form-control" rows="6" name="people-speech" required></textarea>
+                                <textarea class="form-control" rows="6" name="people-speech"  id="people-editor" required></textarea>
                             </div>
                         </div>
 
@@ -157,7 +157,11 @@
 </script>
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
 <script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
-<script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script> 
+<script src="<?php echo ASSETS_URL_ADMIN?>js/jquery-ui.min.js"></script>
+<script src="<?php echo ASSETS_URL_ADMIN; ?>plugins//ckeditor/ckeditor.js" type="text/javascript"></script>
+<script>
+    CKEDITOR.replace('people-editor');
+</script>
 
 </body>
 

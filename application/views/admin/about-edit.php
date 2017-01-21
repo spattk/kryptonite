@@ -69,7 +69,10 @@
 
                     <div class="form-group">
                       <p><strong>Latest About Us</strong></p>
-                      <textarea class="form-control" rows="5" name="about-text"><?php echo $about_text; ?></textarea>
+                    <textarea class="form-control" rows="5" name="about-text" id="about-editor">
+                        <?php echo $about_text; ?>
+                    </textarea>
+                    
                     </div>
                 </div>
             </div>
@@ -103,7 +106,12 @@
 </script>
 
 <script src="<?php echo ASSETS_URL?>js/bootstrap.min.js"></script>
-<script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script> 
+<script src="<?php echo ASSETS_URL_ADMIN?>js/app.min.js"></script>
+<script src="<?php echo ASSETS_URL_ADMIN?>js/about.js"></script>  
+<script src="<?php echo ASSETS_URL_ADMIN; ?>plugins//ckeditor/ckeditor.js" type="text/javascript"></script>
+<script>
+    CKEDITOR.replace('about-editor');
+</script>
 
 </body>
 

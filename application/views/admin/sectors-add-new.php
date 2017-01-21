@@ -134,12 +134,12 @@
 
                             <div class="form-group">
                                 <label>About Sector</label>
-                                <textarea class="form-control" rows="3" name="sector-about" ></textarea>
+                                <textarea class="form-control" rows="3" name="sector-about" id="sector-editor1"></textarea>
                             </div>
 
                             <div class="form-group">
                                 <label>Achievements</label>
-                                <textarea class="form-control" rows="3" name="sector-achievements"></textarea>
+                                <textarea class="form-control" rows="3" name="sector-achievements" id="sector-editor2"></textarea>
                             </div>
                             
                         </div>
@@ -226,6 +226,11 @@
         $("#update-success").hide('blind', {}, 500)
     }, 5000);
 });
+</script>
+<script src="<?php echo ASSETS_URL_ADMIN; ?>plugins//ckeditor/ckeditor.js" type="text/javascript"></script>
+<script>
+    CKEDITOR.replace('sector-editor1');
+    CKEDITOR.replace('sector-editor2');
 </script>
 </body>
 

@@ -86,7 +86,7 @@
 
                             <div class="form-group">
                                 <label>Project Description</label>
-                                <textarea class="form-control" rows="5" name="project-desc" ></textarea>
+                                <textarea class="form-control" rows="5" name="project-desc" id="project-editor"></textarea>
                             </div>
 
                             <div class="form-group">
@@ -170,6 +170,9 @@
         $("#update-success").hide('blind', {}, 500)
     }, 5000);
 });
+</script><script src="<?php echo ASSETS_URL_ADMIN; ?>plugins//ckeditor/ckeditor.js" type="text/javascript"></script>
+<script>
+    CKEDITOR.replace('project-editor');
 </script>
 </body>
 
