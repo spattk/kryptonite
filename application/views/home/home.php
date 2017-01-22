@@ -94,7 +94,7 @@
             
 
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-6">
                     <div class="row">
                         <div class="col-lg-12 text-center">
                             <h2>About Us</h2>
@@ -106,7 +106,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-6">
                     <div class="row">
                         <div class="col-lg-12 text-center" id="events">
                             <h2>Events</h2>
@@ -114,9 +114,9 @@
                         </div>
                         <div style="text-align: center;">
                             <!-- insert all the list which will be in round robin algorithm -->
-                            <div style="max-height: 250px;font-size: 20px; " id="event-scroll">
-                                <div>
-                                    <div class="col-md-6">Event Name</div>
+                            <div style="max-height: 270px;font-size: 22px; " id="event-scroll">
+                                <div style="font-weight: bold">
+                                    <div class="col-md-5">Event Name</div>
                                     <div class="col-md-3">Start Date</div>
                                     <div class="col-md-3">End Date</div>
                                 </div>
@@ -129,9 +129,9 @@
                                         <?php endif; ?>
 
                                         <?php foreach( $events as $event ) : ?>
-                                            <div style="clear: both;padding-top: 5px">
+                                            <div style="clear: both;padding-top: 5px; font-size: 17px">
                                                 <a href="<?php echo $event['event_id'] ?>">
-                                                    <div class="col-md-6"><?php echo $event['event_name']?></div>
+                                                    <div class="col-md-5"><?php echo $event['event_name']?></div>
                                                     <div class="col-md-3"><?php echo $event['event_start_date']?></div>
                                                     <div class="col-md-3"><?php echo $event['event_end_date']?></div>
                                                 </a>
@@ -173,7 +173,7 @@
                                     <i class="fa fa-external-link fa-2x"></i>
                                 </div>
                             </div>
-                            <img src="<?php echo 'assets/img/portfolio/' . $sector['sector_avatar'] ?>" class="img-responsive" alt="">
+                            <img src="<?php echo 'assets/img/sectors/' . $sector['sector_avatar'] ?>" class="img-responsive" alt="">
                         </a>
                     </div>
                 <?php endforeach; ?>

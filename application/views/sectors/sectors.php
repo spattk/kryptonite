@@ -46,7 +46,7 @@
                         <div class="modal-body">
                             <h2 style="text-align: center;"><?php echo $sectors['sector_name'];?></h2>
                             <hr class="star-primary">
-                            <img src="<?php echo ASSETS_URL?>img/portfolio/<?php echo $sectors['sector_avatar'] ?>" class="img-responsive img-centered" alt="">
+                            <img src="<?php echo ASSETS_URL?>img/sectors/<?php echo $sectors['sector_avatar'] ?>" class="img-responsive img-centered" alt="">
                             <br>
                             <p class="sector-postholder-details">
                                 Captain: <?php echo $sectors['sector_captain_name'] ?>  <br>
