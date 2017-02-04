@@ -28,6 +28,9 @@
     
 
 </head>
+<style>
+    
+</style>
 
 <body id="page-top" class="index">
 
@@ -50,23 +53,23 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="assets/img/a.jpg" alt="...">
-                            <div class="carousel-caption carousel-text">
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                            <img src="assets/img/a.jpg" alt="..." >
+                            <div class="carousel-caption carousel-text " style="text-align: center;color: white; background-color: black;opacity: 0.85;width: 100%;position: absolute;left: 0;padding-left: 10px; padding-right: 20px">                               
+                               <h3>Not all of us can do great things. But we can do small things with great love.</h3>
                             </div>
                         </div>
 
                         <div class="item">
                             <img src="assets/img/b.jpg" alt="...">
-                            <div class="carousel-caption carousel-text" >
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                           <div class="carousel-caption carousel-text " style="text-align: center;color: white; background-color: black;opacity: 0.85;width: 100%;position: absolute;left: 0;padding-left: 10px; padding-right: 20px">                                     
+                               <h3>If you’re in the luckiest one per cent of humanity, you owe it to the rest of humanity to think about the other 99 per cent.</h4>
                             </div>
                         </div>
 
                         <div class="item">
                             <img src="assets/img/c.jpg" alt="...">
-                            <div class="carousel-caption carousel-text" >
-                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+                            <div class="carousel-caption carousel-text " style="text-align: center;color: white; background-color: black;opacity: 0.85;width: 100%;position: absolute;left: 0;padding-left: 10px; padding-right: 20px"> <h3>Give a man a fish, you feed him for a day. Teach him how to fish and you feed him for his lifetime.</h3>
+                               
                             </div>
                         </div>
                         
@@ -121,7 +124,7 @@
                                     <div class="col-md-3">End Date</div>
                                 </div>
 
-                                <marquee direction="up" height="250px" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="4">
+                                <marquee direction="up" height="200px" onmouseover="this.stop();" onmouseout="this.start();" scrollamount="4">
                                     <ol>
                                         
                                         <?php if ( count($events)==0 ): ?>
@@ -155,7 +158,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Sectors</h2>
+                    <h2>Workplaces</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -170,11 +173,13 @@
                         <a href="<?php echo 'sectors/' . $sector['sector_slug'] ?>" class="portfolio-link">
                             <div class="caption">
                                 <div class="caption-content">
-                                    <i class="fa fa-external-link fa-2x"></i>
+                                    <i class="fa fa-external-link fa-2x"><?php echo $sector['sector_name'] ?></i>
                                 </div>
                             </div>
                             <img src="<?php echo 'assets/img/sectors/' . $sector['sector_avatar'] ?>" class="img-responsive" alt="">
+
                         </a>
+                        <center><strong><p><?php echo $sector['sector_name'] ?></p></strong></center>
                     </div>
                 <?php endforeach; ?>
 
@@ -202,6 +207,7 @@
                         <a href="<?php echo '#portfolioModal' . $project['project_id'] ?>" class="portfolio-link pro-section" data-toggle="modal">
                            <img src="<?php echo 'assets/img/projects/' . $project['project_avatar'] ?>" class="img-responsive" alt="">
                         </a>
+                        <center><strong><p><?php echo $project['project_title'] ?></p></strong></center>
                         <br>
                     </div>
                 <?php endforeach; ?>
@@ -212,12 +218,12 @@
     <br>
 
     <!-- Team Section -->
-    <section class="success" id="team">
-        <div class="container">
+    <section class="" id="team">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Team</h2>
-                    <hr class="star-light">
+                    <hr class="star-primary">
                 </div>
             </div>
 
@@ -282,7 +288,7 @@
 
                             <div class="item active" id="people<?php echo $peoples[0]['people_id'] ?>">
                                 <div >
-                                    <img src="<?php echo ASSETS_URL ?>img/<?php echo $peoples[0]['people_avatar'] ?>" alt="..." ">
+                                    <img src="<?php echo ASSETS_URL ?>img/people/<?php echo $peoples[0]['people_avatar'] ?>" alt="..." ">
                                 </div>
 
                                 <div class="carousel-caption col-md-5 col-md-offset-2 people-cap" >
@@ -400,10 +406,10 @@
                         <div>
                             <ul class="list-inline contact-icons my-contact-icons">
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
+                                    <a href="https://www.facebook.com/groups/aasranitrkl/" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
                                 </li>
                                 <li>
-                                    <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
+                                    <a href="https://plus.google.com/+AasraNitrkl" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
                                 </li>
                                 <li>
                                     <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
