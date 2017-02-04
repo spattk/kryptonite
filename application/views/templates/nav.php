@@ -19,7 +19,7 @@
                         <a href="#about">About Us</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#sectors">Sectors</a>
+                        <a href="#sectors">Workplaces</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#projects">Projects</a>

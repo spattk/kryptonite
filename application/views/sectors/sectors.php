@@ -61,13 +61,21 @@
             </div>
             <div class="container-fluid">
                 <div class="sector-gen-details">
-                    <p>                        
-                        <strong>General Details of the workplace :</strong><br>
+                    <p><strong>General Details of the workplace : </strong><br><?php echo $sectors['sector_details'] ?></p>
+                    <p>
                         Total No of students : <?php echo $sectors['sector_total_student'] ?><br>
                         Location : <?php echo $sectors['sector_location'] ?><br>
                         Distance in kms : <?php echo $sectors['sector_distance'] ?><br>
                         Owner of the workplace :  <br>
                     </p>
+                        
+                    
+                </div>
+                
+                <br>
+                <div class="achievements">
+                        <h3>Achievements</h3>
+                        <p><?php echo $sectors['sector_achievements'] ?></p>
                 </div>
 
                 <br>
@@ -102,6 +110,8 @@
 
                       </center>
                       </div>
+
+                      
                         <!-- Accordion -->
                         <div class="panel-group" id="accordion" style="clear: both;">
 
@@ -146,10 +156,7 @@
                         </div>
                   </div>
                 <br>
-                <div class="achievements">
-                    <h3>Achievements</h3>
-                    <p><?php echo $sectors['sector_achievements'] ?></p>
-                </div>
+                
 
                 <br>
                 <div class="bottom-close-sector">
