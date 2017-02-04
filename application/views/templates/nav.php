@@ -6,7 +6,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand my-navbar-brand" href="<?php echo SITE_ROOT ?>home">AASRA LOGO</a>
+                <a class="navbar-brand my-navbar-brand" href="<?php echo SITE_ROOT ?>"><img src="<?php echo ASSETS_URL ?>img/logo.png" alt="" width="80%" style="position: relative;top: -38px;"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
