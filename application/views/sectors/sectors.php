@@ -124,12 +124,10 @@
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?php echo $student['student_id'] ?>">
-                                                <table>
-                                                    <tr>
-                                                        <td class="col-md-4"> <?php echo $student['student_name'] ?> </td>
-                                                        <td class="col-md-4"> Class : <?php echo $student['student_class'] ?> </td>
-                                                    </tr>
-                                                </table>
+                                                <div class="row">
+                                                <div class="col-md-6"><?php echo $student['student_name'] ?> </div>
+                                                <div class="col-md-6">Class : <?php echo $student['student_class'] ?></div>
+                                                </div>
                                             </a>
                                         </h4>
                                     </div>
