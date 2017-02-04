@@ -14,6 +14,7 @@
     <link href="assets/css/font-dl-1.css" rel="stylesheet" type="text/css">
     <link href="assets/css/font-dl-2.css" rel="stylesheet" type="text/css">
     <link href="assets/css/custom.css"  rel="stylesheet" type="text/css" >
+    <link rel="shortcut icon" type="image/png" href="<?php echo ASSETS_URL ?>img/favicon.png"/>
 </head>
 
 <body>

@@ -25,6 +25,7 @@
     <link href="assets/admin/team/css/set2.css"  rel="stylesheet" type="text/css" >
     <link href="assets/admin/team/css/demo.css"  rel="stylesheet" type="text/css" >
     <link href="assets/admin/team/css/font-awesome.min.css"  rel="stylesheet" type="text/css" >
+    <link rel="shortcut icon" type="image/png" href="<?php echo ASSETS_URL ?>img/favicon.png"/>
     
 
 </head>
@@ -53,21 +54,21 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            <img src="assets/img/a.jpg" alt="..." >
+                            <img src="assets/img/a.jpg" alt="..." width="100%">
                             <div class="carousel-caption carousel-text " style="text-align: center;color: white; background-color: black;opacity: 0.85;width: 100%;position: absolute;left: 0;padding-left: 10px; padding-right: 20px">                               
                                <h3>Not all of us can do great things. But we can do small things with great love.</h3>
                             </div>
                         </div>
 
                         <div class="item">
-                            <img src="assets/img/b.jpg" alt="...">
+                            <img src="assets/img/b.jpg" alt="..." width="100%">
                            <div class="carousel-caption carousel-text " style="text-align: center;color: white; background-color: black;opacity: 0.85;width: 100%;position: absolute;left: 0;padding-left: 10px; padding-right: 20px">                                     
                                <h3>If you’re in the luckiest one per cent of humanity, you owe it to the rest of humanity to think about the other 99 per cent.</h4>
                             </div>
                         </div>
 
                         <div class="item">
-                            <img src="assets/img/c.jpg" alt="...">
+                            <img src="assets/img/c.jpg" alt="..." width="100%">
                             <div class="carousel-caption carousel-text " style="text-align: center;color: white; background-color: black;opacity: 0.85;width: 100%;position: absolute;left: 0;padding-left: 10px; padding-right: 20px"> <h3>Give a man a fish, you feed him for a day. Teach him how to fish and you feed him for his lifetime.</h3>
                                
                             </div>
@@ -242,7 +243,7 @@
                             <h5><?php echo $team['post_holder_name'] ?></h5>
                             <p>
                                 <a href="<?php echo $team['post_holder_fb'] ?>"><i class="fa fa-fw fa-facebook-official"></i></a>
-                                <a href="<?php echo $team['post_holder_gmail'] ?>"><i class="fa fa-fw fa-envelope"></i></a>
+                                <a href="<?php echo 'mailto:'.$team['post_holder_gmail'] ?>"><i class="fa fa-fw fa-envelope"></i></a>
                                 <a href="<?php echo $team['post_holder_phone'] ?>"><i class="fa fa-fw fa-phone-square"></i></a>
                             </p>
                         </figcaption>           
