@@ -29,7 +29,7 @@
         <?php foreach( $albums as $album ) : ?>
 		<div class="col-md-3 first">
 			<a href="<?php echo SITE_ROOT?>gallery/view/<?php echo $album['album_slug']?>" >
-				<img src="<?php echo GALLERY_URL_ADMIN?>img/<?php echo $album['album_cover_image'] ?>" width="100%" style="border: 5px solid black;padding: 5px;" >
+				<img src="<?php echo GALLERY_URL_ADMIN?>img/<?php echo $album['album_cover_image'] ?>" width="100%" style="border: 5px solid black;padding: 5px; height: 185px;" >
 			</a>
 			<center><p><?php echo $album['album_name'] ?></p></center>
 		</div>

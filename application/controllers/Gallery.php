@@ -39,12 +39,15 @@ class Gallery extends CI_Controller {
 	{
 		$this->checkLogin();
 		
+		if(isset($_POST))
+		var_dump($this->input->post());
+
 		$data['header'] = $this->load->view('admin/templates/dashboard-header', '', TRUE);
 		$data['sidebar_menu'] = $this->load->view('admin/templates/sidebar-menu', '', TRUE);
 		$data['sidebar_user_panel'] = $this->load->view('admin/templates/sidebar-user-panel', '', TRUE);
 		$data['footer'] = $this->load->view('admin/templates/dashboard-footer', '', TRUE);
 		
-		$this->load->view( 'admin/gallery-add-new', $data );
+		$this->load->view( 'gallery/gallery-add-new', $data );
 	}
 
 	public function view( $slug ) {
