@@ -94,7 +94,7 @@
                             <tr class="more-options">
                                 <td></td>
                                 <td><?php echo $project['project_title']?></td>
-                                <td><?php echo $project['project_desc'] ?></td>
+                                <td style="text-align: justify;"><?php echo $project['project_desc'] ?></td>
                                 <td><?php echo $project['project_gallery_link'] ?></td>
                             </tr>
                             <tr class="hidden list-more-options" id="show-edit">
