@@ -52,8 +52,10 @@
 	                <div class="tab-content" style="margin-left: 10px;">
 	                    <div class="tab-pane fade active in" id="sub11">
 	                        <p>Members of 2016 of various Workplaces</p>
+
 	                        <div class="row">
 	                        <div style="padding-left: 20px; font-size: 17px">
+	                        <img src="<?php echo ASSETS_URL ?>/img/team2016-17.jpg" alt="">
 	                        	<div class="col-md-4">
 	                        	<h4>Sector - 2</h4>
 									Sankalp Kumar <br>
