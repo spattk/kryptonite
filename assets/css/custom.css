@@ -177,3 +177,29 @@ div.footer-below {
 	position: absolute;
 	width: 100%;
 }
+
+/*for floating and fixed close bar in projects*/
+.navbar-projects{
+	
+}
+
+.close-button{
+	z-index: 10000;
+}
+
+.close-modal-button{
+	position: absolute;
+	right: 20px;
+	top: 8px;
+}
+
+@media (max-width: 768px)
+{
+	.close-modal-button{
+		position: absolute;
+		right: 20px;
+		top: 8px;
+		max-width: 20px;
+		size: 20px;
+		}
+}
