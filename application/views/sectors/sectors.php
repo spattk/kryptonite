@@ -27,21 +27,18 @@
 <body>
   <div>
         <div class="modal-content portfolio-modal">
-            <div class="close-modal my-close-modal" data-dismiss="modal">
-                <a href="<?php echo SITE_ROOT ?>">
-                    <div class="lr">
-                        <div class="rl">
-                         
-                        </div>
-                    </div>
-                </a>
-            </div>
+
+            <nav class="navbar navbar-projects navbar-fixed-top">
+                <a href="<?php echo SITE_ROOT ?>">              
+                <div class="close-modal-button" data-dismiss="modal">
+                    <button class="btn btn-danger btn-lg close-button"><i class="fa fa-times"></i> &nbsp;&nbsp;Close</button>
+                </div>      
+                </a>        
+            </nav>
+             
             
             <div class="container">
                 <div class="row">
-                    <div class="replace-close">
-                      <center><a href="<?php echo SITE_ROOT ?>">Back to Home</a></center>
-                    </div>
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
                             <h2 style="text-align: center;"><?php echo $sectors['sector_name'];?></h2>
@@ -153,13 +150,7 @@
 
                         </div>
                   </div>
-                <br>
                 
-
-                <br>
-                <div class="bottom-close-sector">
-                      <center><a href="<?php echo SITE_ROOT ?>">Back to Home</a></center>
-                </div>
             </div>
             <br>
             

@@ -20,6 +20,9 @@ class Sectors extends CI_Controller {
 
 	public function index( $sector, $name = NULL, $class = NULL, $income = NULL, $category = NULL, $page = 1 ) {
 
+		$data['nav'] = $this->load->view('templates/nav', '' , TRUE);
+		$data['footer'] = $this->load->view('templates/footer', '' , TRUE);
+
 		if($sector == NULL) {
 			redirect(SITE_ROOT);
 		}
