@@ -468,12 +468,11 @@
     <?php foreach( $projects as $project ) : ?>   
         <div class="portfolio-modal modal fade" id="portfolioModal<?php echo $project['project_id'] ;?>" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
+            <nav class="navbar navbar-projects navbar-fixed-top">              
+                <div class="close-modal-button" data-dismiss="modal">
+                    <button class="btn btn-danger btn-lg close-button"><i class="fa fa-times"></i> &nbsp;&nbsp;Close</button>
+                </div>              
+            </nav>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
@@ -485,12 +484,10 @@
                             <p class="project-desc"><?php echo $project['project_desc'] ?></p>
 
                             <br>
-                            <div class="project-extra-desc">
-                                
+                            <div class="project-extra-desc">                                
                                 <p>Link to Gallery : <?php echo $project['project_gallery_link'] ?></p>
                                 <p>View more images : </p>
                             </div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
