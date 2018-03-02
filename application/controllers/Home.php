@@ -63,4 +63,64 @@ class Home extends CI_Controller {
 
 		$this->load->view( 'home/home', $data );
 	}
+
+	public function send_mail() { 
+        
+         $from_name = $this->input->post('name');
+         $from_email = $this->input->post('email');
+         $from_phone = $this->input->post('phone');
+         $from_msg = $this->input->post('message');
+         $from_subject = $this->input->post('subject');
+        
+         $to_email = "siteshpattanaik001@gmail.com";
+    
+         //Load email library 
+         $this->load->library('email'); 
+    
+         $this->email->from($from_email, $from_name); 
+         $this->email->to($to_email);
+         $this->email->subject($from_subject); 
+         $from_msg = $from_msg . ' Phone Number ' . $from_phone;
+         $this->email->message($from_msg); 
+    
+         //Send mail 
+         if($this->email->send()) 
+         $this->session->set_flashdata("email_sent","Email sent successfully."); 
+         else 
+         $this->session->set_flashdata("email_sent","Error in sending Email."); 
+         
+         
+         $to_email = "samircool1996@gmail.com";
+    
+         $this->email->from($from_email, $from_name); 
+         $this->email->to($to_email);
+         $this->email->subject($from_subject); 
+         $from_msg = $from_msg . ' Phone Number ' . $from_phone;
+         $this->email->message($from_msg); 
+    
+         if($this->email->send()) 
+         $this->session->set_flashdata("email_sent","Email sent successfully.");
+         
+         else 
+         $this->session->set_flashdata("email_sent","Error in sending Email.");
+         
+         
+         $to_email = "sahaa393@gmail.com";
+    
+         $this->email->from($from_email, $from_name); 
+         $this->email->to($to_email);
+         $this->email->subject($from_subject); 
+         $from_msg = $from_msg . ' Phone Number ' . $from_phone;
+         $this->email->message($from_msg); 
+    
+         if($this->email->send()) 
+         $this->session->set_flashdata("email_sent","Email sent successfully.");
+         
+         else 
+         $this->session->set_flashdata("email_sent","Error in sending Email.");
+         
+         redirect('');
+
+      }
+	
 }
